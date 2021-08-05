@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Sean Fausett</Authors>
+    <Copyright>Copyright © $([System.DateTime]::Now.Year)</Copyright>
+    <Description>A playground for Pulumi devops tools.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageTags>Pulumi;DevOps;Tools</PackageTags>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>embedded</DebugType>
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <LangVersion>latest</LangVersion>
+    <NoWarn>NU5105</NoWarn>
+    <Nullable>enable</Nullable>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RootNamespace>Pulumi.Dungeon</RootNamespace>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+Dungeon:
+  Commands:
+    Deploy:
+      Repair: [ code.cmd, --new-window, --wait ]
+
+  Environment:
+    Name: development
+    DisplayName: Development
+
+Serilog:
+  MinimumLevel:
+    Override:
+      Microsoft: Information
+      Microsoft.Hosting.Lifetime: Warning
+      #Pulumi.Deployment: Debug
+  Enrich:
+    - WithThreadId
+  WriteTo:
+    - Name: Seq
+      Args:
+        serverUrl: http://localhost:5341

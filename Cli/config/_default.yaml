@@ -1,0 +1,26 @@
+Dungeon:
+  Commands:
+    Deploy:
+      Repair: [ vi ]
+
+  Environment:
+    Name: default
+    DisplayName: Default
+    Aws:
+      Iam:
+        DeployerRoleArn: arn:aws:iam::123456789012:role/deployer
+    K8s:
+      Version: 1.21
+
+  Pulumi:
+    Organization:
+      Name: gitfool
+      DisplayName: Sean Fausett
+
+Serilog:
+  MinimumLevel:
+    Default: Information
+    Override:
+      Microsoft: Warning
+      Pulumi.Dungeon: Debug
+      Pulumi.Deployment: Fatal

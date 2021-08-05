@@ -1,0 +1,22 @@
+{
+  "profiles": {
+    "Development": {
+      "commandName": "Project",
+      "commandLineArgs": "deploy alpha",
+      "environmentVariables": {
+        "DOTNET_Environment": "Development",
+        "DOTNET_HostBuilder__ReloadConfigOnChange": "false",
+        "PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK": "true"
+      }
+    },
+    "Production": {
+      "commandName": "Project",
+      "commandLineArgs": "deploy alpha",
+      "environmentVariables": {
+        "DOTNET_Environment": "Production",
+        "DOTNET_HostBuilder__ReloadConfigOnChange": "false",
+        "PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK": "true"
+      }
+    }
+  }
+}
