@@ -10,4 +10,6 @@
         Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != '' and Exists('%(RootDir)%(Directory)%(Filename).xml')" /> -->
     </ItemGroup>
   </Target>
+
+  <Target Name="PublishOnBuild" Condition="'$(PublishOnBuild)' == 'true'" AfterTargets="Build" DependsOnTargets="Publish" />
 </Project>

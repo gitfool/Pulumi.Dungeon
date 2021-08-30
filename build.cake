@@ -7,13 +7,10 @@ Build.SetParameters
     defaultLog: true,
 
     runBuildSolutions: true,
-    runBuildPublish: true,
     runDockerBuild: true,
     runPublishToDocker: true,
 
     sourceDirectory: Build.Directories.Root,
-
-    buildPublishProjectPatterns: new[] { "Cli/*.csproj" },
 
     buildEmbedAllSources: true,
     dockerBuildPull: true,

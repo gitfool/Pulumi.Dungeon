@@ -5,6 +5,7 @@
 
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AssemblyName>pulumi-dungeon</AssemblyName>
+    <PublishOnBuild>true</PublishOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
