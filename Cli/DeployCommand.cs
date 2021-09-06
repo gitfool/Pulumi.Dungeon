@@ -38,7 +38,7 @@ namespace Pulumi.Dungeon
                 }
             };
 
-            RequiredPlugins = new[] { "aws v4.14.0", "kubernetes v3.5.2", "random v4.2.0", "tls v4.0.0" };
+            RequiredPlugins = new[] { "aws v4.19.0", "kubernetes v3.7.0", "random v4.2.0", "tls v4.0.0" };
         }
 
         protected override async Task<int> OnExecuteAsync(CommandContext context, Settings settings)

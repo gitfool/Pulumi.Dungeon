@@ -10,10 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.AutoScaling" Version="3.7.4.12" />
+    <PackageReference Include="AWSSDK.AutoScaling" Version="3.7.5.13" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
-    <PackageReference Include="Pulumi" Version="3.9.1" />
-    <PackageReference Include="Pulumi.Aws" Version="4.14.0" />
+    <PackageReference Include="Pulumi" Version="3.11.0" />
+    <PackageReference Include="Pulumi.Aws" Version="4.19.0" />
     <PackageReference Include="Pulumi.Tls" Version="4.0.0" />
   </ItemGroup>
 
