@@ -46,7 +46,7 @@ namespace Pulumi.Dungeon
             Logger.LogInformation("Deploying resources");
             using var totalTimeLogger = new ElapsedTimeLogger(Logger, "Deployed resources");
 
-            foreach (var resource in settings.Resources.ToOrderedArray())
+            foreach (var resource in settings.Resources.InOrder(settings.Destroy))
             {
                 var info = ResourceInfo[resource];
                 var stackFullName = $"{Config.Pulumi.Organization.Name}/{info.ProjectName}/{settings.Environment.ToLower()}";
