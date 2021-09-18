@@ -12,10 +12,7 @@ namespace Pulumi.Dungeon
             HostBuilder = hostBuilder;
         }
 
-        public ITypeResolver Build()
-        {
-            return new HostTypeResolver(HostBuilder.Build());
-        }
+        public ITypeResolver Build() => new HostTypeResolver(HostBuilder.Build());
 
         public void Register(Type service, Type implementation)
         {

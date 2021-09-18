@@ -6,8 +6,8 @@ namespace Pulumi.Dungeon.Aws
     public sealed class RoleXArgs : ResourceArgs
     {
         public Input<string> AssumeRolePolicy { get; init; } = null!;
-        public Dictionary<string, Input<string>> AttachedPolicies { get => _attachedPolicies ??= new(); init => _attachedPolicies = value; }
-        public Dictionary<string, Input<string>> InlinePolicies { get => _inlinePolicies ??= new(); init => _inlinePolicies = value; }
+        public Dictionary<string, Input<string>> AttachedPolicies { get => _attachedPolicies ??= new Dictionary<string, Input<string>>(); init => _attachedPolicies = value; }
+        public Dictionary<string, Input<string>> InlinePolicies { get => _inlinePolicies ??= new Dictionary<string, Input<string>>(); init => _inlinePolicies = value; }
 
         private Dictionary<string, Input<string>>? _attachedPolicies;
         private Dictionary<string, Input<string>>? _inlinePolicies;

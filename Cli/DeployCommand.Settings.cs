@@ -43,6 +43,14 @@ namespace Pulumi.Dungeon
             [Description("Skip preview")]
             public bool SkipPreview { get; init; }
 
+            [CommandOption("--target")]
+            [Description("Target resource(s)")]
+            public string[]? Target { get; init; }
+
+            [CommandOption("--target-dependents")]
+            [Description("Target dependent resources")]
+            public bool TargetDependents { get; init; }
+
             [CommandOption("-y|--yes")]
             [Description("Approve update")]
             public bool Approve { get; init; }

@@ -24,8 +24,13 @@ namespace Pulumi.Dungeon
         {
             ServiceProvider = serviceProvider;
 
-            ResourceInfo = new()
+            ResourceInfo = new Dictionary<Resources, ResourceInfo>
             {
+                [Resources.AwsVpc] = new()
+                {
+                    ProjectName = "aws-vpc",
+                    StackType = typeof(VpcStack)
+                },
                 [Resources.AwsEks] = new()
                 {
                     ProjectName = "aws-eks",
@@ -38,7 +43,7 @@ namespace Pulumi.Dungeon
                 }
             };
 
-            RequiredPlugins = new[] { "aws v4.19.0", "kubernetes v3.7.0", "random v4.2.0", "tls v4.0.0" };
+            RequiredPlugins = new[] { "aws v4.20.0", "kubernetes v3.7.2", "random v4.2.0", "tls v4.0.0" };
         }
 
         protected override async Task<int> OnExecuteAsync(CommandContext context, Settings settings)
@@ -69,7 +74,6 @@ namespace Pulumi.Dungeon
 
                 Logger.LogDebug("Setting config");
                 var config = Config.Environment.ToTokens("Dungeon:Environment")
-                    .Where(entry => !Regex.IsMatch(entry.Key, @"Eks\.Oidc|Iam\.Policies")) // filter values determined at runtime
                     .ToDictionary(entry => entry.Key, entry => new ConfigValue(entry.Value.ToValueString(), Regex.IsMatch(entry.Key, @"Password|Secret")));
                 await stack.SetAllConfigAsync(config);
 
@@ -80,7 +84,13 @@ namespace Pulumi.Dungeon
                         AnsiConsole.Prompt(new TextPrompt<string>($@"[red]Confirm destroy stack[/] [blue]""{stackFullName}""[/]").AllowEmpty()) == stackFullName)
                     {
                         Logger.LogDebug("Destroying stack");
-                        var result = await stack.DestroyAsync(new DestroyOptions { OnStandardOutput = AnsiConsole.WriteLine });
+                        var result = await stack.DestroyAsync(
+                            new DestroyOptions
+                            {
+                                Target = settings.Target?.ToList(),
+                                TargetDependents = settings.TargetDependents,
+                                OnStandardOutput = AnsiConsole.WriteLine
+                            });
                         Logger.LogDebug($"Destroyed stack ({result.Summary.Result})");
                     }
                     else
@@ -131,7 +141,12 @@ namespace Pulumi.Dungeon
                 if (settings.Refresh)
                 {
                     Logger.LogDebug("Refreshing stack");
-                    await stack.RefreshAsync(new RefreshOptions { OnStandardOutput = AnsiConsole.WriteLine });
+                    await stack.RefreshAsync(
+                        new RefreshOptions
+                        {
+                            Target = settings.Target?.ToList(),
+                            OnStandardOutput = AnsiConsole.WriteLine
+                        });
                 }
 
                 if (!settings.SkipPreview)
@@ -142,6 +157,8 @@ namespace Pulumi.Dungeon
                         {
                             Diff = settings.Diff,
                             ExpectNoChanges = settings.ExpectNoChanges,
+                            Target = settings.Target?.ToList(),
+                            TargetDependents = settings.TargetDependents,
                             OnStandardOutput = AnsiConsole.WriteLine
                         });
                     if (result.ChangeSummary.All(entry => entry.Key == OperationType.Same))
@@ -163,6 +180,8 @@ namespace Pulumi.Dungeon
                         {
                             Diff = settings.Diff,
                             ExpectNoChanges = settings.ExpectNoChanges,
+                            Target = settings.Target?.ToList(),
+                            TargetDependents = settings.TargetDependents,
                             OnStandardOutput = AnsiConsole.WriteLine
                         });
                     Logger.LogDebug($"Updated stack ({result.Summary.Result})");

@@ -7,10 +7,43 @@ Dungeon:
     Name: default
     DisplayName: Default
     Aws:
+      AccountId: 123456789012
+      Ec2:
+        InstanceType: t3.medium
+        Monitoring: true
+      Eks:
+        #LogTypes: [ api, audit, authenticator, controllerManager, scheduler ]
+        Addons:
+          CoreDns:
+            Name: coredns
+            Version: v1.8.4-eksbuild.1
+          KubeProxy:
+            Name: kube-proxy
+            Version: v1.21.2-eksbuild.2
+          VpcCni:
+            Name: vpc-cni
+            Version: v1.9.1-eksbuild.1
+        NodeGroups:
+          Default:
+            Name: default
+            AutoScaling:
+              DesiredCapacity: 1
+              MinSize: 1
+              MaxSize: 2
+          Monitoring:
+            Name: monitoring
+            Tainted: true
+            AutoScaling:
+              DesiredCapacity: 1
+              MinSize: 1
+              MaxSize: 2
       Iam:
         DeployerRoleArn: arn:aws:iam::123456789012:role/deployer
+      Vpc:
+        MaxAvailabilityZones: 4
     K8s:
       Version: 1.21
+      ContainerRuntime: dockerd
 
   Pulumi:
     Organization:

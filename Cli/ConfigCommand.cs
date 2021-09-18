@@ -1,9 +1,10 @@
 using System.Linq;
-using System.Text.RegularExpressions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Spectre.Console;
 using Spectre.Console.Cli;
+using YamlDotNet.Core;
+using YamlDotNet.Serialization;
 
 namespace Pulumi.Dungeon
 {
@@ -14,17 +15,28 @@ namespace Pulumi.Dungeon
 
         protected override int OnExecute(CommandContext context, Settings settings)
         {
-            var table = new Table { Border = TableBorder.None, ShowHeaders = false }
-                .AddColumn("Token", column => column.PadRight(4))
-                .AddColumn("Value");
-            var config = Config.ToTokens()
-                .Where(entry => !Regex.IsMatch(entry.Key, @"Eks\.Oidc|Iam\.Policies")) // filter values determined at runtime
-                .ToDictionary(entry => entry.Key.EscapeMarkup(), entry => entry.Value.ToValueString().EscapeMarkup());
-            foreach (var (token, value) in config)
+            if (settings.Yaml)
             {
-                table.AddRow(token, value);
+                static void Configure(SerializerBuilder builder) => builder
+                    .WithAttributeOverride<AwsConfig>(config => config.AccountId, new YamlMemberAttribute { ScalarStyle = ScalarStyle.DoubleQuoted })
+                    .WithTypeInspector(inner => new ConfigTypeInspector(inner));
+
+                var yaml = new { Config.Environment }.ToYaml(Configure);
+                AnsiConsole.WriteLine(yaml);
             }
-            AnsiConsole.Render(table);
+            else
+            {
+                var table = new Table { Border = TableBorder.None, ShowHeaders = false }
+                    .AddColumn("Token", column => column.PadRight(4))
+                    .AddColumn("Value");
+                var config = Config.ToTokens()
+                    .ToDictionary(entry => entry.Key.EscapeMarkup(), entry => entry.Value.ToValueString().EscapeMarkup());
+                foreach (var (token, value) in config)
+                {
+                    table.AddRow(token, value);
+                }
+                AnsiConsole.Render(table);
+            }
             return 0;
         }
     }

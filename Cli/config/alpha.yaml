@@ -5,3 +5,5 @@ Dungeon:
     Aws:
       AccountId: 123456789012
       Region: us-east-1
+      Vpc:
+        CidrBlock: 10.1.0.0/16

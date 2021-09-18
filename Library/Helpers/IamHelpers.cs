@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using Pulumi.Aws.Iam;
 using Pulumi.Aws.Iam.Inputs;
 
-namespace Pulumi.Dungeon.Aws
+namespace Pulumi.Dungeon
 {
     public static class IamHelpers
     {
         public static Output<string> AllowActionForResource(string action, Output<string> resourceArn, ProviderResource provider) =>
-            AllowActionsForResource(new() { action }, resourceArn, provider);
+            AllowActionsForResource(new List<string> { action }, resourceArn, provider);
 
         public static Output<string> AllowActionsForResource(List<string> actions, Output<string> resourceArn, ProviderResource provider) =>
             resourceArn.Apply(arn => GetPolicyDocument.InvokeAsync(

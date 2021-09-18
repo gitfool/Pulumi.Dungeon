@@ -16,10 +16,7 @@ namespace Pulumi.Dungeon
             Host.Dispose();
         }
 
-        public object? Resolve(Type? type)
-        {
-            return type != null ? Host.Services.GetService(type) : null;
-        }
+        public object? Resolve(Type? type) => type != null ? Host.Services.GetService(type) : null;
 
         private IHost Host { get; }
     }

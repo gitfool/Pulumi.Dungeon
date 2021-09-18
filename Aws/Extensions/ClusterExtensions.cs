@@ -1,6 +1,5 @@
 using System;
 using Pulumi.Aws.Eks;
-using Pulumi.Dungeon.Extensions;
 using Pulumi.Dungeon.K8s;
 
 namespace Pulumi.Dungeon.Aws

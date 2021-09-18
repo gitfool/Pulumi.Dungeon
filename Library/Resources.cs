@@ -4,6 +4,7 @@ namespace Pulumi.Dungeon
     {
         All,
         Aws,
+        AwsVpc,
         AwsEks,
         K8s
     }

@@ -16,6 +16,8 @@ namespace Pulumi.Dungeon
             ((ScriptObject)Default.Clone(true)).CopyTo(this);
         }
 
+        private static readonly ScriptObject Default = new DefaultFunctions();
+
         private class DefaultFunctions : ScriptObject
         {
             public DefaultFunctions() : base(1, false)
@@ -23,7 +25,5 @@ namespace Pulumi.Dungeon
                 SetValue("pulumi", new PulumiFunctions(), true);
             }
         }
-
-        private static readonly ScriptObject Default = new DefaultFunctions();
     }
 }

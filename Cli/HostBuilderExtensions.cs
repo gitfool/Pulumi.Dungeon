@@ -40,7 +40,8 @@ namespace Pulumi.Dungeon
             {
                 services.Configure<Config>(context.Configuration.GetSection(Constants.ConfigKey));
 
-                services.AddTransient<EksStack>() // pulumi stacks must be transient across preview and update!
+                services.AddTransient<VpcStack>() // pulumi stacks must be transient across preview and update!
+                    .AddTransient<EksStack>()
                     .AddTransient<K8sStack>();
             });
 
@@ -87,6 +88,6 @@ namespace Pulumi.Dungeon
                 {
                     config.WriteTo.Console();
                 }
-            }, preserveStaticLogger: true);
+            }, true);
     }
 }

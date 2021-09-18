@@ -10,8 +10,9 @@ namespace Pulumi.Dungeon
         {
             var order = resources switch
             {
-                Resources.All => new[] { Resources.AwsEks, Resources.K8s },
-                Resources.Aws => new[] { Resources.AwsEks },
+                Resources.All => new[] { Resources.AwsVpc, Resources.AwsEks, Resources.K8s },
+                Resources.Aws => new[] { Resources.AwsVpc, Resources.AwsEks },
+                Resources.AwsVpc => new[] { Resources.AwsVpc },
                 Resources.AwsEks => new[] { Resources.AwsEks },
                 Resources.K8s => new[] { Resources.K8s },
                 _ => throw new ArgumentOutOfRangeException(nameof(resources))
@@ -24,6 +25,7 @@ namespace Pulumi.Dungeon
             resource switch
             {
                 Resources.Aws => "aws",
+                Resources.AwsVpc => "aws-vpc",
                 Resources.AwsEks => "aws-eks",
                 Resources.K8s => "k8s",
                 _ => throw new ArgumentOutOfRangeException(nameof(resource))
