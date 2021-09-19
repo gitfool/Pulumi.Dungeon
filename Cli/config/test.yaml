@@ -1,0 +1,25 @@
+Dungeon:
+  Environment:
+    Name: test
+    DisplayName: Test
+    Aws:
+      AccountId: 854999447207
+      Region: us-west-2
+      Ec2:
+        KeyName: beacon-oregon
+      Iam:
+        DeployerRoleArn: arn:aws:iam::854999447207:role/deployer
+      Route53:
+        Internal:
+          Domain: test.aws.pharos.com
+        Internet:
+          Domain: test.aws.pharos.com
+      Vpc:
+        CidrBlock: 10.19.0.0/16
+        VpnCidrBlock: 10.9.0.0/16
+        TransitGatewayId: tgw-05d3fd653d5298127
+
+  Pulumi:
+    Organization:
+      Name: pharos
+      DisplayName: Pharos
