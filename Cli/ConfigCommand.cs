@@ -35,7 +35,7 @@ namespace Pulumi.Dungeon
                 {
                     table.AddRow(token, value);
                 }
-                AnsiConsole.Render(table);
+                AnsiConsole.Write(table);
             }
             return 0;
         }

@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:5.0.10-focal
+FROM mcr.microsoft.com/dotnet/runtime-deps:5.0.11-focal
 
 # Install packages
 RUN apt-get update \
@@ -7,7 +7,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
-RUN version=1.21.1 \
+RUN version=1.21.4 \
     && curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && kubectl completion bash > /etc/bash_completion.d/kubectl \
@@ -20,7 +20,7 @@ RUN version=0.5.2 \
     && aws-iam-authenticator version
 
 # Install helm; https://helm.sh/docs/intro/install/#from-the-binary-releases
-RUN version=3.6.3 \
+RUN version=3.7.1 \
     && curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz \
     && tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm \
     && rm -f helm.tar.gz \
@@ -32,7 +32,7 @@ ENV PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true \
     PULUMI_EXPERIMENTAL=true \
     PULUMI_SKIP_UPDATE_CHECK=true
 
-RUN version=3.12.0 \
+RUN version=3.16.0 \
     && curl -fsSL https://get.pulumi.com/releases/sdk/pulumi-v$version-linux-x64.tar.gz -o pulumi.tar.gz \
     && tar -xzf pulumi.tar.gz --directory /usr/local/bin --exclude *python* --no-same-owner --strip=1 \
     && rm -f pulumi.tar.gz \

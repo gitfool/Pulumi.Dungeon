@@ -6,10 +6,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
-    <PackageReference Include="Pulumi" Version="3.12.0" />
-    <PackageReference Include="Pulumi.Aws" Version="4.20.0" />
-    <PackageReference Include="Pulumi.Kubernetes" Version="3.7.2" />
-    <PackageReference Include="Scriban" Version="4.0.1" />
+    <PackageReference Include="Pulumi" Version="3.16.0" />
+    <PackageReference Include="Pulumi.Aws" Version="4.25.0" />
+    <PackageReference Include="Pulumi.Kubernetes" Version="3.8.2" />
+    <PackageReference Include="Scriban" Version="5.0.0" />
     <PackageReference Include="YamlDotNet" Version="11.2.1" />
   </ItemGroup>
 </Project>
