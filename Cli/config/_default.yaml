@@ -9,6 +9,8 @@ Dungeon:
     Aws:
       AccountId: 123456789012
       Ec2:
+        EbsVolumeSize: 20
+        EbsVolumeType: gp3
         InstanceType: t3.medium
         Monitoring: true
       Eks:
@@ -43,7 +45,7 @@ Dungeon:
         MaxAvailabilityZones: 4
     K8s:
       Version: 1.21
-      ContainerRuntime: dockerd
+      ContainerRuntime: containerd
 
   Pulumi:
     Organization:

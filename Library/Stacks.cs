@@ -1,6 +1,6 @@
 namespace Pulumi.Dungeon
 {
-    public enum Resources
+    public enum Stacks
     {
         All,
         Aws,

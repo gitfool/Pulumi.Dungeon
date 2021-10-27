@@ -8,9 +8,9 @@ namespace Pulumi.Dungeon
 {
     public static class StringExtensions
     {
-        public static IDictionary<string, string> DeserializeJson(this string json) => JsonSerializer.Deserialize<IDictionary<string, string>>(json)!;
+        public static Dictionary<string, object> DeserializeJson(this string json) => JsonSerializer.Deserialize<Dictionary<string, object>>(json)!;
 
-        public static IDictionary<string, object> DeserializeYaml(this string yaml) => new DeserializerBuilder().Build().Deserialize<IDictionary<string, object>>(yaml);
+        public static Dictionary<string, object> DeserializeYaml(this string yaml) => new DeserializerBuilder().Build().Deserialize<Dictionary<string, object>>(yaml);
 
         public static string ToBase64(this string value) => Convert.ToBase64String(Encoding.UTF8.GetBytes(value));
 

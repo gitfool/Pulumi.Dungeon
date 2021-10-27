@@ -11,12 +11,12 @@ namespace Pulumi.Dungeon
             [Description("Environment name")]
             public string Environment { get; init; } = default!;
 
-            [CommandArgument(1, "[resources]")]
-            [Description("Resource names; defaults to all")]
-            public Resources Resources { get; init; }
+            [CommandArgument(1, "[stacks]")]
+            [Description("Stack names; defaults to all")]
+            public Stacks Stacks { get; init; }
 
             [CommandOption("--destroy")]
-            [Description("Destroy stack")]
+            [Description("Destroy stack resources")]
             public bool Destroy { get; init; }
 
             [CommandOption("--diff")]
@@ -32,11 +32,15 @@ namespace Pulumi.Dungeon
             public bool NonInteractive { get; init; }
 
             [CommandOption("-r|--refresh")]
-            [Description("Refresh stack")]
+            [Description("Refresh stack resources")]
             public bool Refresh { get; init; }
 
+            [CommandOption("--remove")]
+            [Description("Remove stack")]
+            public bool Remove { get; init; }
+
             [CommandOption("--repair")]
-            [Description("Repair stack (interactive)")]
+            [Description("Repair stack resources (interactive)")]
             public bool Repair { get; init; }
 
             [CommandOption("-f|--skip-preview")]
@@ -44,15 +48,19 @@ namespace Pulumi.Dungeon
             public bool SkipPreview { get; init; }
 
             [CommandOption("--target")]
-            [Description("Target resource(s)")]
+            [Description("Target stack resource(s)")]
             public string[]? Target { get; init; }
 
             [CommandOption("--target-dependents")]
-            [Description("Target dependent resources")]
+            [Description("Target dependent stack resources")]
             public bool TargetDependents { get; init; }
 
+            [CommandOption("--unprotect")]
+            [Description("Unprotect stack resources")]
+            public bool Unprotect { get; init; }
+
             [CommandOption("-y|--yes")]
-            [Description("Approve update")]
+            [Description("Approve automatically")]
             public bool Approve { get; init; }
         }
     }

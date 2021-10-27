@@ -24,19 +24,19 @@ namespace Pulumi.Dungeon
         {
             ServiceProvider = serviceProvider;
 
-            ResourceInfo = new Dictionary<Resources, ResourceInfo>
+            StackInfo = new Dictionary<Stacks, StackInfo>
             {
-                [Resources.AwsVpc] = new()
+                [Stacks.AwsVpc] = new()
                 {
                     ProjectName = "aws-vpc",
                     StackType = typeof(VpcStack)
                 },
-                [Resources.AwsEks] = new()
+                [Stacks.AwsEks] = new()
                 {
                     ProjectName = "aws-eks",
                     StackType = typeof(EksStack)
                 },
-                [Resources.K8s] = new()
+                [Stacks.K8s] = new()
                 {
                     ProjectName = "k8s",
                     StackType = typeof(K8sStack)
@@ -48,15 +48,18 @@ namespace Pulumi.Dungeon
 
         protected override async Task<int> OnExecuteAsync(CommandContext context, Settings settings)
         {
-            Logger.LogInformation("Deploying resources");
-            using var totalTimeLogger = new ElapsedTimeLogger(Logger, "Deployed resources");
+            Logger.LogInformation("Deploying stacks");
+            using var totalTimeLogger = new ElapsedTimeLogger(Logger, "Deployed stacks");
 
-            foreach (var resource in settings.Resources.InOrder(settings.Destroy))
+            var infos = settings.Stacks.InOrder(settings.Destroy || settings.Remove)
+                .Select(stack => StackInfo[stack])
+                .Where(info => info.Environments == null || info.Environments.Contains(settings.Environment, StringComparer.OrdinalIgnoreCase)).ToArray();
+
+            foreach (var info in infos)
             {
-                var info = ResourceInfo[resource];
                 var stackFullName = $"{Config.Pulumi.Organization.Name}/{info.ProjectName}/{settings.Environment.ToLower()}";
                 Logger.LogInformation($"Deploying {stackFullName}");
-                using var resourceTimeLogger = new ElapsedTimeLogger(Logger, $"Deployed {stackFullName}");
+                using var stackTimeLogger = new ElapsedTimeLogger(Logger, $"Deployed {stackFullName}");
 
                 var stackName = $"{Config.Pulumi.Organization.Name}/{settings.Environment.ToLower()}";
                 var stackArgs = new InlineProgramArgs(info.ProjectName, stackName, PulumiFn.Create(ServiceProvider, info.StackType))
@@ -74,16 +77,33 @@ namespace Pulumi.Dungeon
 
                 Logger.LogDebug("Setting config");
                 var config = Config.Environment.ToTokens("Dungeon:Environment")
-                    .ToDictionary(entry => entry.Key, entry => new ConfigValue(entry.Value.ToValueString(), Regex.IsMatch(entry.Key, @"Password|Secret")));
+                    .ToDictionary(entry => entry.Key, entry => new ConfigValue(entry.Value.ToValueString(), Regex.IsMatch(entry.Key, @"Password|Secret|Token")));
                 await stack.SetAllConfigAsync(config);
 
                 if (settings.Destroy)
                 {
                     if (!settings.NonInteractive &&
-                        AnsiConsole.Confirm("[red]Destroy stack?[/]", false) &&
-                        AnsiConsole.Prompt(new TextPrompt<string>($@"[red]Confirm destroy stack[/] [blue]""{stackFullName}""[/]").AllowEmpty()) == stackFullName)
+                        AnsiConsole.Confirm("[red]Destroy stack resources?[/]", false) &&
+                        AnsiConsole.Prompt(new TextPrompt<string>($@"[red]Confirm destroy stack resources[/] [blue]""{stackFullName}""[/]:").AllowEmpty()) == stackFullName)
                     {
-                        Logger.LogDebug("Destroying stack");
+                        if (settings.Unprotect)
+                        {
+                            Logger.LogDebug("Unprotecting stack resources");
+                            if (settings.Target != null)
+                            {
+                                foreach (var target in settings.Target)
+                                {
+                                    await stack.State.UnprotectAsync(target);
+                                }
+                            }
+                            else
+                            {
+                                await stack.State.UnprotectAllAsync();
+                            }
+                            Logger.LogDebug("Unprotected stack resources");
+                        }
+
+                        Logger.LogDebug("Destroying stack resources");
                         var result = await stack.DestroyAsync(
                             new DestroyOptions
                             {
@@ -91,35 +111,52 @@ namespace Pulumi.Dungeon
                                 TargetDependents = settings.TargetDependents,
                                 OnStandardOutput = AnsiConsole.WriteLine
                             });
-                        Logger.LogDebug($"Destroyed stack ({result.Summary.Result})");
+                        Logger.LogDebug($"Destroyed stack resources ({result.Summary.Result})");
                     }
                     else
                     {
-                        Logger.LogWarning($"Destroy stack skipped ({(settings.NonInteractive ? "non-interactive; " : "")}unapproved)");
+                        Logger.LogWarning($"Destroy stack resources skipped ({(settings.NonInteractive ? "non-interactive; " : "")}unapproved)");
+                    }
+                    continue;
+                }
+
+                if (settings.Remove)
+                {
+                    if (!settings.NonInteractive &&
+                        AnsiConsole.Confirm("[red]Remove stack?[/]", false) &&
+                        AnsiConsole.Prompt(new TextPrompt<string>($@"[red]Confirm remove stack[/] [blue]""{stackFullName}""[/]:").AllowEmpty()) == stackFullName)
+                    {
+                        Logger.LogDebug("Removing stack");
+                        await stack.Workspace.RemoveStackAsync(stackFullName);
+                        Logger.LogDebug("Removed stack");
+                    }
+                    else
+                    {
+                        Logger.LogWarning($"Remove stack skipped ({(settings.NonInteractive ? "non-interactive; " : "")}unapproved)");
                     }
                     continue;
                 }
 
                 if (settings.Repair)
                 {
-                    if (!settings.NonInteractive)
+                    if (!settings.NonInteractive && AnsiConsole.Confirm("[red]Repair stack resources?[/]", false))
                     {
-                        Logger.LogDebug("Repairing stack");
+                        Logger.LogDebug("Repairing stack resources");
                         var exportState = await stack.ExportStackAsync();
                         var json = await RepairStackAsync(exportState.Json.GetRawText());
                         var importState = StackDeployment.FromJsonString(json);
                         var jsonPath = JsonPath.Parse("$.deployment.pending_operations[*].resource.urn").Evaluate(importState.Json);
                         if (importState.Json.IsEquivalentTo(exportState.Json))
                         {
-                            Logger.LogWarning("Repaired stack ignored (equivalent)");
+                            Logger.LogWarning("Repaired stack resources ignored (equivalent)");
                         }
                         else if (jsonPath.Error != null)
                         {
-                            Logger.LogWarning($"Repaired stack ignored (error): {jsonPath.Error}");
+                            Logger.LogWarning($"Repaired stack resources ignored (error): {jsonPath.Error}");
                         }
                         else if (jsonPath.Matches is { Count: > 0 })
                         {
-                            Logger.LogWarning("Repaired stack ignored (pending resources):");
+                            Logger.LogWarning("Repaired stack resources ignored (pending resources):");
                             foreach (var match in jsonPath.Matches)
                             {
                                 Logger.LogWarning(match.Value.ToString());
@@ -128,25 +165,39 @@ namespace Pulumi.Dungeon
                         else
                         {
                             await stack.ImportStackAsync(importState);
-                            Logger.LogDebug("Repaired stack");
+                            Logger.LogDebug("Repaired stack resources");
                         }
                     }
                     else
                     {
-                        Logger.LogWarning("Repair stack skipped (non-interactive)");
+                        Logger.LogWarning($"Repair stack resources skipped ({(settings.NonInteractive ? "non-interactive; " : "")}unapproved)");
                     }
                     continue;
                 }
 
                 if (settings.Refresh)
                 {
-                    Logger.LogDebug("Refreshing stack");
-                    await stack.RefreshAsync(
-                        new RefreshOptions
+                    if (settings.Approve || !settings.NonInteractive && AnsiConsole.Confirm("[yellow]Refresh stack resources?[/]", false))
+                    {
+                        Logger.LogDebug("Refreshing stack resources");
+                        var result = await stack.RefreshAsync(
+                            new RefreshOptions
+                            {
+                                Target = settings.Target?.ToList(),
+                                OnStandardOutput = AnsiConsole.WriteLine
+                            });
+                        Logger.LogDebug($"Refreshed stack resources ({result.Summary.Result})");
+                        if (result.Summary.Result != UpdateState.Succeeded)
                         {
-                            Target = settings.Target?.ToList(),
-                            OnStandardOutput = AnsiConsole.WriteLine
-                        });
+                            return -1;
+                        }
+                    }
+                    else
+                    {
+                        Logger.LogDebug($"Refresh stack resources skipped ({(settings.NonInteractive ? "non-interactive; " : "")}unapproved)");
+                        break;
+                    }
+                    continue;
                 }
 
                 if (!settings.SkipPreview)
@@ -230,7 +281,7 @@ namespace Pulumi.Dungeon
         }
 
         private IServiceProvider ServiceProvider { get; }
-        private Dictionary<Resources, ResourceInfo> ResourceInfo { get; }
+        private Dictionary<Stacks, StackInfo> StackInfo { get; }
         private string[] RequiredPlugins { get; }
     }
 }

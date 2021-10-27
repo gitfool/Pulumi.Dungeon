@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Amazon;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Pulumi.Aws.AutoScaling.Inputs;
 using Pulumi.Aws.Ec2;
 using Pulumi.Aws.Ec2.Inputs;
 using Pulumi.Aws.Eks;
@@ -14,8 +12,8 @@ using Pulumi.Aws.Iam;
 using Pulumi.Aws.Ssm;
 using Pulumi.Dungeon.K8s;
 using Pulumi.Tls;
-using LaunchTemplate = Pulumi.Aws.Ec2.LaunchTemplate;
-using Tag = Amazon.AutoScaling.Model.Tag;
+using Tag = Pulumi.Aws.AutoScaling.Tag;
+using TagArgs = Pulumi.Aws.AutoScaling.TagArgs;
 
 namespace Pulumi.Dungeon.Aws
 {
@@ -23,13 +21,13 @@ namespace Pulumi.Dungeon.Aws
     {
         public EksStack(IOptions<Config> options, ILogger<EksStack> logger) : base(options, logger)
         {
-            var vpcStack = CreateStackReference(Resources.AwsVpc);
+            var vpcStack = CreateStackReference(Stacks.AwsVpc);
             var publicSubnetIds = vpcStack.RequireOutputArray<string>("PublicSubnetIds");
             var privateSubnetIds = vpcStack.RequireOutputArray<string>("PrivateSubnetIds");
             var vpnSgId = vpcStack.GetOutput<string>("VpnSgId");
 
             var awsProvider = CreateAwsProvider();
-            var awsEksPrefix = GetPrefix(Resources.AwsEks);
+            var awsEksPrefix = GetPrefix(Stacks.AwsEks);
 
             // iam
             Logger.LogDebug("Creating iam roles");
@@ -154,6 +152,17 @@ namespace Pulumi.Dungeon.Aws
                 var launchTemplate = new LaunchTemplate($"{awsEksPrefix}-nodes-{nodeGroup.Name}",
                     new LaunchTemplateArgs
                     {
+                        BlockDeviceMappings = new LaunchTemplateBlockDeviceMappingArgs
+                        {
+                            DeviceName = "/dev/xvda",
+                            Ebs = new LaunchTemplateBlockDeviceMappingEbsArgs
+                            {
+                                Encrypted = "true",
+                                VolumeSize = nodeGroup.EbsVolumeSize ?? AwsConfig.Ec2.EbsVolumeSize,
+                                VolumeType = nodeGroup.EbsVolumeType ?? AwsConfig.Ec2.EbsVolumeType
+                            }
+                        },
+                        EbsOptimized = "true",
                         ImageId = imageId.Apply(parameter => parameter.Value),
                         InstanceType = nodeGroup.InstanceType ?? AwsConfig.Ec2.InstanceType,
                         KeyName = nodeGroup.KeyName ?? AwsConfig.Ec2.KeyName,
@@ -164,6 +173,11 @@ namespace Pulumi.Dungeon.Aws
                             new LaunchTemplateTagSpecificationArgs
                             {
                                 ResourceType = "instance",
+                                Tags = GetDefaultTags(new Dictionary<string, string> { ["Name"] = $"{awsEksPrefix}-node-{nodeGroup.Name}" })
+                            },
+                            new LaunchTemplateTagSpecificationArgs
+                            {
+                                ResourceType = "volume",
                                 Tags = GetDefaultTags(new Dictionary<string, string> { ["Name"] = $"{awsEksPrefix}-node-{nodeGroup.Name}" })
                             }
                         },
@@ -203,63 +217,40 @@ namespace Pulumi.Dungeon.Aws
                     },
                     new CustomResourceOptions { DependsOn = awsAuth, Protect = true, Provider = awsProvider });
 
-                // patch node group asg tags for cluster autoscaler; workaround https://github.com/aws/containers-roadmap/issues/608
-                managedNodeGroup.Resources.WhenRun(async resources =>
+                // node group asg tags for cluster autoscaler; workaround https://github.com/aws/containers-roadmap/issues/608
+                Logger.LogDebug("Creating node group asg tags");
+                managedNodeGroup.Resources.Apply(resources =>
                 {
-                    var client = new AmazonAutoScalingClient(RegionEndpoint.GetBySystemName(AwsConfig.Region));
-                    var asgs = resources.SelectMany(resource => resource.AutoscalingGroups).ToArray();
-                    foreach (var asg in asgs)
+                    var asgNames = resources.SelectMany(resource => resource.AutoscalingGroups).Select(asg => asg.Name!).ToArray();
+                    foreach (var asgName in asgNames)
                     {
-                        var describeRequest = new DescribeTagsRequest
-                        {
-                            Filters =
+                        new Tag($"{awsEksPrefix}-nodes-{nodeGroup.Name}-label",
+                            new TagArgs
                             {
-                                new Filter
+                                AutoscalingGroupName = asgName,
+                                TagDetails = new TagTagArgs
                                 {
-                                    Name = "auto-scaling-group",
-                                    Values = { asg.Name }
-                                },
-                                new Filter
-                                {
-                                    Name = "key",
-                                    Values =
-                                    {
-                                        "k8s.io/cluster-autoscaler/node-template/label/role",
-                                        "k8s.io/cluster-autoscaler/node-template/taint/role"
-                                    }
+                                    Key = "k8s.io/cluster-autoscaler/node-template/label/role",
+                                    Value = nodeGroup.Name,
+                                    PropagateAtLaunch = true
                                 }
-                            }
-                        };
-                        var describeResponse = await client.DescribeTagsAsync(describeRequest);
+                            },
+                            new CustomResourceOptions { DependsOn = managedNodeGroup, Provider = awsProvider });
 
-                        if (describeResponse.Tags.Count != 2)
-                        {
-                            Logger.LogDebug("Patching node group asg tags");
-                            var createRequest = new CreateOrUpdateTagsRequest
+                        new Tag($"{awsEksPrefix}-nodes-{nodeGroup.Name}-taint",
+                            new TagArgs
                             {
-                                Tags =
+                                AutoscalingGroupName = asgName,
+                                TagDetails = new TagTagArgs
                                 {
-                                    new Tag
-                                    {
-                                        ResourceType = "auto-scaling-group",
-                                        ResourceId = asg.Name,
-                                        Key = "k8s.io/cluster-autoscaler/node-template/label/role",
-                                        Value = nodeGroup.Name,
-                                        PropagateAtLaunch = false
-                                    },
-                                    new Tag
-                                    {
-                                        ResourceType = "auto-scaling-group",
-                                        ResourceId = asg.Name,
-                                        Key = "k8s.io/cluster-autoscaler/node-template/taint/role",
-                                        Value = "NoSchedule",
-                                        PropagateAtLaunch = false
-                                    }
+                                    Key = "k8s.io/cluster-autoscaler/node-template/taint/role",
+                                    Value = "NoSchedule",
+                                    PropagateAtLaunch = true
                                 }
-                            };
-                            await client.CreateOrUpdateTagsAsync(createRequest);
-                        }
+                            },
+                            new CustomResourceOptions { DependsOn = managedNodeGroup, Provider = awsProvider });
                     }
+                    return resources;
                 });
             }
         }

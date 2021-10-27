@@ -2,15 +2,6 @@
   "version": 1,
   "dependencies": {
     ".NETCoreApp,Version=v5.0": {
-      "AWSSDK.AutoScaling": {
-        "type": "Direct",
-        "requested": "[3.7.5.20, )",
-        "resolved": "3.7.5.20",
-        "contentHash": "tB6zX3q/FeyvF6G89cANxAOWBMR+x40PDiJj/AI4UvhVd62N0EEHyW7E+76OePU3u6l+cryatAofRn7K0XEYjA==",
-        "dependencies": {
-          "AWSSDK.Core": "[3.7.3.8, 4.0.0)"
-        }
-      },
       "IPNetwork2": {
         "type": "Direct",
         "requested": "[2.5.353, )",
@@ -83,11 +74,6 @@
           "Microsoft.CSharp": "4.5.0",
           "System.Reflection.Emit": "4.3.0"
         }
-      },
-      "AWSSDK.Core": {
-        "type": "Transitive",
-        "resolved": "3.7.3.8",
-        "contentHash": "X9HoIetVbSKaYm5LQGo9q/BChvevHPkYdWvHJ4J9LE7ulIGQ8vx305KkQscmQLoj0RNy9/3K4mKiUEeeSa0fuw=="
       },
       "Ben.Demystifier": {
         "type": "Transitive",

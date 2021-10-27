@@ -18,17 +18,19 @@ namespace Pulumi.Dungeon.Aws
 {
     public sealed class VpcStack : StackBase<VpcStack>
     {
-        public VpcStack(IOptions<Config> options, ILogger<EksStack> logger) : base(options, logger)
+        public VpcStack(IOptions<Config> options, ILogger<VpcStack> logger) : base(options, logger)
         {
             var awsProvider = CreateAwsProvider();
-            var awsVpcPrefix = GetPrefix(Resources.AwsVpc);
+            var awsVpcPrefix = GetPrefix(Stacks.AwsVpc);
 
             // azs
             var azResult = GetAvailabilityZones.InvokeAsync(
                 new GetAvailabilityZonesArgs(),
                 new InvokeOptions { Provider = awsProvider }).GetAwaiter().GetResult();
             var azs = azResult.Names.Select((name, index) => new { Name = name, Id = azResult.ZoneIds[index] })
-                .Take(AwsConfig.Vpc.MaxAvailabilityZones ?? azResult.Names.Length).ToImmutableArray();
+                .Take(AwsConfig.Vpc.MaxAvailabilityZones).ToImmutableArray();
+
+            AvailabilityZones = Output.Create(azs.Select(az => az.Name).ToImmutableArray());
 
             // vpc
             Logger.LogDebug("Creating vpc");
@@ -42,6 +44,23 @@ namespace Pulumi.Dungeon.Aws
                 new CustomResourceOptions { Provider = awsProvider });
 
             VpcId = vpc.Id;
+
+            var dhcpOptions = new VpcDhcpOptions(awsVpcPrefix,
+                new VpcDhcpOptionsArgs
+                {
+                    DomainName = AwsConfig.Route53.Internal.Domain,
+                    DomainNameServers = "AmazonProvidedDNS",
+                    Tags = { ["Name"] = awsVpcPrefix }
+                },
+                new CustomResourceOptions { Provider = awsProvider });
+
+            new VpcDhcpOptionsAssociation(awsVpcPrefix,
+                new VpcDhcpOptionsAssociationArgs
+                {
+                    DhcpOptionsId = dhcpOptions.Id,
+                    VpcId = vpc.Id
+                },
+                new CustomResourceOptions { Provider = awsProvider });
 
             // network
             Logger.LogDebug("Creating network");
@@ -86,7 +105,7 @@ namespace Pulumi.Dungeon.Aws
 
                 publicSubnetIds.Add(publicSubnet.Id);
 
-                var publicRoutes = AwsConfig.Vpc.TransitGatewayId != null && AwsConfig.Vpc.VpnCidrBlock != null
+                var publicRoutes = AwsConfig.Vpc.VpnCidrBlock != null && AwsConfig.Vpc.TransitGatewayId != null
                     ? new[]
                     {
                         new RouteTableRouteArgs { CidrBlock = AwsConfig.Vpc.VpnCidrBlock, TransitGatewayId = AwsConfig.Vpc.TransitGatewayId },
@@ -143,7 +162,7 @@ namespace Pulumi.Dungeon.Aws
                     },
                     new CustomResourceOptions { Provider = awsProvider });
 
-                var privateRoutes = AwsConfig.Vpc.TransitGatewayId != null && AwsConfig.Vpc.VpnCidrBlock != null
+                var privateRoutes = AwsConfig.Vpc.VpnCidrBlock != null && AwsConfig.Vpc.TransitGatewayId != null
                     ? new[]
                     {
                         new RouteTableRouteArgs { CidrBlock = AwsConfig.Vpc.VpnCidrBlock, TransitGatewayId = AwsConfig.Vpc.TransitGatewayId },
@@ -207,6 +226,9 @@ namespace Pulumi.Dungeon.Aws
 
         [Output]
         public Output<string> VpcId { get; init; }
+
+        [Output]
+        public Output<ImmutableArray<string>> AvailabilityZones { get; init; }
 
         [Output]
         public Output<ImmutableArray<string>> PublicSubnetIds { get; init; }

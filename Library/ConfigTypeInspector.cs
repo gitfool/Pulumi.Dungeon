@@ -15,7 +15,7 @@ namespace Pulumi.Dungeon
         }
 
         public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object? container) =>
-            Inner.GetProperties(type, container).Where(property => !Regex.IsMatch(property.Name, @"Password|Secret")); // ignore secrets
+            Inner.GetProperties(type, container).Where(property => !Regex.IsMatch(property.Name, @"Password|Secret|Token")); // ignore secrets
 
         private ITypeInspector Inner { get; }
     }

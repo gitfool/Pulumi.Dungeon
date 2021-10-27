@@ -5,5 +5,10 @@ Dungeon:
     Aws:
       AccountId: 123456789012
       Region: us-east-1
+      Route53:
+        Internal:
+          Domain: alpha.aws
+        Internet:
+          Domain: alpha.aws
       Vpc:
         CidrBlock: 10.1.0.0/16

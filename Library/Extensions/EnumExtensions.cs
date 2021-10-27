@@ -6,29 +6,29 @@ namespace Pulumi.Dungeon
 {
     public static class EnumExtensions
     {
-        public static IEnumerable<Resources> InOrder(this Resources resources, bool reverse)
+        public static IEnumerable<Stacks> InOrder(this Stacks stacks, bool reverse)
         {
-            var order = resources switch
+            var order = stacks switch
             {
-                Resources.All => new[] { Resources.AwsVpc, Resources.AwsEks, Resources.K8s },
-                Resources.Aws => new[] { Resources.AwsVpc, Resources.AwsEks },
-                Resources.AwsVpc => new[] { Resources.AwsVpc },
-                Resources.AwsEks => new[] { Resources.AwsEks },
-                Resources.K8s => new[] { Resources.K8s },
-                _ => throw new ArgumentOutOfRangeException(nameof(resources))
+                Stacks.All => new[] { Stacks.AwsVpc, Stacks.AwsEks, Stacks.K8s },
+                Stacks.Aws => new[] { Stacks.AwsVpc, Stacks.AwsEks },
+                Stacks.AwsVpc => new[] { Stacks.AwsVpc },
+                Stacks.AwsEks => new[] { Stacks.AwsEks },
+                Stacks.K8s => new[] { Stacks.K8s },
+                _ => throw new ArgumentOutOfRangeException(nameof(stacks))
             };
             return reverse ? order.Reverse() : order;
         }
 
-        public static string ToName(this Resources resource) =>
+        public static string ToName(this Stacks stack) =>
             // ReSharper disable once SwitchExpressionHandlesSomeKnownEnumValuesWithExceptionInDefault
-            resource switch
+            stack switch
             {
-                Resources.Aws => "aws",
-                Resources.AwsVpc => "aws-vpc",
-                Resources.AwsEks => "aws-eks",
-                Resources.K8s => "k8s",
-                _ => throw new ArgumentOutOfRangeException(nameof(resource))
+                Stacks.Aws => "aws",
+                Stacks.AwsVpc => "aws-vpc",
+                Stacks.AwsEks => "aws-eks",
+                Stacks.K8s => "k8s",
+                _ => throw new ArgumentOutOfRangeException(nameof(stack))
             };
     }
 }

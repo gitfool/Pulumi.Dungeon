@@ -12,6 +12,8 @@ namespace Pulumi.Dungeon
 {
     public static class ObjectExtensions
     {
+        public static Dictionary<string, object> ToDictionary(this object obj) => obj.ToJson().DeserializeJson();
+
         public static string ToJson(this object obj, bool writeIndented = true) =>
             JsonSerializer.Serialize(obj, new JsonSerializerOptions { WriteIndented = writeIndented }).Replace("\r\n", "\n");
 

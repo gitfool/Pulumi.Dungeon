@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Pulumi.Aws.Inputs;
+using Pulumi.Kubernetes.Types.Inputs.Provider;
 using AwsProvider = Pulumi.Aws.Provider;
 using AwsProviderArgs = Pulumi.Aws.ProviderArgs;
 using K8sProvider = Pulumi.Kubernetes.Provider;
@@ -34,15 +35,24 @@ namespace Pulumi.Dungeon
                     Region = AwsConfig.Region
                 });
 
-        protected K8sProvider CreateK8sProvider(Output<string> kubeConfig) => new($"{EnvName}-k8s", new K8sProviderArgs { KubeConfig = kubeConfig });
+        protected K8sProvider CreateK8sProvider(Output<string> kubeConfig) =>
+            new($"{EnvName}-k8s",
+                new K8sProviderArgs
+                {
+                    KubeConfig = kubeConfig,
+                    KubeClientSettings = new KubeClientSettingsArgs { Qps = 50, Burst = 100 },
+                    SuppressDeprecationWarnings = true,
+                    SuppressHelmHookWarnings = true,
+                    HelmReleaseSettings = new HelmReleaseSettingsArgs { SuppressBetaWarning = true }
+                });
 
-        protected StackReference CreateStackReference(Resources resource) => new($"{Config.Pulumi.Organization.Name}/{resource.ToName()}/{EnvName}");
+        protected StackReference CreateStackReference(Stacks stack) => new($"{Config.Pulumi.Organization.Name}/{stack.ToName()}/{EnvName}");
 
         protected Dictionary<string, string> GetDefaultTags() => new() { ["Environment"] = EnvDisplayName };
 
         protected Dictionary<string, string> GetDefaultTags(Dictionary<string, string> tags) => GetDefaultTags().Concat(tags).ToDictionary(entry => entry.Key, entry => entry.Value);
 
-        protected string GetPrefix(Resources resource) => $"{EnvName}-{resource.ToName()}";
+        protected string GetPrefix(Stacks stack) => $"{EnvName}-{stack.ToName()}";
 
         protected string EnvName => EnvConfig.Name;
         protected string EnvDisplayName => EnvConfig.DisplayName;

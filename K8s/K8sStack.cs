@@ -1,11 +1,11 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Pulumi.Dungeon.Aws;
-using Pulumi.Kubernetes;
 using Pulumi.Kubernetes.Core.V1;
 using Pulumi.Kubernetes.Types.Inputs.Core.V1;
 using Pulumi.Kubernetes.Types.Inputs.Meta.V1;
 using Pulumi.Kubernetes.Yaml;
+using K8sProvider = Pulumi.Kubernetes.Provider;
 
 namespace Pulumi.Dungeon.K8s
 {
@@ -13,7 +13,7 @@ namespace Pulumi.Dungeon.K8s
     {
         public K8sStack(IOptions<Config> options, ILogger<K8sStack> logger) : base(options, logger)
         {
-            var eksStack = CreateStackReference(Resources.AwsEks);
+            var eksStack = CreateStackReference(Stacks.AwsEks);
             var kubeConfig = eksStack.RequireOutput<string>("KubeConfig");
 
             var k8sProvider = CreateK8sProvider(kubeConfig);
@@ -42,7 +42,7 @@ namespace Pulumi.Dungeon.K8s
                 new ComponentResourceOptions { DependsOn = environmentNs, Provider = k8sProvider });
         }
 
-        internal static ConfigGroup AwsAuth(Provider k8sProvider, string deployerRoleArn, RoleX nodeRole)
+        internal static ConfigGroup AwsAuth(K8sProvider k8sProvider, string deployerRoleArn, RoleX nodeRole)
         {
             // aws auth
             var awsAuthYaml = nodeRole.Arn.Apply(nodeRoleArn =>
