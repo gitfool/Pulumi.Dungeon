@@ -31,7 +31,7 @@
   <ItemGroup>
     <PackageReference Include="Json.More.Net" Version="1.4.4" />
     <PackageReference Include="JsonPath.Net" Version="0.1.14" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="NetEscapades.Configuration.Yaml" Version="2.1.0" />
     <PackageReference Include="Pulumi.Automation" Version="3.16.0" />
