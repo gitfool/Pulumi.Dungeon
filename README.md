@@ -2,7 +2,6 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=License&logo=github)](LICENSE)
 [![GitHub Actions](https://img.shields.io/github/workflow/status/gitfool/Pulumi.Dungeon/Build/master?label=GitHub%20Actions&logo=github)](https://github.com/gitfool/Pulumi.Dungeon/actions)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=gitfool/Pulumi.Dungeon)](https://dependabot.com)
 [![Docker Pulls](https://img.shields.io/docker/pulls/dockfool/pulumi-dungeon.svg?label=Docker&logo=docker)](https://hub.docker.com/r/dockfool/pulumi-dungeon/tags)
 
 `Pulumi.Dungeon` is a playground for Pulumi devops tools. See [pulumi.com](https://pulumi.com).

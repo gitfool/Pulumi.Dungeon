@@ -7,7 +7,7 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{config,csproj,json,props,toml,xml,yml}]
+[*.{config,csproj,json,props,toml,xaml,xml,yaml,yml}]
 indent_size = 2
 
 [{dotnet-tools.json,packages.lock.json}]
