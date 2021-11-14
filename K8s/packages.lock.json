@@ -58,9 +58,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.16.0, )",
-        "resolved": "3.16.0",
-        "contentHash": "OzXcRFLX6/mQuSiUxMBI865ZcZxyKYKSJ6y7FALS5r1RbH1jPYjGHj/HWw85EyOz6i/gpLm4mIKlJ+AHTGbFvA==",
+        "requested": "[3.17.1, )",
+        "resolved": "3.17.1",
+        "contentHash": "vttXtIvptnncWnlL+rXQb9Gi7w6DEsCGb6oJOqJYTfTdOgrkvFfu8z0zJrLkvFrbXKcyCTYpoe9SQpE1RFwPyw==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc": "2.37.0",
@@ -74,21 +74,21 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[4.25.0, )",
-        "resolved": "4.25.0",
-        "contentHash": "/3NR5HxceQ71TkmlOyC7mkRQjUtMelw6+xVAW4r2vCebAFv/553vrZvDsLXL4otESxdAi+/U315jslPF6yOfug==",
+        "requested": "[4.27.2, )",
+        "resolved": "4.27.2",
+        "contentHash": "tVnr22s9ko2W/hSpx9IFZI4GD1Uwhmk29Csc9q4kIoe7YgXyCDkWuePhBcdZkpf1ZUxHBA3tii4PdbgkxxaWCQ==",
         "dependencies": {
-          "Pulumi": "3.15.0"
+          "Pulumi": "3.17.1"
         }
       },
       "Pulumi.Kubernetes": {
         "type": "Direct",
-        "requested": "[3.8.2, )",
-        "resolved": "3.8.2",
-        "contentHash": "MSQqQBbW5nddXagGGcbDjZlgPonv/ZwtfYCysmLH/dfWHjpoib+w23azbAbESmQC/UkdqKpRPex/Sizy5ICB4w==",
+        "requested": "[3.10.0, )",
+        "resolved": "3.10.0",
+        "contentHash": "veU+SPlFRngwSyfcbVfJ4e8I6zi24SingfLnsGUsAbv17At+vDa+pTat+8XGx+hgv3IqKIZ54lH11uMONUb3dA==",
         "dependencies": {
           "Glob": "1.1.5",
-          "Pulumi": "3.15.0"
+          "Pulumi": "3.17.1"
         }
       },
       "Pulumi.Random": {
@@ -1314,9 +1314,9 @@
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.16.0",
-          "Pulumi.Aws": "4.25.0",
-          "Pulumi.Kubernetes": "3.8.2",
+          "Pulumi": "3.17.1",
+          "Pulumi.Aws": "4.27.2",
+          "Pulumi.Kubernetes": "3.10.0",
           "Scriban": "5.0.0",
           "YamlDotNet": "11.2.1"
         }
