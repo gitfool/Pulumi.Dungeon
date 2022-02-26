@@ -10,7 +10,7 @@ RUN apt-get update \
 
 # Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
 # renovate: datasource=github-tags depName=kubectl lookupName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
-RUN version=1.21.4 \
+RUN version=1.23.4 \
     && curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && kubectl completion bash > /etc/bash_completion.d/kubectl \
@@ -18,14 +18,14 @@ RUN version=1.21.4 \
 
 # Install aws iam authenticator; https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
 # renovate: datasource=github-releases depName=aws-iam-authenticator lookupName=kubernetes-sigs/aws-iam-authenticator
-RUN version=0.5.2 \
+RUN version=0.5.5 \
     && curl -fsSL https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v$version/aws-iam-authenticator_${version}_linux_amd64 -o /usr/local/bin/aws-iam-authenticator \
     && chmod +x /usr/local/bin/aws-iam-authenticator \
     && aws-iam-authenticator version
 
 # Install helm; https://helm.sh/docs/intro/install/#from-the-binary-releases
 # renovate: datasource=github-releases depName=helm lookupName=helm/helm
-RUN version=3.7.1 \
+RUN version=3.8.0 \
     && curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz \
     && tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm \
     && rm -f helm.tar.gz \
@@ -38,7 +38,7 @@ ENV PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true \
     PULUMI_SKIP_UPDATE_CHECK=true
 
 # renovate: datasource=github-releases depName=pulumi lookupName=pulumi/pulumi
-RUN version=3.18.1 \
+RUN version=3.25.0 \
     && curl -fsSL https://get.pulumi.com/releases/sdk/pulumi-v$version-linux-x64.tar.gz -o pulumi.tar.gz \
     && tar -xzf pulumi.tar.gz --directory /usr/local/bin --exclude *python* --no-same-owner --strip=1 \
     && rm -f pulumi.tar.gz \
