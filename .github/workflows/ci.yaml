@@ -1,4 +1,4 @@
-name: CI
+name: ci
 on:
   push:
     branches: [ master ]
@@ -10,7 +10,7 @@ env:
   NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
 
 jobs:
-  Build:
+  build:
     runs-on: ubuntu-latest
     container: dockfool/cake-docker:latest
     steps:
