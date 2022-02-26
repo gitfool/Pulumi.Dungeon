@@ -34,9 +34,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.18.1, )",
-        "resolved": "3.18.1",
-        "contentHash": "hybvBVifsngXX+tS04z+vwwmEIDhYDjjT33HoaU/UJLvGTO++arJAmNsaVQCXjRqytJttVBmrdDEDnGCue/Bcw==",
+        "requested": "[3.25.0, )",
+        "resolved": "3.25.0",
+        "contentHash": "TVg3Yg/R8OPK5f+vwdPXpdrYWf8Bfo3Gd01Ql6h3wgzFyeG1WOOwFOZ7ogB6PQ8BZIwbqr+yOKkxaQFooZ/Hyg==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc": "2.37.0",
@@ -50,28 +50,28 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[4.29.0, )",
-        "resolved": "4.29.0",
-        "contentHash": "pCnfMyIRdCDD0XxkPA60sxGgYRYnwpPVhD4xaBHrmnVi+/7pnvzJJMOnTeJmL4zQ2XG7hI8scwK7ElD6mGUbRA==",
+        "requested": "[4.37.5, )",
+        "resolved": "4.37.5",
+        "contentHash": "L6Xc7GFjcAQSV+GfUmFi7tH7DedFnK3E5SoMHT8idMKe4HFSQylcD6Fwkjj4KQBYfVb5xWTl7fUBRk4ZLcAPjw==",
         "dependencies": {
-          "Pulumi": "3.18.0"
+          "Pulumi": "3.24.1"
         }
       },
       "Pulumi.Kubernetes": {
         "type": "Direct",
-        "requested": "[3.10.1, )",
-        "resolved": "3.10.1",
-        "contentHash": "dveb7+x73OnL5LZZOR3tewgsqVgXIBxXWnJDX8sQ/ldnL04HUdodv7fhhzNGA4icm7RcuHFFU3s9gazGoMhETg==",
+        "requested": "[3.16.0, )",
+        "resolved": "3.16.0",
+        "contentHash": "59N4+b8Yk9YmZjN4zXCzNcmNaN8dbBJ+mwYlvHXOQKzIcbq9bgxZf+6zSk03OVQtPKN4HlFRUMODbkRpY0hKNw==",
         "dependencies": {
           "Glob": "1.1.5",
-          "Pulumi": "3.18.0"
+          "Pulumi": "3.24.1"
         }
       },
       "Scriban": {
         "type": "Direct",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "/kqARxHaYytWngSOqwHvXZkvTGgh6gbFgUiMrg1jbxATSkmHAB1KAfr+d6Dy92rloAynUPveAJBqijL1Vr2Ttw=="
+        "requested": "[5.4.0, )",
+        "resolved": "5.4.0",
+        "contentHash": "gx+ArfJeanLPO2b5mnSsK8FqgMvhrRqqOOisRPhofWU44qfuCQU4G0GJfJziauu4PLMdMg2ArnhD7CMHaFwzLQ=="
       },
       "YamlDotNet": {
         "type": "Direct",

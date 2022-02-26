@@ -42,8 +42,7 @@ namespace Pulumi.Dungeon
                     KubeConfig = kubeConfig,
                     KubeClientSettings = new KubeClientSettingsArgs { Qps = 50, Burst = 100 },
                     SuppressDeprecationWarnings = true,
-                    SuppressHelmHookWarnings = true,
-                    HelmReleaseSettings = new HelmReleaseSettingsArgs { SuppressBetaWarning = true }
+                    SuppressHelmHookWarnings = true
                 });
 
         protected StackReference CreateStackReference(Stacks stack) => new($"{Config.Pulumi.Organization.Name}/{stack.ToName()}/{EnvName}");
