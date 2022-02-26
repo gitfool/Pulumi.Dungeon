@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.2-focal
 
+LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
+
 # Install packages
 RUN apt-get update \
     && apt-get install --no-install-recommends -y bash-completion curl vim \
@@ -7,6 +9,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
+# renovate: datasource=github-tags depName=kubectl lookupName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
 RUN version=1.21.4 \
     && curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
@@ -14,12 +17,14 @@ RUN version=1.21.4 \
     && kubectl version --client --short
 
 # Install aws iam authenticator; https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+# renovate: datasource=github-releases depName=aws-iam-authenticator lookupName=kubernetes-sigs/aws-iam-authenticator
 RUN version=0.5.2 \
     && curl -fsSL https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v$version/aws-iam-authenticator_${version}_linux_amd64 -o /usr/local/bin/aws-iam-authenticator \
     && chmod +x /usr/local/bin/aws-iam-authenticator \
     && aws-iam-authenticator version
 
 # Install helm; https://helm.sh/docs/intro/install/#from-the-binary-releases
+# renovate: datasource=github-releases depName=helm lookupName=helm/helm
 RUN version=3.7.1 \
     && curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz \
     && tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm \
@@ -32,6 +37,7 @@ ENV PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true \
     PULUMI_EXPERIMENTAL=true \
     PULUMI_SKIP_UPDATE_CHECK=true
 
+# renovate: datasource=github-releases depName=pulumi lookupName=pulumi/pulumi
 RUN version=3.18.1 \
     && curl -fsSL https://get.pulumi.com/releases/sdk/pulumi-v$version-linux-x64.tar.gz -o pulumi.tar.gz \
     && tar -xzf pulumi.tar.gz --directory /usr/local/bin --exclude *python* --no-same-owner --strip=1 \
@@ -58,6 +64,7 @@ RUN echo "alias k='kubectl'\ncomplete -o default -F __start_kubectl k" >> ~/.bas
     && helm repo add stable https://charts.helm.sh/stable \
     && helm repo update
 
+# renovate: datasource=github-releases depName=helm-ecr lookupName=vetyy/helm-ecr
 RUN version=0.1.4 \
     && mkdir -p ~/.local/share/helm/plugins/helm-ecr \
     && curl -fsSL https://github.com/vetyy/helm-ecr/releases/download/v$version/helm-ecr_${version}_linux_amd64.tar.gz -o ~/helm-ecr.tar.gz \

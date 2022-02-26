@@ -3,5 +3,19 @@
   "extends": [
     "config:base",
     "local>gitfool/.github:renovate-default"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": [ "^Cli/DeployCommand\\.cs$" ],
+      "matchStrings": [
+        "// renovate: datasource=(?<datasource>.+?)\\s+RequiredPlugins = new\\[\\]\\s+{[^}]+}",
+        "\"(?<depName>.+?) v(?<currentValue>.+?)\""
+      ],
+      "matchStringsStrategy": "recursive",
+      "depNameTemplate": "pulumi-{{depName}}",
+      "lookupNameTemplate": "pulumi/pulumi-{{depName}}",
+      "depTypeTemplate": "plugin",
+      "extractVersionTemplate": "^v?(?<version>.+)$"
+    }
   ]
 }
