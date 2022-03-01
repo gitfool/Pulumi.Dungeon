@@ -4,9 +4,9 @@
     ".NETCoreApp,Version=v5.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[2.5.386, )",
-        "resolved": "2.5.386",
-        "contentHash": "6ihnNm82vyJsUYYfR2BRTziY/mQ5UGLsQZuhdSYPeTlbQLhBW/4BC9hBz3h5bFDn8PkVw9dP0cpv9brIBmk4Fw=="
+        "requested": "[2.5.402, )",
+        "resolved": "2.5.402",
+        "contentHash": "6hVS+bYI8Lp+eKRvhSYHh56GPyKlQRMW0/tOwGvkhq14o34AvMWKFOFcw6BeUiRI+v8d8CaPYAp5bPYc7dOjeg=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",
@@ -46,11 +46,11 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[4.37.5, )",
-        "resolved": "4.37.5",
-        "contentHash": "L6Xc7GFjcAQSV+GfUmFi7tH7DedFnK3E5SoMHT8idMKe4HFSQylcD6Fwkjj4KQBYfVb5xWTl7fUBRk4ZLcAPjw==",
+        "requested": "[4.38.0, )",
+        "resolved": "4.38.0",
+        "contentHash": "aWQzcCzdJPcwp7mapYm9ppAn/y67M7hFSix3QHhMkcP+jMFnV0GSoJtFHR6Qya3FLuSbzrdvvMqE5cPOeKquFg==",
         "dependencies": {
-          "Pulumi": "3.24.1"
+          "Pulumi": "3.25.0"
         }
       },
       "Pulumi.Tls": {
@@ -380,10 +380,10 @@
       },
       "Pulumi.Random": {
         "type": "Transitive",
-        "resolved": "4.3.1",
-        "contentHash": "SwFzPru9dk2m9T7pkcdrkksw7MAi+n+lQt13o25If2LrbTQJ4XaSX5emtXsl/B2Lga7Un2NEnemPArY2cbTJLw==",
+        "resolved": "4.4.0",
+        "contentHash": "uC/F7oACcyQrSMgZSLFvtiInb7eepjBBNGAXUcWwz+NadzrfjC5EUmpMC6VInulIc/vQPIYbRZYZRk7OmBPowg==",
         "dependencies": {
-          "Pulumi": "3.14.0"
+          "Pulumi": "3.25.0"
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl": {
@@ -1335,9 +1335,9 @@
           "Microsoft.Extensions.Options": "6.0.0",
           "Polly": "7.2.3",
           "Pulumi": "3.25.0",
-          "Pulumi.Aws": "4.37.5",
+          "Pulumi.Aws": "4.38.0",
           "Pulumi.Kubernetes": "3.16.0",
-          "Pulumi.Random": "4.3.1"
+          "Pulumi.Random": "4.4.0"
         }
       },
       "library": {
@@ -1346,7 +1346,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
           "Pulumi": "3.25.0",
-          "Pulumi.Aws": "4.37.5",
+          "Pulumi.Aws": "4.38.0",
           "Pulumi.Kubernetes": "3.16.0",
           "Scriban": "5.4.0",
           "YamlDotNet": "11.2.1"
