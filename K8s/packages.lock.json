@@ -58,9 +58,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.25.0, )",
-        "resolved": "3.25.0",
-        "contentHash": "TVg3Yg/R8OPK5f+vwdPXpdrYWf8Bfo3Gd01Ql6h3wgzFyeG1WOOwFOZ7ogB6PQ8BZIwbqr+yOKkxaQFooZ/Hyg==",
+        "requested": "[3.25.1, )",
+        "resolved": "3.25.1",
+        "contentHash": "RJDK/+eBP3jnxdMIfKe81TR1UwjRuPrY9zCcHUS0/AtAqGeMVseXiaroBEwapDa4laCqs0ODgtZ5dyCEjIO55g==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc": "2.37.0",
@@ -74,11 +74,11 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[4.37.5, )",
-        "resolved": "4.37.5",
-        "contentHash": "L6Xc7GFjcAQSV+GfUmFi7tH7DedFnK3E5SoMHT8idMKe4HFSQylcD6Fwkjj4KQBYfVb5xWTl7fUBRk4ZLcAPjw==",
+        "requested": "[4.38.0, )",
+        "resolved": "4.38.0",
+        "contentHash": "aWQzcCzdJPcwp7mapYm9ppAn/y67M7hFSix3QHhMkcP+jMFnV0GSoJtFHR6Qya3FLuSbzrdvvMqE5cPOeKquFg==",
         "dependencies": {
-          "Pulumi": "3.24.1"
+          "Pulumi": "3.25.0"
         }
       },
       "Pulumi.Kubernetes": {
@@ -93,11 +93,11 @@
       },
       "Pulumi.Random": {
         "type": "Direct",
-        "requested": "[4.3.1, )",
-        "resolved": "4.3.1",
-        "contentHash": "SwFzPru9dk2m9T7pkcdrkksw7MAi+n+lQt13o25If2LrbTQJ4XaSX5emtXsl/B2Lga7Un2NEnemPArY2cbTJLw==",
+        "requested": "[4.4.0, )",
+        "resolved": "4.4.0",
+        "contentHash": "uC/F7oACcyQrSMgZSLFvtiInb7eepjBBNGAXUcWwz+NadzrfjC5EUmpMC6VInulIc/vQPIYbRZYZRk7OmBPowg==",
         "dependencies": {
-          "Pulumi": "3.14.0"
+          "Pulumi": "3.25.0"
         }
       },
       "AutoMapper": {
@@ -1321,8 +1321,8 @@
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.25.0",
-          "Pulumi.Aws": "4.37.5",
+          "Pulumi": "3.25.1",
+          "Pulumi.Aws": "4.38.0",
           "Pulumi.Kubernetes": "3.16.0",
           "Scriban": "5.4.0",
           "YamlDotNet": "11.2.1"
