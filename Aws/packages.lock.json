@@ -30,9 +30,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.25.0, )",
-        "resolved": "3.25.0",
-        "contentHash": "TVg3Yg/R8OPK5f+vwdPXpdrYWf8Bfo3Gd01Ql6h3wgzFyeG1WOOwFOZ7ogB6PQ8BZIwbqr+yOKkxaQFooZ/Hyg==",
+        "requested": "[3.25.1, )",
+        "resolved": "3.25.1",
+        "contentHash": "RJDK/+eBP3jnxdMIfKe81TR1UwjRuPrY9zCcHUS0/AtAqGeMVseXiaroBEwapDa4laCqs0ODgtZ5dyCEjIO55g==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc": "2.37.0",
@@ -1334,7 +1334,7 @@
           "Library": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
           "Polly": "7.2.3",
-          "Pulumi": "3.25.0",
+          "Pulumi": "3.25.1",
           "Pulumi.Aws": "4.38.0",
           "Pulumi.Kubernetes": "3.16.0",
           "Pulumi.Random": "4.4.0"
@@ -1345,7 +1345,7 @@
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.25.0",
+          "Pulumi": "3.25.1",
           "Pulumi.Aws": "4.38.0",
           "Pulumi.Kubernetes": "3.16.0",
           "Scriban": "5.4.0",
