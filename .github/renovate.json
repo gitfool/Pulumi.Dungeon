@@ -13,7 +13,7 @@
       ],
       "matchStringsStrategy": "recursive",
       "depNameTemplate": "pulumi-{{depName}}",
-      "lookupNameTemplate": "pulumi/pulumi-{{depName}}",
+      "packageNameTemplate": "pulumi/pulumi-{{depName}}",
       "depTypeTemplate": "plugin",
       "extractVersionTemplate": "^v?(?<version>.+)$"
     }
