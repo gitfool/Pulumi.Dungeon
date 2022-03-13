@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.2-focal
+FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.3-focal
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -25,7 +25,7 @@ RUN version=0.5.5 \
 
 # Install helm; https://helm.sh/docs/intro/install/#from-the-binary-releases
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
-RUN version=3.8.0 \
+RUN version=3.8.1 \
     && curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz \
     && tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm \
     && rm -f helm.tar.gz \
@@ -38,7 +38,7 @@ ENV PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true \
     PULUMI_SKIP_UPDATE_CHECK=true
 
 # renovate: datasource=github-releases depName=pulumi packageName=pulumi/pulumi
-RUN version=3.25.1 \
+RUN version=3.26.1 \
     && curl -fsSL https://get.pulumi.com/releases/sdk/pulumi-v$version-linux-x64.tar.gz -o pulumi.tar.gz \
     && tar -xzf pulumi.tar.gz --directory /usr/local/bin --exclude *python* --no-same-owner --strip=1 \
     && rm -f pulumi.tar.gz \

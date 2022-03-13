@@ -46,7 +46,7 @@ namespace Pulumi.Dungeon
             // renovate: datasource=github-releases
             RequiredPlugins = new[]
             {
-                "aws v4.38.0",
+                "aws v4.38.1",
                 "kubernetes v3.16.0",
                 "random v4.4.0",
                 "tls v4.1.0"

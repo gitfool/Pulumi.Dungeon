@@ -4,9 +4,9 @@
     ".NETCoreApp,Version=v5.0": {
       "Microsoft.Extensions.Logging.Abstractions": {
         "type": "Direct",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "/HggWBbTwy8TgebGSX5DBZ24ndhzi93sHUBDvP1IxbZD7FDokYzdAr6+vbWGjw2XAfR2EJ1sfKUotpjHnFWPxA==",
+        "requested": "[6.0.1, )",
+        "resolved": "6.0.1",
+        "contentHash": "dzB2Cgg+JmrouhjkcQGzSFjjvpwlq353i8oBQO2GWNjCXSzhbtBRUf28HSauWe7eib3wYOdb3tItdjRwAdwCSg==",
         "dependencies": {
           "System.Buffers": "4.5.1",
           "System.Memory": "4.5.4"
@@ -34,9 +34,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.25.1, )",
-        "resolved": "3.25.1",
-        "contentHash": "RJDK/+eBP3jnxdMIfKe81TR1UwjRuPrY9zCcHUS0/AtAqGeMVseXiaroBEwapDa4laCqs0ODgtZ5dyCEjIO55g==",
+        "requested": "[3.26.1, )",
+        "resolved": "3.26.1",
+        "contentHash": "Zup4J2QEXR2TJVy7OO9XnsdPDI+fVgpsFfjNdGGo5OpD38XnDQFUEgUse8gOtUaqQxmd9T8j4rH0UuGkYfnL8g==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc": "2.37.0",
@@ -50,11 +50,11 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[4.38.0, )",
-        "resolved": "4.38.0",
-        "contentHash": "aWQzcCzdJPcwp7mapYm9ppAn/y67M7hFSix3QHhMkcP+jMFnV0GSoJtFHR6Qya3FLuSbzrdvvMqE5cPOeKquFg==",
+        "requested": "[4.38.1, )",
+        "resolved": "4.38.1",
+        "contentHash": "SbnrsFRh6I3LcHTUFrXuP7s1jdx/OTfAEuFfDXzymTzSDc58m8NXdcoD4soBNmz61LKFdhq5ieNoe41eqMa9qA==",
         "dependencies": {
-          "Pulumi": "3.25.0"
+          "Pulumi": "3.26.1"
         }
       },
       "Pulumi.Kubernetes": {
