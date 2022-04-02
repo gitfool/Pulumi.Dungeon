@@ -2,7 +2,7 @@
   "profiles": {
     "Development": {
       "commandName": "Project",
-      "commandLineArgs": "deploy alpha",
+      "commandLineArgs": "deploy test",
       "environmentVariables": {
         "DOTNET_Environment": "Development",
         "DOTNET_HostBuilder__ReloadConfigOnChange": "false",
@@ -11,7 +11,7 @@
     },
     "Production": {
       "commandName": "Project",
-      "commandLineArgs": "deploy alpha",
+      "commandLineArgs": "deploy test",
       "environmentVariables": {
         "DOTNET_Environment": "Production",
         "DOTNET_HostBuilder__ReloadConfigOnChange": "false",

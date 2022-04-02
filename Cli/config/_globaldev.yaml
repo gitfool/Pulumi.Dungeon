@@ -1,0 +1,21 @@
+Dungeon:
+  Environment:
+    Name: globaldev
+    DisplayName: GlobalDev
+    DefaultTags:
+      Environment: GlobalDev
+      EnvironmentType: Development
+      CostCenter: Beacon
+    Aws:
+      AccountId: 854999447207
+      Region: us-east-1
+      Iam:
+        DeployerRole: gemini-deployer
+        PolicyArn: arn:aws:iam::854999447207:policy
+        RoleArn: arn:aws:iam::854999447207:role
+        DeployerEntities: group/devops
+
+  Pulumi:
+    Organization:
+      Name: pharos # pharos-dev
+      DisplayName: PharosDev
