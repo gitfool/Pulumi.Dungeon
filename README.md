@@ -8,30 +8,18 @@
 
 ## Build environment on Windows with [Visual Studio](https://visualstudio.microsoft.com/vs/)
 
-* Use [Chocolatey](https://chocolatey.org/) to install [Pulumi](https://github.com/pulumi/pulumi) from an elevated [PowerShell](https://github.com/PowerShell/PowerShell):
+* Use [Chocolatey](https://chocolatey.org) to install [Pulumi](https://github.com/pulumi/pulumi) from an elevated [PowerShell](https://github.com/PowerShell/PowerShell):
 > choco install pulumi
 
 Since Pulumi uses multiple executables, it excludes them from getting Chocolatey [shims](https://chocolatey.org/docs/features-shim#i-need-to-exclude-a-file-from-shimming), so add `C:\ProgramData\chocolatey\lib\pulumi\tools\Pulumi\bin` to the system `PATH` (after `C:\ProgramData\chocolatey\bin`).
 
-Use Chocolatey to upgrade Pulumi from an elevated PowerShell:
-> choco upgrade pulumi
+## Deploy environment
 
-or
-
-> choco upgrade pulumi --version {version}
-
-Check installed:
-> pulumi version
-
-* Use Chocolatey to install [Helm](https://github.com/helm/helm) from an elevated PowerShell:
-> choco install kubernetes-helm
-
-Check installed:
-> helm version
-
-* Manually install [Helm ECR](https://github.com/vetyy/helm-ecr) plugin (since [`helm plugin install`](https://helm.sh/docs/topics/plugins/#installing-a-plugin) is [broken on Windows](https://github.com/helm/helm/issues/7117)):
-  * Download latest Windows tarball from https://github.com/vetyy/helm-ecr/releases, currently [helm-ecr_0.1.4_windows_amd64.tar.gz](https://github.com/vetyy/helm-ecr/releases/download/v0.1.4/helm-ecr_0.1.4_windows_amd64.tar.gz)
-  * Extract tarball to `%APPDATA%\helm\plugins\helm-ecr`
-
-Check installed:
-> helm plugin list
+* Configure environment config in [Cli/config](https://github.com/gitfool/Pulumi.Dungeon/tree/main/Cli/config)
+  * [Cli/config/alpha](https://github.com/gitfool/Pulumi.Dungeon/blob/main/Cli/config/alpha.yaml) which extends [Cli/config/_global](https://github.com/gitfool/Pulumi.Dungeon/blob/main/Cli/config/_global.yaml)
+* Validate environment config
+  * `pulumi-dungeon config alpha [--yaml]`
+* Bootstrap environment to create aws deployer role and policy
+  * `pulumi-dungeon deploy alpha awsbootstrap`
+* Deploy environment stacks
+  * `pulumi-dungeon deploy alpha [--skip-preview] [--yes]`

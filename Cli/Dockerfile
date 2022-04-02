@@ -10,7 +10,7 @@ RUN apt-get update \
 
 # Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
 # renovate: datasource=github-tags depName=kubectl packageName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
-RUN version=1.23.4 \
+RUN version=1.23.5 \
     && curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && kubectl completion bash > /etc/bash_completion.d/kubectl \
@@ -38,7 +38,7 @@ ENV PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true \
     PULUMI_SKIP_UPDATE_CHECK=true
 
 # renovate: datasource=github-releases depName=pulumi packageName=pulumi/pulumi
-RUN version=3.26.1 \
+RUN version=3.28.0 \
     && curl -fsSL https://get.pulumi.com/releases/sdk/pulumi-v$version-linux-x64.tar.gz -o pulumi.tar.gz \
     && tar -xzf pulumi.tar.gz --directory /usr/local/bin --exclude *python* --no-same-owner --strip=1 \
     && rm -f pulumi.tar.gz \

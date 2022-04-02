@@ -1,0 +1,16 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Diagnostics.CodeAnalysis;
+global using System.Net;
+global using System.Net.Http;
+global using System.Runtime.CompilerServices;
+global using System.Threading.Tasks;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
+global using Pulumi.Dungeon.Aws;
+global using Pulumi.Kubernetes.Core.V1;
+global using Pulumi.Kubernetes.Helm.V3;
+global using Pulumi.Kubernetes.Types.Inputs.Core.V1;
+global using Pulumi.Kubernetes.Types.Inputs.Helm.V3;
+global using Pulumi.Kubernetes.Types.Inputs.Meta.V1;
+global using Pulumi.Kubernetes.Yaml;

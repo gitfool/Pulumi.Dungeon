@@ -1,20 +1,20 @@
 Dungeon:
   Commands:
     Deploy:
-      Repair: [ vi ]
+      Repair: vi
 
   Environment:
     Name: default
     DisplayName: Default
     Aws:
-      AccountId: 123456789012
       Ec2:
         EbsVolumeSize: 20
         EbsVolumeType: gp3
         InstanceType: t3.medium
+        InstanceTags: {}
         Monitoring: true
       Eks:
-        #LogTypes: [ api, audit, authenticator, controllerManager, scheduler ]
+        # LogTypes: api audit authenticator controllerManager scheduler
         Addons:
           CoreDns:
             Name: coredns
@@ -28,29 +28,51 @@ Dungeon:
         NodeGroups:
           Default:
             Name: default
+            EbsVolumeSize: 40
+            AutoScaling:
+              DesiredCapacity: 1
+              MinSize: 1
+              MaxSize: 2
+          Infra:
+            Name: infra
+            EbsVolumeSize: 40
+            Tainted: true
             AutoScaling:
               DesiredCapacity: 1
               MinSize: 1
               MaxSize: 2
           Monitoring:
             Name: monitoring
+            EbsVolumeSize: 40
             Tainted: true
             AutoScaling:
               DesiredCapacity: 1
               MinSize: 1
               MaxSize: 2
-      Iam:
-        DeployerRoleArn: arn:aws:iam::123456789012:role/deployer
       Vpc:
         MaxAvailabilityZones: 4
     K8s:
       Version: 1.21
       ContainerRuntime: containerd
+      # renovate: datasource=helm depName=aws-load-balancer-controller-chart packageName=aws-load-balancer-controller registryUrl=https://aws.github.io/eks-charts
+      AwsLbcChartVersion: 1.4.1
+      # renovate: datasource=helm depName=cert-manager-chart packageName=cert-manager registryUrl=https://charts.jetstack.io
+      CertManagerChartVersion: 1.7.2
+      # renovate: datasource=helm depName=cluster-autoscaler-chart packageName=cluster-autoscaler registryUrl=https://kubernetes.github.io/autoscaler
+      ClusterAutoscalerChartVersion: 9.16.2
+      # renovate: datasource=github-releases depName=cluster-autoscaler packageName=kubernetes/autoscaler extractVersion=^cluster-autoscaler-(?<version>\d+\.\d+\.\d+)$
+      ClusterAutoscalerImageTag: 1.21.2
+      # renovate: datasource=helm depName=external-dns-chart packageName=external-dns registryUrl=https://charts.bitnami.com/bitnami
+      ExternalDnsChartVersion: 6.2.3
+      # renovate: datasource=helm depName=fluent-bit-chart packageName=fluent-bit registryUrl=https://fluent.github.io/helm-charts
+      FluentBitChartVersion: 0.19.22
+      FluentBitImageRepository: public.ecr.aws/aws-observability/aws-for-fluent-bit
+      # renovate: # datasource=docker depName=aws-for-fluent-bit packageName=public.ecr.aws/aws-observability/aws-for-fluent-bit
+      # renovate: datasource=github-releases depName=aws-for-fluent-bit packageName=aws/aws-for-fluent-bit
+      FluentBitImageTag: 2.23.3
 
   Pulumi:
-    Organization:
-      Name: gitfool
-      DisplayName: Sean Fausett
+    Color: always
 
 Serilog:
   MinimumLevel:
