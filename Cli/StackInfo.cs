@@ -1,11 +1,8 @@
-using System;
+namespace Pulumi.Dungeon;
 
-namespace Pulumi.Dungeon
+public sealed record StackInfo
 {
-    public record StackInfo
-    {
-        public string ProjectName { get; init; } = default!;
-        public Type StackType { get; init; } = default!;
-        public string[]? Environments { get; init; }
-    }
+    public string ProjectName { get; init; } = null!;
+    public Type StackType { get; init; } = null!;
+    public string[]? Environments { get; init; }
 }

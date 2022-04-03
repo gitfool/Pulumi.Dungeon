@@ -19,7 +19,7 @@
     <PublishSingleFile>true</PublishSingleFile>
     <PublishTrimmed>true</PublishTrimmed>
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
-    <TrimMode>link</TrimMode>
+    <TrimMode>copyused</TrimMode>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,22 +29,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Json.More.Net" Version="1.4.4" />
-    <PackageReference Include="JsonPath.Net" Version="0.1.14" />
+    <PackageReference Include="Json.More.Net" Version="1.5.0" />
+    <PackageReference Include="JsonPath.Net" Version="0.2.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="NetEscapades.Configuration.Yaml" Version="2.2.0" />
-    <PackageReference Include="Pulumi.Automation" Version="3.26.1" />
+    <PackageReference Include="Pulumi.Automation" Version="3.28.0" />
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="4.2.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.1.1" />
-    <PackageReference Include="Spectre.Console" Version="0.43.0" />
+    <PackageReference Include="Spectre.Console" Version="0.44.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="config\*.yaml">
+    <None Update="config\**\*.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

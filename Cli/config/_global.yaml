@@ -1,0 +1,19 @@
+Dungeon:
+  Environment:
+    Name: global
+    DisplayName: Global
+    DefaultTags:
+      Environment: Global
+    Aws:
+      AccountId: 123456789012
+      Region: us-east-1
+      Iam:
+        DeployerRole: deployer
+        PolicyArn: arn:aws:iam::123456789012:policy
+        RoleArn: arn:aws:iam::123456789012:role
+        DeployerEntities: group/devops
+
+  Pulumi:
+    Organization:
+      Name: gitfool
+      DisplayName: Sean Fausett

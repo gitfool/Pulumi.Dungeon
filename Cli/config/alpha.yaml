@@ -1,7 +1,11 @@
+# extends: _global
+
 Dungeon:
   Environment:
     Name: alpha
     DisplayName: Alpha
+    DefaultTags:
+      Environment: Alpha
     Aws:
       AccountId: 123456789012
       Region: us-east-1

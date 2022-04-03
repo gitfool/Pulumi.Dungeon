@@ -1,7 +1,7 @@
 Dungeon:
   Commands:
     Deploy:
-      Repair: [ code.cmd, --new-window, --wait ]
+      Repair: code.cmd --new-window --wait
 
   Environment:
     Name: development

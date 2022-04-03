@@ -1,11 +1,11 @@
-namespace Pulumi.Dungeon
+namespace Pulumi.Dungeon;
+
+public enum Stacks
 {
-    public enum Stacks
-    {
-        All,
-        Aws,
-        AwsVpc,
-        AwsEks,
-        K8s
-    }
+    All,
+    AwsBootstrap,
+    Aws,
+    AwsVpc,
+    AwsEks,
+    K8s
 }

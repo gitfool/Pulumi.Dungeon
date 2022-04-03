@@ -2,6 +2,12 @@
   "version": 1,
   "dependencies": {
     ".NETCoreApp,Version=v5.0": {
+      "FluentValidation": {
+        "type": "Direct",
+        "requested": "[10.4.0, )",
+        "resolved": "10.4.0",
+        "contentHash": "rVI1b5L3pq3layrRKIo3N7AT3PWey8ocPZhf6zeHYf6LBBvnP1KzW3bm7KmeazOWW8m1KXMD+shfviIcKSgQ0g=="
+      },
       "Microsoft.Extensions.Logging.Abstractions": {
         "type": "Direct",
         "requested": "[6.0.1, )",
@@ -34,17 +40,17 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.26.1, )",
-        "resolved": "3.26.1",
-        "contentHash": "Zup4J2QEXR2TJVy7OO9XnsdPDI+fVgpsFfjNdGGo5OpD38XnDQFUEgUse8gOtUaqQxmd9T8j4rH0UuGkYfnL8g==",
+        "requested": "[3.28.0, )",
+        "resolved": "3.28.0",
+        "contentHash": "KSDM1cMAgHW0sRWBK3vUuZXRttTmlD8BxBxjS6r3jluStHUHL3Gt5A/Sv4ZTde9l141i86ipLDRQQro0Lzl0cw==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
-          "Grpc": "2.37.0",
+          "Grpc.Net.Client": "2.43.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.16",
           "OneOf": "2.1.151",
           "Pulumi.Protobuf": "3.13.0",
           "Serilog.Extensions.Logging": "3.0.1",
-          "Serilog.Sinks.Console": "3.1.1",
+          "Serilog.Sinks.Console": "4.0.1",
           "semver": "2.0.6"
         }
       },
@@ -59,19 +65,19 @@
       },
       "Pulumi.Kubernetes": {
         "type": "Direct",
-        "requested": "[3.16.0, )",
-        "resolved": "3.16.0",
-        "contentHash": "59N4+b8Yk9YmZjN4zXCzNcmNaN8dbBJ+mwYlvHXOQKzIcbq9bgxZf+6zSk03OVQtPKN4HlFRUMODbkRpY0hKNw==",
+        "requested": "[3.18.0, )",
+        "resolved": "3.18.0",
+        "contentHash": "QsHHomfn1HICgT/brp/jNHsDlQxvcHg6+w09ym4o1DyzmZYuT/jYS3bPHlr14n6pVPWx7TDsfPbG7yQnGiKRkw==",
         "dependencies": {
           "Glob": "1.1.5",
-          "Pulumi": "3.24.1"
+          "Pulumi": "3.27.0"
         }
       },
       "Scriban": {
         "type": "Direct",
-        "requested": "[5.4.0, )",
-        "resolved": "5.4.0",
-        "contentHash": "gx+ArfJeanLPO2b5mnSsK8FqgMvhrRqqOOisRPhofWU44qfuCQU4G0GJfJziauu4PLMdMg2ArnhD7CMHaFwzLQ=="
+        "requested": "[5.4.2, )",
+        "resolved": "5.4.2",
+        "contentHash": "LK7dRpkeQjSVPUGZFuwHnDeXtVHQrRKhf1CYPYe0gME8JmzM+DJjYiOEkl6FY+VxSfMpo9xingqx8i6WxycZ8Q=="
       },
       "YamlDotNet": {
         "type": "Direct",
@@ -92,29 +98,29 @@
         "resolved": "1.1.5",
         "contentHash": "N1kGneRrxfXn933JAIB61LCGPu+WEbr+qObpGqNNw125nQbuGusoBLe6skj7D0Zyjzhmrc2IdEx32ijYEdGdEA=="
       },
-      "Grpc": {
-        "type": "Transitive",
-        "resolved": "2.37.0",
-        "contentHash": "Hl4+qpEfTvKP95diLRZMi3nAaPp91myTuM8Z/lmC9XsbxUroMR4OM0HMKNC9rty2Gz+CHq4mq/E7CBqbcVdnPA==",
-        "dependencies": {
-          "Grpc.Core": "2.37.0"
-        }
-      },
-      "Grpc.Core": {
-        "type": "Transitive",
-        "resolved": "2.37.0",
-        "contentHash": "bOmeCLyygA3ZWB7XOjPH5qWcfsw20XNWUA1AMQbFvBig3pXQR0Tz7FMSqLFW0oa34E0iiIlgROFoncOVBfVnRw==",
-        "dependencies": {
-          "Grpc.Core.Api": "2.37.0",
-          "System.Memory": "4.5.3"
-        }
-      },
       "Grpc.Core.Api": {
         "type": "Transitive",
-        "resolved": "2.37.0",
-        "contentHash": "ubqW2nTpiHyDudYGVXM+Vjh6WbgsI1fVQxsDK14/GnyPgiNMuNl8+GQcAYp5QPhAk5H4fjHJPI+KvbpVk8z6iQ==",
+        "resolved": "2.43.0",
+        "contentHash": "mikPMVE2I1AaNde1JQvR3ud8HsUmpeA4blqTt4SfCnDSNVN1GCd2UUEZsiID4MRPUzXwflMYl7/HhFytb6d+Ww==",
         "dependencies": {
           "System.Memory": "4.5.3"
+        }
+      },
+      "Grpc.Net.Client": {
+        "type": "Transitive",
+        "resolved": "2.43.0",
+        "contentHash": "ZhkxEOT3YPsJufsSYwIixwnPyZbjy3xOZgO61J2ZwEby3StwBDFQ5eHoxSjNVSpOP+ax8WMbgbmZfzjO+hBW8A==",
+        "dependencies": {
+          "Grpc.Net.Common": "2.43.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
+        }
+      },
+      "Grpc.Net.Common": {
+        "type": "Transitive",
+        "resolved": "2.43.0",
+        "contentHash": "kt0Hb1N1tlb5UdN17bTHEPNbKP3LUHEZQSKD47etAVI5KLDtmVGO4YsUGM/krrNMwHRjhUCy0EhUU8uVMc3upA==",
+        "dependencies": {
+          "Grpc.Core.Api": "2.43.0"
         }
       },
       "Microsoft.Build.Tasks.Git": {
@@ -355,11 +361,8 @@
       },
       "Serilog": {
         "type": "Transitive",
-        "resolved": "2.8.0",
-        "contentHash": "zjuKXW5IQws43IHX7VY9nURsaCiBYh2kyJCWLJRSWrTsx/syBKHV8MibWe2A+QH3Er0AiwA+OJmO3DhFJDY1+A==",
-        "dependencies": {
-          "System.Collections.NonGeneric": "4.3.0"
-        }
+        "resolved": "2.10.0",
+        "contentHash": "+QX0hmf37a0/OZLxM3wL7V6/ADvC1XihXN4Kq/p6d8lCPfgkRdiuhbWlMaFjR9Av0dy5F0+MBeDmDdRZN/YwQA=="
       },
       "Serilog.Extensions.Logging": {
         "type": "Transitive",
@@ -372,13 +375,10 @@
       },
       "Serilog.Sinks.Console": {
         "type": "Transitive",
-        "resolved": "3.1.1",
-        "contentHash": "56mI5AqvyF/i/c2451nvV71kq370XOCE4Uu5qiaJ295sOhMb9q3BWwG7mWLOVSnmpWiq0SBT3SXfgRXGNP6vzA==",
+        "resolved": "4.0.1",
+        "contentHash": "apLOvSJQLlIbKlbx+Y2UDHSP05kJsV7mou+fvJoRGs/iR+jC22r8cuFVMjjfVxz/AD4B2UCltFhE1naRLXwKNw==",
         "dependencies": {
-          "Serilog": "2.5.0",
-          "System.Console": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
+          "Serilog": "2.10.0"
         }
       },
       "System.AppContext": {
@@ -419,19 +419,6 @@
           "System.Runtime.Extensions": "4.3.0",
           "System.Threading": "4.3.0",
           "System.Threading.Tasks": "4.3.0"
-        }
-      },
-      "System.Collections.NonGeneric": {
-        "type": "Transitive",
-        "resolved": "4.3.0",
-        "contentHash": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
-        "dependencies": {
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Threading": "4.3.0"
         }
       },
       "System.Console": {

@@ -1,17 +1,13 @@
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
+namespace Pulumi.Dungeon;
 
-namespace Pulumi.Dungeon
+public static class Program
 {
-    public static class Program
-    {
-        public static Task<int> Main(string[] args) =>
-            CreateHostBuilder(args).RunCommandAsync(args);
+    public static Task<int> Main(string[] args) =>
+        CreateHostBuilder(args).RunCommandAsync(args);
 
-        private static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration(args)
-                .ConfigureServices()
-                .UseSerilog();
-    }
+    private static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration(args)
+            .ConfigureServices()
+            .UseSerilog();
 }

@@ -1,39 +1,31 @@
-using System;
-using System.Diagnostics.CodeAnalysis;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Spectre.Console;
-using Spectre.Console.Cli;
+namespace Pulumi.Dungeon;
 
-namespace Pulumi.Dungeon
+public abstract class CommandBase<TSettings> : Command<TSettings> where TSettings : CommandSettings
 {
-    public abstract class CommandBase<TSettings> : Command<TSettings> where TSettings : CommandSettings
+    protected CommandBase(IOptions<Config> options, ILoggerFactory loggerFactory, ILogger logger)
     {
-        protected CommandBase(IOptions<Config> options, ILoggerFactory loggerFactory, ILogger logger)
-        {
-            Config = options.Value;
-            LoggerFactory = loggerFactory;
-            Logger = logger;
-        }
-
-        // ReSharper disable once RedundantNullableFlowAttribute
-        public override int Execute([NotNull] CommandContext context, [NotNull] TSettings settings)
-        {
-            try
-            {
-                return OnExecute(context, settings);
-            }
-            catch (Exception ex)
-            {
-                AnsiConsole.WriteException(ex, ExceptionFormats.ShortenPaths);
-                return -1;
-            }
-        }
-
-        protected abstract int OnExecute(CommandContext context, TSettings settings);
-
-        protected Config Config { get; }
-        protected ILoggerFactory LoggerFactory { get; }
-        protected ILogger Logger { get; }
+        Config = options.Value;
+        LoggerFactory = loggerFactory;
+        Logger = logger;
     }
+
+    // ReSharper disable once RedundantNullableFlowAttribute
+    public override int Execute([NotNull] CommandContext context, [NotNull] TSettings settings)
+    {
+        try
+        {
+            return OnExecute(context, settings);
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.WriteException(ex, ExceptionFormats.ShortenPaths);
+            return -1;
+        }
+    }
+
+    protected abstract int OnExecute(CommandContext context, TSettings settings);
+
+    protected Config Config { get; }
+    protected ILoggerFactory LoggerFactory { get; }
+    protected ILogger Logger { get; }
 }
