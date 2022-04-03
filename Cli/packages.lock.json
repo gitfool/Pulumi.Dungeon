@@ -13,13 +13,11 @@
       },
       "JsonPath.Net": {
         "type": "Direct",
-        "requested": "[0.2.0, )",
-        "resolved": "0.2.0",
-        "contentHash": "w2j7GRB2wwyQnsv2gk/3/I+lb4UIy2Y7S99p7/8nzKfnlrYq4vGEtk6iW0wnxqmRbk/aAlma9Qc4PzicoPWRWw==",
+        "requested": "[0.2.1, )",
+        "resolved": "0.2.1",
+        "contentHash": "jZTc0XzedUWFHlg8GyqPdCfwh87nvGoirOQK677qrh6IxakZ5cgYxdU+4Slo1UpZN9UtfyI2WmsGWFMmvOS5ag==",
         "dependencies": {
-          "Json.More.Net": "1.4.4",
-          "JsonPointer.Net": "2.1.0",
-          "System.Text.Json": "4.7.2"
+          "JsonPointer.Net": "2.2.0"
         }
       },
       "Microsoft.Extensions.Hosting": {
@@ -264,11 +262,10 @@
       },
       "JsonPointer.Net": {
         "type": "Transitive",
-        "resolved": "2.1.0",
-        "contentHash": "T/upKtpS8MWV1Th90bnyWtcs+vt9WRcrH2BSQIXkIDNwwcdoUxfhJkO+mrtCSlkyCOREbHrV3KeT1U2oL+n+6w==",
+        "resolved": "2.2.0",
+        "contentHash": "vOueUWJ5dHCntfqECHJcXzZwHj0mFxsEn01ZD4WawxZmBky8I8l6/RBidyeeoRD2K5gKOkjupwHacBk0IdZjWw==",
         "dependencies": {
-          "Json.More.Net": "1.4.4",
-          "System.Text.Json": "4.7.2"
+          "Json.More.Net": "1.5.0"
         }
       },
       "KubernetesClient": {
@@ -844,8 +841,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.4.2",
-        "contentHash": "LK7dRpkeQjSVPUGZFuwHnDeXtVHQrRKhf1CYPYe0gME8JmzM+DJjYiOEkl6FY+VxSfMpo9xingqx8i6WxycZ8Q=="
+        "resolved": "5.4.3",
+        "contentHash": "36uSlEItJQirYvYShauiNDdeHhdxQBgA82U75OSN9VxQk85LbBBboCsu1nSlQs7ULTS+8tHMrgiZgpCpZFhc0g=="
       },
       "Semver": {
         "type": "Transitive",
@@ -1724,7 +1721,7 @@
           "Pulumi": "3.28.0",
           "Pulumi.Aws": "4.38.1",
           "Pulumi.Kubernetes": "3.18.0",
-          "Scriban": "5.4.2",
+          "Scriban": "5.4.3",
           "YamlDotNet": "11.2.1"
         }
       }
