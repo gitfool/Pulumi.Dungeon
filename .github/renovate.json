@@ -4,6 +4,13 @@
     "config:base",
     "local>gitfool/.github:renovate-default"
   ],
+  "packageRules": [
+    {
+      "matchSourceUrlPrefixes": [ "https://github.com/pulumi/" ],
+      "groupName": "pulumi dependencies",
+      "groupSlug": "pulumi"
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": [ "^Cli/DeployCommand\\.cs$" ],
