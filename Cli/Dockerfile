@@ -4,9 +4,9 @@ LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
 # Install packages
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y bash-completion curl vim \
-    && mkdir -p /etc/bash_completion.d \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get install --no-install-recommends -y bash-completion curl sudo vim \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /etc/bash_completion.d
 
 # Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
 # renovate: datasource=github-tags depName=kubectl packageName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
@@ -48,9 +48,6 @@ RUN version=3.28.0 \
 # Add non-root user
 RUN groupadd --gid 1000 user \
     && useradd --uid 1000 --gid 1000 --shell /bin/bash -m user \
-    && apt-get update \
-    && apt-get install --no-install-recommends -y sudo \
-    && rm -rf /var/lib/apt/lists/* \
     && echo "user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/user \
     && chmod 0440 /etc/sudoers.d/user
 
@@ -63,13 +60,6 @@ RUN echo "alias k='kubectl'\ncomplete -o default -F __start_kubectl k" >> ~/.bas
     && echo "alias ls='ls --color=auto --group-directories-first'" >> ~/.bash_aliases \
     && helm repo add stable https://charts.helm.sh/stable \
     && helm repo update
-
-# renovate: datasource=github-releases depName=helm-ecr packageName=vetyy/helm-ecr
-RUN version=0.1.4 \
-    && mkdir -p ~/.local/share/helm/plugins/helm-ecr \
-    && curl -fsSL https://github.com/vetyy/helm-ecr/releases/download/v$version/helm-ecr_${version}_linux_amd64.tar.gz -o ~/helm-ecr.tar.gz \
-    && tar -xzf ~/helm-ecr.tar.gz --directory ~/.local/share/helm/plugins/helm-ecr --no-same-owner \
-    && rm -f ~/helm-ecr.tar.gz
 
 # Install dungeon
 ENV DOTNET_HostBuilder__ReloadConfigOnChange=false
