@@ -38,9 +38,7 @@ public abstract class StackBase<TStack> : Stack where TStack : Stack
             {
                 EnableReplaceCRD = true, // workaround https://github.com/pulumi/pulumi-kubernetes/issues/1883
                 KubeConfig = kubeConfig,
-                KubeClientSettings = new KubeClientSettingsArgs { Qps = 50, Burst = 100 },
-                SuppressDeprecationWarnings = true,
-                SuppressHelmHookWarnings = true
+                KubeClientSettings = new KubeClientSettingsArgs { Qps = 50, Burst = 100 }
             });
 
     protected StackReference CreateStackReference(Stacks stack) => new($"{Config.Pulumi.Organization.Name}/{stack.ToName()}/{EnvName}");
