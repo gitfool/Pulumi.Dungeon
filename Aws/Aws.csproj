@@ -13,7 +13,7 @@
     <PackageReference Include="IPNetwork2" Version="2.5.402" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Pulumi" Version="3.28.0" />
-    <PackageReference Include="Pulumi.Aws" Version="4.38.1" />
+    <PackageReference Include="Pulumi.Aws" Version="5.1.2" />
     <PackageReference Include="Pulumi.Tls" Version="4.1.0" />
   </ItemGroup>
 

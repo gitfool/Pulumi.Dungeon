@@ -56,11 +56,11 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[4.38.1, )",
-        "resolved": "4.38.1",
-        "contentHash": "SbnrsFRh6I3LcHTUFrXuP7s1jdx/OTfAEuFfDXzymTzSDc58m8NXdcoD4soBNmz61LKFdhq5ieNoe41eqMa9qA==",
+        "requested": "[5.1.2, )",
+        "resolved": "5.1.2",
+        "contentHash": "nfL0MCLy6WX3AOcuLs4ATLhD5v8alohp/dNafH6KXYkY6t/3QrHbrp/DwJD7djxP2gi9EpVdQ/tvDgie48jyQg==",
         "dependencies": {
-          "Pulumi": "3.26.1"
+          "Pulumi": "3.28.0"
         }
       },
       "Pulumi.Kubernetes": {
