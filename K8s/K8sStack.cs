@@ -122,7 +122,7 @@ public sealed class K8sStack : StackBase<K8sStack>
             },
             new CustomResourceOptions { DependsOn = kubePrometheusStackCrds.Ready(), Provider = k8sProvider });
 
-        // cert manager; https://github.com/jetstack/cert-manager/tree/master/deploy/charts/cert-manager
+        // cert manager; https://github.com/cert-manager/cert-manager/tree/master/deploy/charts/cert-manager
         Logger.LogDebug("Installing cert manager");
         var certManagerRole = new RoleX($"{k8sPrefix}-cert-manager",
             new RoleXArgs
