@@ -248,13 +248,7 @@ public sealed class EksStack : StackBase<EksStack>
                         MaxSize = nodeGroup.AutoScaling.MaxSize
                     },
                     Labels = { ["role"] = nodeGroup.Name },
-                    Taints = nodeGroup.Tainted
-                        ? new NodeGroupTaintArgs[]
-                        {
-                            new() { Key = "role", Value = nodeGroup.Name, Effect = "NO_EXECUTE" },
-                            new() { Key = "role", Value = nodeGroup.Name, Effect = "NO_SCHEDULE" }
-                        }
-                        : Array.Empty<NodeGroupTaintArgs>(),
+                    Taints = nodeGroup.Tainted ? new NodeGroupTaintArgs[] { new() { Key = "role", Value = nodeGroup.Name, Effect = "NO_SCHEDULE" } } : Array.Empty<NodeGroupTaintArgs>(),
                     UpdateConfig = new NodeGroupUpdateConfigArgs { MaxUnavailable = 2 }
                 },
                 new CustomResourceOptions { DependsOn = awsAuth.Ready(), Protect = true, Provider = awsProvider });
