@@ -59,6 +59,7 @@
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",
         "ec2:DescribeTags",
+        "ec2:DescribeTransitGatewayAttachments",
         "ec2:DescribeTransitGateways",
         "ec2:DescribeTransitGatewayVpcAttachments",
         "ec2:DescribeVolumeAttribute",
@@ -175,21 +176,7 @@
         "arn:aws:iam::{{ aws.accountId }}:role/*-aws-eks-addons-vpc-cni-*",
         "arn:aws:iam::{{ aws.accountId }}:role/*-aws-eks-cluster-*",
         "arn:aws:iam::{{ aws.accountId }}:role/*-aws-eks-node-*"
-      ],
-      "Condition": {
-        "StringEquals": {
-          "iam:PassedToService": [
-            "ec2.amazonaws.com",
-            "eks.amazonaws.com"
-          ]
-        },
-        "StringLike": {
-          "iam:AssociatedResourceARN": [
-            "arn:aws:ec2:*:{{ aws.accountId }}:instance/*",
-            "arn:aws:eks:*:{{ aws.accountId }}:*"
-          ]
-        }
-      }
+      ]
     }
   ]
 }
