@@ -41,9 +41,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.28.0, )",
-        "resolved": "3.28.0",
-        "contentHash": "KSDM1cMAgHW0sRWBK3vUuZXRttTmlD8BxBxjS6r3jluStHUHL3Gt5A/Sv4ZTde9l141i86ipLDRQQro0Lzl0cw==",
+        "requested": "[3.29.0-alpha.1649268066, )",
+        "resolved": "3.29.0-alpha.1649268066",
+        "contentHash": "TP7zji+uSlA//pw0p/DOZEi9eSMjDzo3rToV18N4pkAfQZ8zThOLS7hNItMZJ7kaVtN5iGCy1NGwp+bqpuR7bw==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc.Net.Client": "2.43.0",
@@ -66,12 +66,12 @@
       },
       "Pulumi.Kubernetes": {
         "type": "Direct",
-        "requested": "[3.18.0, )",
-        "resolved": "3.18.0",
-        "contentHash": "QsHHomfn1HICgT/brp/jNHsDlQxvcHg6+w09ym4o1DyzmZYuT/jYS3bPHlr14n6pVPWx7TDsfPbG7yQnGiKRkw==",
+        "requested": "[3.18.2, )",
+        "resolved": "3.18.2",
+        "contentHash": "h9kgaKJ8HsoPZmQFpwtEtS20+G6dIn4UyWJra/YY7uUqQsToCrD83TDqldJ6SKvPJN152ASk7hrDXUZzZd9yWQ==",
         "dependencies": {
           "Glob": "1.1.5",
-          "Pulumi": "3.27.0"
+          "Pulumi": "3.28.0"
         }
       },
       "Pulumi.Random": {
@@ -1156,9 +1156,9 @@
           "FluentValidation": "10.4.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
           "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.28.0",
+          "Pulumi": "3.29.0-alpha.1649268066",
           "Pulumi.Aws": "5.1.2",
-          "Pulumi.Kubernetes": "3.18.0",
+          "Pulumi.Kubernetes": "3.18.2",
           "Scriban": "5.4.3",
           "YamlDotNet": "11.2.1"
         }

@@ -12,9 +12,9 @@
     <PackageReference Include="Flurl.Http" Version="3.2.2" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Polly" Version="7.2.3" />
-    <PackageReference Include="Pulumi" Version="3.28.0" />
+    <PackageReference Include="Pulumi" Version="3.29.0-alpha.1649268066" />
     <PackageReference Include="Pulumi.Aws" Version="5.1.2" />
-    <PackageReference Include="Pulumi.Kubernetes" Version="3.18.0" />
+    <PackageReference Include="Pulumi.Kubernetes" Version="3.18.2" />
     <PackageReference Include="Pulumi.Random" Version="4.4.2" />
   </ItemGroup>
 
