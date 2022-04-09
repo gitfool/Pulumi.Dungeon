@@ -47,7 +47,15 @@ public sealed class K8sStack : StackBase<K8sStack>
 
         // fluent bit; https://github.com/fluent/helm-charts/tree/main/charts/fluent-bit
         Logger.LogDebug("Installing fluent bit");
-        var fluentBitValues =
+        var fluentBitRole = new RoleX($"{k8sPrefix}-fluent-bit",
+            new RoleXArgs
+            {
+                AssumeRolePolicy = IamHelpers.AssumeRoleForServiceAccount(oidcArn, oidcUrl, "kube-system", "fluent-bit", awsProvider),
+                InlinePolicies = { ["policy"] = ReadResource("FluentBitPolicy.json") }
+            },
+            new ComponentResourceOptions { Provider = awsProvider });
+
+        var fluentBitValues = fluentBitRole.Arn.Apply(roleArn =>
             new Dictionary<string, object>
             {
                 ["image"] = new
@@ -57,6 +65,15 @@ public sealed class K8sStack : StackBase<K8sStack>
                     pullPolicy = "IfNotPresent"
                 },
                 ["logLevel"] = "warning",
+                ["config"] = new
+                {
+                    service = ReadResource("FluentBitService.ini"),
+                    inputs = ReadResource("FluentBitInputs.ini"),
+                    filters = ReadResource("FluentBitFilters.ini"),
+                    outputs = ReadResource("FluentBitOutputs.ini"),
+                    customParsers = ReadResource("FluentBitParsers.ini")
+                },
+                ["luaScripts"] = new Dictionary<string, string> { ["filters.lua"] = ReadResource("FluentBitFilters.lua") },
                 ["priorityClassName"] = "system-cluster-critical",
                 ["resources"] = new
                 {
@@ -84,24 +101,13 @@ public sealed class K8sStack : StackBase<K8sStack>
                     }
                 },
                 ["dashboards"] = new { enabled = true },
-                ["config"] = new
-                {
-                    service = ReadResource("FluentBitService.ini"),
-                    inputs = ReadResource("FluentBitInputs.ini"),
-                    filters = ReadResource("FluentBitFilters.ini"),
-                    outputs = ReadResource("FluentBitOutputs.ini"),
-                    customParsers = ReadResource("FluentBitParsers.ini")
-                },
-                ["luaScripts"] = new Dictionary<string, string>
-                {
-                    ["filters.lua"] = ReadResource("FluentBitFilters.lua")
-                },
+                ["serviceAccount"] = new { annotations = new Dictionary<string, string> { ["eks.amazonaws.com/role-arn"] = roleArn } },
                 ["tolerations"] = new[]
                 {
                     new { effect = "NoExecute", @operator = "Exists" },
                     new { effect = "NoSchedule", @operator = "Exists" }
                 }
-            }.ToDictionary(); // workaround https://github.com/pulumi/pulumi/issues/8013
+            }.ToDictionary()); // workaround https://github.com/pulumi/pulumi/issues/8013
 
         new Release("fluent-bit",
             new ReleaseArgs
@@ -297,12 +303,12 @@ public sealed class K8sStack : StackBase<K8sStack>
                 ["registry"] = "txt",
                 ["txtOwnerId"] = AwsConfig.Route53.Internal.Domain,
                 ["txtSuffix"] = "-txt",
-                ["serviceAccount"] = new { annotations = new Dictionary<string, string> { ["eks.amazonaws.com/role-arn"] = roleArn } },
                 ["metrics"] = new
                 {
                     enabled = true,
                     serviceMonitor = new { enabled = true }
                 },
+                ["serviceAccount"] = new { annotations = new Dictionary<string, string> { ["eks.amazonaws.com/role-arn"] = roleArn } },
                 ["nodeSelector"] = new { role = "infra" },
                 ["tolerations"] = new[] { new { key = "role", @operator = "Exists" } }
             }.ToDictionary()); // workaround https://github.com/pulumi/pulumi/issues/8013
