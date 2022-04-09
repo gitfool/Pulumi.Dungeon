@@ -39,14 +39,24 @@ public sealed class EksStack : StackBase<EksStack>
         var fullAccessRole = new RoleX($"{awsEksPrefix}-full-access",
             new RoleXArgs
             {
-                AssumeRolePolicy = IamHelpers.AssumeRoleForAccount(AwsConfig.AccountId, awsProvider),
+                RoleArgs = new RoleArgs
+                {
+                    Name = $"{awsEksPrefix}-full-access",
+                    AssumeRolePolicy = IamHelpers.AssumeRoleForAccount(AwsConfig.AccountId, awsProvider)
+                },
+                RoleOptions = new CustomResourceOptions { DeleteBeforeReplace = true },
                 InlinePolicies = { ["policy"] = ReadResource("EksFullAccess.json") }
             },
             new ComponentResourceOptions { Provider = awsProvider });
         var readOnlyRole = new RoleX($"{awsEksPrefix}-read-only",
             new RoleXArgs
             {
-                AssumeRolePolicy = IamHelpers.AssumeRoleForAccount(AwsConfig.AccountId, awsProvider),
+                RoleArgs = new RoleArgs
+                {
+                    Name = $"{awsEksPrefix}-read-only",
+                    AssumeRolePolicy = IamHelpers.AssumeRoleForAccount(AwsConfig.AccountId, awsProvider)
+                },
+                RoleOptions = new CustomResourceOptions { DeleteBeforeReplace = true },
                 InlinePolicies = { ["policy"] = ReadResource("EksReadOnly.json") }
             },
             new ComponentResourceOptions { Provider = awsProvider });
@@ -55,14 +65,24 @@ public sealed class EksStack : StackBase<EksStack>
         new PolicyX($"{awsEksPrefix}-full-access",
             new PolicyXArgs
             {
-                PolicyDocument = IamHelpers.AllowActionForResource("sts:AssumeRole", fullAccessRole.Arn, awsProvider),
+                PolicyArgs = new PolicyArgs
+                {
+                    Name = $"{awsEksPrefix}-full-access",
+                    PolicyDocument = IamHelpers.AllowActionForResource("sts:AssumeRole", fullAccessRole.Arn, awsProvider)
+                },
+                PolicyOptions = new CustomResourceOptions { DeleteBeforeReplace = true },
                 AttachedEntities = AwsConfig.Iam.EksFullAccessEntities.ToArray()
             },
             new ComponentResourceOptions { Provider = awsProvider });
         new PolicyX($"{awsEksPrefix}-read-only",
             new PolicyXArgs
             {
-                PolicyDocument = IamHelpers.AllowActionForResource("sts:AssumeRole", readOnlyRole.Arn, awsProvider),
+                PolicyArgs = new PolicyArgs
+                {
+                    Name = $"{awsEksPrefix}-read-only",
+                    PolicyDocument = IamHelpers.AllowActionForResource("sts:AssumeRole", readOnlyRole.Arn, awsProvider)
+                },
+                PolicyOptions = new CustomResourceOptions { DeleteBeforeReplace = true },
                 AttachedEntities = AwsConfig.Iam.EksReadOnlyEntities.ToArray()
             },
             new ComponentResourceOptions { Provider = awsProvider });

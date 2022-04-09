@@ -11,7 +11,11 @@ public sealed class BootstrapStack : StackBase<BootstrapStack>
         var deployerRole = new RoleX(AwsConfig.Iam.DeployerRole,
             new RoleXArgs
             {
-                RoleArgs = new RoleArgs { Name = AwsConfig.Iam.DeployerRole, AssumeRolePolicy = IamHelpers.AssumeRoleForAccount(AwsConfig.AccountId, awsProvider) },
+                RoleArgs = new RoleArgs
+                {
+                    Name = AwsConfig.Iam.DeployerRole,
+                    AssumeRolePolicy = IamHelpers.AssumeRoleForAccount(AwsConfig.AccountId, awsProvider)
+                },
                 RoleOptions = new CustomResourceOptions { DeleteBeforeReplace = true },
                 InlinePolicies = { ["policy"] = RenderTemplate("AwsDeployerPolicy.json", ReadResource, new { Aws = AwsConfig }) }
             },
@@ -21,7 +25,11 @@ public sealed class BootstrapStack : StackBase<BootstrapStack>
         new PolicyX(AwsConfig.Iam.DeployerRole,
             new PolicyXArgs
             {
-                PolicyArgs = new PolicyArgs { Name = AwsConfig.Iam.DeployerRole, PolicyDocument = IamHelpers.AllowActionForResource("sts:AssumeRole", deployerRole.Arn, awsProvider) },
+                PolicyArgs = new PolicyArgs
+                {
+                    Name = AwsConfig.Iam.DeployerRole,
+                    PolicyDocument = IamHelpers.AllowActionForResource("sts:AssumeRole", deployerRole.Arn, awsProvider)
+                },
                 PolicyOptions = new CustomResourceOptions { DeleteBeforeReplace = true },
                 AttachedEntities = AwsConfig.Iam.DeployerEntities.ToArray()
             },
