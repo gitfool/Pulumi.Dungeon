@@ -9,6 +9,8 @@ Dungeon:
     Aws:
       AccountId: 123456789012
       Region: us-west-2
+      Ec2:
+        KeyName: beta
       Route53:
         Internal:
           Domain: beta.aws

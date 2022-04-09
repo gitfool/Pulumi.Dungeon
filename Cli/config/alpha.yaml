@@ -9,6 +9,8 @@ Dungeon:
     Aws:
       AccountId: 123456789012
       Region: us-east-1
+      Ec2:
+        KeyName: alpha
       Route53:
         Internal:
           Domain: alpha.aws
