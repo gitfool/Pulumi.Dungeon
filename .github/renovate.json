@@ -6,6 +6,14 @@
   ],
   "packageRules": [
     {
+      "description": "Constrain cluster autoscaler to 1.21.x to match k8s version.",
+      "matchManagers": [ "regex" ],
+      "matchPackageNames": [ "cluster-autoscaler" ],
+      "matchCurrentVersion": "/^1\\.21\\./",
+      "allowedVersions": "/^1\\.21\\./"
+    },
+    {
+      "description": "Group pulumi dependencies.",
       "matchSourceUrlPrefixes": [ "https://github.com/pulumi/" ],
       "groupName": "pulumi dependencies",
       "groupSlug": "pulumi"
@@ -13,6 +21,14 @@
   ],
   "regexManagers": [
     {
+      "description": "Match default config.",
+      "fileMatch": [ "^Cli/config/_default\\.yaml$" ],
+      "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?(?: registryUrl=(?<registryUrl>.+?))?(?: depType=(?<depType>.+?))?(?: extractVersion=(?<extractVersion>.+?))?(?: versioning=(?<versioning>.+?))?\\s+.+?: (?<currentValue>.+?)\\s" ],
+      "depTypeTemplate": "{{#if depType}}{{depType}}{{else}}config{{/if}}",
+      "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.+)${{/if}}"
+    },
+    {
+      "description": "Match pulumi plugins.",
       "fileMatch": [ "^Cli/DeployCommand\\.cs$" ],
       "matchStrings": [
         "// renovate: datasource=(?<datasource>.+?)\\s+RequiredPlugins = new\\[\\]\\s+{[^}]+}",
