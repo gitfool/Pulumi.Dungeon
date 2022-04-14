@@ -37,7 +37,7 @@ public sealed partial class DeployCommand : AsyncCommandBase<DeployCommand.Setti
             "aws v5.1.2",
             "kubernetes v3.18.2",
             "random v4.4.2",
-            "tls v4.2.0"
+            "tls v4.2.1"
         };
     }
 
