@@ -57,15 +57,15 @@ Dungeon:
       # renovate: datasource=helm depName=aws-load-balancer-controller-chart packageName=aws-load-balancer-controller registryUrl=https://aws.github.io/eks-charts
       AwsLbcChartVersion: 1.4.1
       # renovate: datasource=helm depName=cert-manager-chart packageName=cert-manager registryUrl=https://charts.jetstack.io
-      CertManagerChartVersion: 1.7.2
+      CertManagerChartVersion: 1.8.0
       # renovate: datasource=helm depName=cluster-autoscaler-chart packageName=cluster-autoscaler registryUrl=https://kubernetes.github.io/autoscaler
-      ClusterAutoscalerChartVersion: 9.16.2
+      ClusterAutoscalerChartVersion: 9.17.0
       # renovate: datasource=github-releases depName=cluster-autoscaler packageName=kubernetes/autoscaler extractVersion=^cluster-autoscaler-(?<version>\d+\.\d+\.\d+)$
       ClusterAutoscalerImageTag: 1.21.2
       # renovate: datasource=helm depName=external-dns-chart packageName=external-dns registryUrl=https://charts.bitnami.com/bitnami
-      ExternalDnsChartVersion: 6.2.3
+      ExternalDnsChartVersion: 6.2.4
       # renovate: datasource=helm depName=fluent-bit-chart packageName=fluent-bit registryUrl=https://fluent.github.io/helm-charts
-      FluentBitChartVersion: 0.19.22
+      FluentBitChartVersion: 0.19.23
       FluentBitImageRepository: public.ecr.aws/aws-observability/aws-for-fluent-bit
       # renovate: # datasource=docker depName=aws-for-fluent-bit packageName=public.ecr.aws/aws-observability/aws-for-fluent-bit
       # renovate: datasource=github-releases depName=aws-for-fluent-bit packageName=aws/aws-for-fluent-bit

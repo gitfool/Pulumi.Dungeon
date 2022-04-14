@@ -222,8 +222,8 @@
       },
       "IPNetwork2": {
         "type": "Transitive",
-        "resolved": "2.5.402",
-        "contentHash": "6hVS+bYI8Lp+eKRvhSYHh56GPyKlQRMW0/tOwGvkhq14o34AvMWKFOFcw6BeUiRI+v8d8CaPYAp5bPYc7dOjeg=="
+        "resolved": "2.5.407",
+        "contentHash": "EqjBifFaKVzBCxV9aRHuOswCKj9p+E8KxCVuWni/0NIMNSa5thLf3kiQkyEZ7giHNMnT4jBgsf2kqEkmifRSPQ=="
       },
       "JsonPointer.Net": {
         "type": "Transitive",
@@ -745,8 +745,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.4.3",
-        "contentHash": "36uSlEItJQirYvYShauiNDdeHhdxQBgA82U75OSN9VxQk85LbBBboCsu1nSlQs7ULTS+8tHMrgiZgpCpZFhc0g=="
+        "resolved": "5.4.4",
+        "contentHash": "olJJ2zAZg+Rc0SAT/gmcMcWXGTq6jZI760Fk4sA6xf43rbJTaZQxoO7TbQEY0CJ3jwJ0XUEoupaLdnWMU6iClQ=="
       },
       "Semver": {
         "type": "Transitive",
@@ -1587,7 +1587,7 @@
       "aws": {
         "type": "Project",
         "dependencies": {
-          "IPNetwork2": "2.5.402",
+          "IPNetwork2": "2.5.407",
           "K8s": "1.0.0",
           "Library": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
@@ -1618,7 +1618,7 @@
           "Pulumi": "3.29.0-alpha.1649268066",
           "Pulumi.Aws": "5.1.2",
           "Pulumi.Kubernetes": "3.18.2",
-          "Scriban": "5.4.3",
+          "Scriban": "5.4.4",
           "YamlDotNet": "11.2.1"
         }
       }
