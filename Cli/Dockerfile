@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.3-focal
+FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.4-focal
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -18,14 +18,14 @@ RUN version=1.23.5 \
 
 # Install aws iam authenticator; https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
 # renovate: datasource=github-releases depName=aws-iam-authenticator packageName=kubernetes-sigs/aws-iam-authenticator
-RUN version=0.5.6 \
+RUN version=0.5.7 \
     && curl -fsSL https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v$version/aws-iam-authenticator_${version}_linux_amd64 -o /usr/local/bin/aws-iam-authenticator \
     && chmod +x /usr/local/bin/aws-iam-authenticator \
     && aws-iam-authenticator version
 
 # Install helm; https://helm.sh/docs/intro/install/#from-the-binary-releases
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
-RUN version=3.8.1 \
+RUN version=3.8.2 \
     && curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz \
     && tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm \
     && rm -f helm.tar.gz \
