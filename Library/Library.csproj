@@ -7,7 +7,7 @@
     <PackageReference Include="FluentValidation" Version="10.4.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
-    <PackageReference Include="Pulumi" Version="3.29.0-alpha.1649268066" />
+    <PackageReference Include="Pulumi" Version="3.29.1" />
     <PackageReference Include="Pulumi.Aws" Version="5.1.2" />
     <PackageReference Include="Pulumi.Kubernetes" Version="3.18.2" />
     <PackageReference Include="Scriban" Version="5.4.4" />
