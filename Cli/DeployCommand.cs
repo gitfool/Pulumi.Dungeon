@@ -34,10 +34,10 @@ public sealed partial class DeployCommand : AsyncCommandBase<DeployCommand.Setti
         // renovate: datasource=github-releases
         RequiredPlugins = new[]
         {
-            "aws v5.1.2",
+            "aws v5.1.3",
             "kubernetes v3.18.2",
             "random v4.4.2",
-            "tls v4.2.1"
+            "tls v4.2.2"
         };
     }
 
