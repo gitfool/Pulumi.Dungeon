@@ -57,11 +57,11 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[5.1.2, )",
-        "resolved": "5.1.2",
-        "contentHash": "nfL0MCLy6WX3AOcuLs4ATLhD5v8alohp/dNafH6KXYkY6t/3QrHbrp/DwJD7djxP2gi9EpVdQ/tvDgie48jyQg==",
+        "requested": "[5.1.3, )",
+        "resolved": "5.1.3",
+        "contentHash": "MPq7iYQ1laE/5mQFwdXiTPW62vIpULs32EUFT0fWyeXiKlg6YYPlFwgt6P4ZRamm8Z8b/JIYnuiF7nxli0hM/g==",
         "dependencies": {
-          "Pulumi": "3.28.0"
+          "Pulumi": "3.29.1"
         }
       },
       "Pulumi.Kubernetes": {
@@ -1157,7 +1157,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
           "Microsoft.Extensions.Options": "6.0.0",
           "Pulumi": "3.29.1",
-          "Pulumi.Aws": "5.1.2",
+          "Pulumi.Aws": "5.1.3",
           "Pulumi.Kubernetes": "3.18.2",
           "Scriban": "5.4.4",
           "YamlDotNet": "11.2.1"
