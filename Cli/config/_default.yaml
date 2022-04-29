@@ -63,13 +63,13 @@ Dungeon:
       # renovate: datasource=github-releases depName=cluster-autoscaler packageName=kubernetes/autoscaler extractVersion=^cluster-autoscaler-(?<version>\d+\.\d+\.\d+)$
       ClusterAutoscalerImageTag: 1.21.2
       # renovate: datasource=helm depName=external-dns-chart packageName=external-dns registryUrl=https://charts.bitnami.com/bitnami
-      ExternalDnsChartVersion: 6.2.7
+      ExternalDnsChartVersion: 6.3.0
       # renovate: datasource=helm depName=fluent-bit-chart packageName=fluent-bit registryUrl=https://fluent.github.io/helm-charts
-      FluentBitChartVersion: 0.19.23
+      FluentBitChartVersion: 0.19.24
       FluentBitImageRepository: public.ecr.aws/aws-observability/aws-for-fluent-bit
       # renovate: # datasource=docker depName=aws-for-fluent-bit packageName=public.ecr.aws/aws-observability/aws-for-fluent-bit
       # renovate: datasource=github-releases depName=aws-for-fluent-bit packageName=aws/aws-for-fluent-bit
-      FluentBitImageTag: 2.23.3
+      FluentBitImageTag: 2.23.4
 
   Pulumi:
     Color: always
