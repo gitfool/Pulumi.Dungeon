@@ -93,8 +93,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "10.4.0",
-        "contentHash": "rVI1b5L3pq3layrRKIo3N7AT3PWey8ocPZhf6zeHYf6LBBvnP1KzW3bm7KmeazOWW8m1KXMD+shfviIcKSgQ0g=="
+        "resolved": "11.0.0",
+        "contentHash": "cD0VaOQfVZGxp3UFBDET5KztMe1W0QUgk7vP/e1zus0ofALqab5/B5S319+XEFvhw0KEStS3yfCDGpvQM10C6A=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -1153,7 +1153,7 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "10.4.0",
+          "FluentValidation": "11.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
           "Microsoft.Extensions.Options": "6.0.0",
           "Pulumi": "3.31.0",
