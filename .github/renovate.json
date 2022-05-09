@@ -6,11 +6,11 @@
   ],
   "packageRules": [
     {
-      "description": "Constrain cluster autoscaler to 1.21.x to match k8s version.",
+      "description": "Constrain cluster autoscaler to 1.22.x to match k8s version.",
       "matchManagers": [ "regex" ],
       "matchPackageNames": [ "cluster-autoscaler" ],
-      "matchCurrentVersion": "/^1\\.21\\./",
-      "allowedVersions": "/^1\\.21\\./"
+      "matchCurrentVersion": "/^1\\.22\\./",
+      "allowedVersions": "/^1\\.22\\./"
     },
     {
       "description": "Group pulumi dependencies.",
