@@ -54,6 +54,7 @@ Dungeon:
     K8s:
       Version: 1.22
       ContainerRuntime: containerd
+      InstallFluentBit: true
       # renovate: datasource=helm depName=aws-load-balancer-controller-chart packageName=aws-load-balancer-controller registryUrl=https://aws.github.io/eks-charts
       AwsLbcChartVersion: 1.4.1
       # renovate: datasource=helm depName=cert-manager-chart packageName=cert-manager registryUrl=https://charts.jetstack.io

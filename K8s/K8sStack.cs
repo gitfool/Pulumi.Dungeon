@@ -45,82 +45,85 @@ public sealed class K8sStack : StackBase<K8sStack>
             new ConfigGroupArgs { Yaml = ReadResource("KubePrometheusStackCrds.yaml") },
             new ComponentResourceOptions { Provider = k8sProvider });
 
-        // fluent bit; https://github.com/fluent/helm-charts/tree/main/charts/fluent-bit
-        Logger.LogDebug("Installing fluent bit");
-        var fluentBitRole = new RoleX($"{k8sPrefix}-fluent-bit",
-            new RoleXArgs
-            {
-                AssumeRolePolicy = IamHelpers.AssumeRoleForServiceAccount(oidcArn, oidcUrl, "kube-system", "fluent-bit", awsProvider),
-                InlinePolicies = { ["policy"] = ReadResource("FluentBitPolicy.json") }
-            },
-            new ComponentResourceOptions { Provider = awsProvider });
+        if (K8sConfig.InstallFluentBit)
+        {
+            // fluent bit; https://github.com/fluent/helm-charts/tree/main/charts/fluent-bit
+            Logger.LogDebug("Installing fluent bit");
+            var fluentBitRole = new RoleX($"{k8sPrefix}-fluent-bit",
+                new RoleXArgs
+                {
+                    AssumeRolePolicy = IamHelpers.AssumeRoleForServiceAccount(oidcArn, oidcUrl, "kube-system", "fluent-bit", awsProvider),
+                    InlinePolicies = { ["policy"] = ReadResource("FluentBitPolicy.json") }
+                },
+                new ComponentResourceOptions { Provider = awsProvider });
 
-        var fluentBitValues = fluentBitRole.Arn.Apply(roleArn =>
-            new Dictionary<string, object>
-            {
-                ["image"] = new
+            var fluentBitValues = fluentBitRole.Arn.Apply(roleArn =>
+                new Dictionary<string, object>
                 {
-                    repository = K8sConfig.FluentBitImageRepository,
-                    tag = K8sConfig.FluentBitImageTag,
-                    pullPolicy = "IfNotPresent"
-                },
-                ["logLevel"] = "warning",
-                ["config"] = new
-                {
-                    service = ReadResource("FluentBitService.ini"),
-                    inputs = ReadResource("FluentBitInputs.ini"),
-                    filters = ReadResource("FluentBitFilters.ini"),
-                    outputs = ReadResource("FluentBitOutputs.ini"),
-                    customParsers = ReadResource("FluentBitParsers.ini")
-                },
-                ["luaScripts"] = new Dictionary<string, string> { ["filters.lua"] = ReadResource("FluentBitFilters.lua") },
-                ["priorityClassName"] = "system-node-critical",
-                ["resources"] = new
-                {
-                    requests = new { cpu = "50m", memory = "50Mi" },
-                    limits = new { memory = "100Mi" }
-                },
-                ["serviceMonitor"] = new { enabled = true },
-                ["prometheusRule"] = new
-                {
-                    enabled = true,
-                    rules = new[]
+                    ["image"] = new
                     {
-                        new
+                        repository = K8sConfig.FluentBitImageRepository,
+                        tag = K8sConfig.FluentBitImageTag,
+                        pullPolicy = "IfNotPresent"
+                    },
+                    ["logLevel"] = "warning",
+                    ["config"] = new
+                    {
+                        service = ReadResource("FluentBitService.ini"),
+                        inputs = ReadResource("FluentBitInputs.ini"),
+                        filters = ReadResource("FluentBitFilters.ini"),
+                        outputs = ReadResource("FluentBitOutputs.ini"),
+                        customParsers = ReadResource("FluentBitParsers.ini")
+                    },
+                    ["luaScripts"] = new Dictionary<string, string> { ["filters.lua"] = ReadResource("FluentBitFilters.lua") },
+                    ["priorityClassName"] = "system-node-critical",
+                    ["resources"] = new
+                    {
+                        requests = new { cpu = "50m", memory = "50Mi" },
+                        limits = new { memory = "100Mi" }
+                    },
+                    ["serviceMonitor"] = new { enabled = true },
+                    ["prometheusRule"] = new
+                    {
+                        enabled = true,
+                        rules = new[]
                         {
-                            alert = "FluentBitNoOutputBytesProcessed",
-                            expr = "rate(fluentbit_output_proc_bytes_total[5m]) == 0",
-                            annotations = new
+                            new
                             {
-                                description = "Fluent Bit instance {{ $labels.instance }} output plugin {{ $labels.name }} has not processed any bytes for at least 15 minutes.",
-                                summary = "No output bytes processed"
-                            },
-                            @for = "15m",
-                            labels = new { severity = "critical" }
+                                alert = "FluentBitNoOutputBytesProcessed",
+                                expr = "rate(fluentbit_output_proc_bytes_total[5m]) == 0",
+                                annotations = new
+                                {
+                                    description = "Fluent Bit instance {{ $labels.instance }} output plugin {{ $labels.name }} has not processed any bytes for at least 15 minutes.",
+                                    summary = "No output bytes processed"
+                                },
+                                @for = "15m",
+                                labels = new { severity = "critical" }
+                            }
                         }
+                    },
+                    ["dashboards"] = new { enabled = true },
+                    ["serviceAccount"] = new { annotations = new Dictionary<string, string> { ["eks.amazonaws.com/role-arn"] = roleArn } },
+                    ["tolerations"] = new[]
+                    {
+                        new { effect = "NoExecute", @operator = "Exists" },
+                        new { effect = "NoSchedule", @operator = "Exists" }
                     }
-                },
-                ["dashboards"] = new { enabled = true },
-                ["serviceAccount"] = new { annotations = new Dictionary<string, string> { ["eks.amazonaws.com/role-arn"] = roleArn } },
-                ["tolerations"] = new[]
-                {
-                    new { effect = "NoExecute", @operator = "Exists" },
-                    new { effect = "NoSchedule", @operator = "Exists" }
-                }
-            }.ToDictionary()); // workaround https://github.com/pulumi/pulumi/issues/8013
+                }.ToDictionary()); // workaround https://github.com/pulumi/pulumi/issues/8013
 
-        new Release("fluent-bit",
-            new ReleaseArgs
-            {
-                Namespace = "kube-system",
-                Name = "fluent-bit",
-                RepositoryOpts = new RepositoryOptsArgs { Repo = "https://fluent.github.io/helm-charts" },
-                Chart = "fluent-bit",
-                Version = K8sConfig.FluentBitChartVersion,
-                Values = fluentBitValues,
-                Atomic = true
-            },
-            new CustomResourceOptions { DependsOn = kubePrometheusStackCrds.Ready(), Provider = k8sProvider });
+            new Release("fluent-bit",
+                new ReleaseArgs
+                {
+                    Namespace = "kube-system",
+                    Name = "fluent-bit",
+                    RepositoryOpts = new RepositoryOptsArgs { Repo = "https://fluent.github.io/helm-charts" },
+                    Chart = "fluent-bit",
+                    Version = K8sConfig.FluentBitChartVersion,
+                    Values = fluentBitValues,
+                    Atomic = true
+                },
+                new CustomResourceOptions { DependsOn = kubePrometheusStackCrds.Ready(), Provider = k8sProvider });
+        }
 
         // cert manager; https://github.com/cert-manager/cert-manager/tree/master/deploy/charts/cert-manager
         Logger.LogDebug("Installing cert manager");

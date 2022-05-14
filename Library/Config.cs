@@ -114,6 +114,7 @@ public sealed record K8sConfig
 {
     public string Version { get; init; } = null!;
     public string ContainerRuntime { get; init; } = null!;
+    public bool InstallFluentBit { get; init; }
     public string AwsLbcChartVersion { get; init; } = null!;
     public string CertManagerChartVersion { get; init; } = null!;
     public string ClusterAutoscalerChartVersion { get; init; } = null!;
