@@ -251,7 +251,7 @@ public sealed class EksStack : StackBase<EksStack>
                     Taints = nodeGroup.Tainted ? new NodeGroupTaintArgs[] { new() { Key = "role", Value = nodeGroup.Name, Effect = "NO_SCHEDULE" } } : Array.Empty<NodeGroupTaintArgs>(),
                     UpdateConfig = new NodeGroupUpdateConfigArgs { MaxUnavailable = 2 }
                 },
-                new CustomResourceOptions { DependsOn = awsAuth.Ready(), Protect = true, Provider = awsProvider });
+                new CustomResourceOptions { DependsOn = awsAuth.Ready(), IgnoreChanges = { "scalingConfig.desiredSize" }, Protect = true, Provider = awsProvider });
 
             // node group asg tags for cluster autoscaler; workaround https://github.com/aws/containers-roadmap/issues/608
             managedNodeGroup.Resources.Apply(resources =>
