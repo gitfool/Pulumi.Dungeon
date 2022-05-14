@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.4-focal
+FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.5-focal
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
