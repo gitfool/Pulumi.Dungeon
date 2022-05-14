@@ -249,7 +249,9 @@ public sealed class EksStack : StackBase<EksStack>
                     },
                     Labels = { ["role"] = nodeGroup.Name },
                     Taints = nodeGroup.Tainted ? new NodeGroupTaintArgs[] { new() { Key = "role", Value = nodeGroup.Name, Effect = "NO_SCHEDULE" } } : Array.Empty<NodeGroupTaintArgs>(),
-                    UpdateConfig = new NodeGroupUpdateConfigArgs { MaxUnavailable = 2 }
+                    UpdateConfig = nodeGroup.Updating != null
+                        ? new NodeGroupUpdateConfigArgs { MaxUnavailable = nodeGroup.Updating.MaxUnavailable, MaxUnavailablePercentage = nodeGroup.Updating.MaxUnavailablePercentage }
+                        : new NodeGroupUpdateConfigArgs { MaxUnavailablePercentage = 25 }
                 },
                 new CustomResourceOptions { DependsOn = awsAuth.Ready(), IgnoreChanges = { "scalingConfig.desiredSize" }, Protect = true, Provider = awsProvider });
 

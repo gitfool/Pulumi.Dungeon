@@ -78,6 +78,13 @@ public sealed record AwsEksNodeGroupConfig
     public bool? Monitoring { get; init; }
     public bool Tainted { get; init; }
     public AwsAutoScalingConfig AutoScaling { get; init; } = new();
+    public AwsEksNodeGroupUpdatingConfig? Updating { get; init; }
+}
+
+public sealed record AwsEksNodeGroupUpdatingConfig
+{
+    public int? MaxUnavailable { get; init; }
+    public int? MaxUnavailablePercentage { get; init; }
 }
 
 public sealed record AwsIamConfig
