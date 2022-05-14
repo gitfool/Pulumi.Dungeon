@@ -74,7 +74,7 @@ public sealed class K8sStack : StackBase<K8sStack>
                     customParsers = ReadResource("FluentBitParsers.ini")
                 },
                 ["luaScripts"] = new Dictionary<string, string> { ["filters.lua"] = ReadResource("FluentBitFilters.lua") },
-                ["priorityClassName"] = "system-cluster-critical",
+                ["priorityClassName"] = "system-node-critical",
                 ["resources"] = new
                 {
                     requests = new { cpu = "50m", memory = "50Mi" },
