@@ -4,11 +4,11 @@
     ".NETCoreApp,Version=v5.0": {
       "Flurl.Http": {
         "type": "Direct",
-        "requested": "[3.2.3, )",
-        "resolved": "3.2.3",
-        "contentHash": "kwELhfTA4ivyD/tHVxyypeQOc76ISJEAHcx1gfN3QqUFaqxHjOOewurra7vBEUraMOneJsptxmfTHHO8LD2s0g==",
+        "requested": "[3.2.4, )",
+        "resolved": "3.2.4",
+        "contentHash": "Me9Vm4Lm21vt/pbR0G2Dww/ZOjJgh6mB2FiH28aiUYStJD10ZecDp8jxg2zKxcy6lnkvLm99pjG4yC/k7a/d8w==",
         "dependencies": {
-          "Flurl": "3.0.5",
+          "Flurl": "3.0.6",
           "Newtonsoft.Json": "12.0.2",
           "System.Text.Encoding.CodePages": "4.5.1"
         }
@@ -98,8 +98,8 @@
       },
       "Flurl": {
         "type": "Transitive",
-        "resolved": "3.0.5",
-        "contentHash": "CSROVbrfaHtqw1B7pvJfKvEgKOkx3fZj16a8fhKSWTJ/bwOT1EWnx6hcc+XzPVFNDR0d+XTa4bE7bIUhXHn1WQ=="
+        "resolved": "3.0.6",
+        "contentHash": "XMIlB/tJ4nTYF2+79xDsnnlgbXHpKyizKX2fffrECekI6pEsa9MSLzf5tPVMdLy4k4AcJPLs356Sa2Le5VRDCw=="
       },
       "Glob": {
         "type": "Transitive",

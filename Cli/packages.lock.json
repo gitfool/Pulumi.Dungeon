@@ -169,15 +169,15 @@
       },
       "Flurl": {
         "type": "Transitive",
-        "resolved": "3.0.5",
-        "contentHash": "CSROVbrfaHtqw1B7pvJfKvEgKOkx3fZj16a8fhKSWTJ/bwOT1EWnx6hcc+XzPVFNDR0d+XTa4bE7bIUhXHn1WQ=="
+        "resolved": "3.0.6",
+        "contentHash": "XMIlB/tJ4nTYF2+79xDsnnlgbXHpKyizKX2fffrECekI6pEsa9MSLzf5tPVMdLy4k4AcJPLs356Sa2Le5VRDCw=="
       },
       "Flurl.Http": {
         "type": "Transitive",
-        "resolved": "3.2.3",
-        "contentHash": "kwELhfTA4ivyD/tHVxyypeQOc76ISJEAHcx1gfN3QqUFaqxHjOOewurra7vBEUraMOneJsptxmfTHHO8LD2s0g==",
+        "resolved": "3.2.4",
+        "contentHash": "Me9Vm4Lm21vt/pbR0G2Dww/ZOjJgh6mB2FiH28aiUYStJD10ZecDp8jxg2zKxcy6lnkvLm99pjG4yC/k7a/d8w==",
         "dependencies": {
-          "Flurl": "3.0.5",
+          "Flurl": "3.0.6",
           "Newtonsoft.Json": "12.0.2",
           "System.Text.Encoding.CodePages": "4.5.1"
         }
@@ -222,8 +222,8 @@
       },
       "IPNetwork2": {
         "type": "Transitive",
-        "resolved": "2.5.412",
-        "contentHash": "U/GfqBir3zOSahnVzvV9vp5XeIcshgQCVO6qUgAt+8svc8Dv/oBfwgiEQ/8HDB1qCDJJzNMH1BG8oqERoRARDQ=="
+        "resolved": "2.5.420",
+        "contentHash": "HjfCUX8Y+Ve31oMbZfjy64X/elu8oRbGnidIXVWW55muOWBm6Xf8l6zmmi/hTDza2dEYxPBX1sZFilHk3nxZ2g=="
       },
       "JsonPointer.Net": {
         "type": "Transitive",
@@ -935,7 +935,7 @@
       "aws": {
         "type": "Project",
         "dependencies": {
-          "IPNetwork2": "2.5.412",
+          "IPNetwork2": "2.5.420",
           "K8s": "1.0.0",
           "Library": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
@@ -947,7 +947,7 @@
       "k8s": {
         "type": "Project",
         "dependencies": {
-          "Flurl.Http": "3.2.3",
+          "Flurl.Http": "3.2.4",
           "Library": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
           "Polly": "7.2.3",
