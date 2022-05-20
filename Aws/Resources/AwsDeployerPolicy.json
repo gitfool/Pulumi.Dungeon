@@ -133,6 +133,7 @@
         "iam:CreateServiceLinkedRole",
         "iam:DeleteOpenIDConnectProvider",
         "iam:DeletePolicy",
+        "iam:DeletePolicyVersion",
         "iam:DeleteRole",
         "iam:DeleteRolePolicy",
         "iam:DetachGroupPolicy",
