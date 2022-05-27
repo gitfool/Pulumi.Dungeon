@@ -4,9 +4,9 @@
     ".NETCoreApp,Version=v5.0": {
       "FluentValidation": {
         "type": "Direct",
-        "requested": "[11.0.1, )",
-        "resolved": "11.0.1",
-        "contentHash": "fcL5zF/glDwskUtpL0IfBupVWTChxOOvVs+dAA7Gme5NjIeJBiFKWq3eZV1O+AigucnBTr8SWG7wRRn+PgFnTw=="
+        "requested": "[11.0.2, )",
+        "resolved": "11.0.2",
+        "contentHash": "ik/xogKqBmZWIURMXNEbugJlKka6iV9a4qckmKDp7sHSwIfgkZ/ewzCuAeUTkFdVZujfDW6mCLMjrrR6GG4xLQ=="
       },
       "Microsoft.Extensions.Logging.Abstractions": {
         "type": "Direct",
@@ -75,9 +75,9 @@
       },
       "Scriban": {
         "type": "Direct",
-        "requested": "[5.4.4, )",
-        "resolved": "5.4.4",
-        "contentHash": "olJJ2zAZg+Rc0SAT/gmcMcWXGTq6jZI760Fk4sA6xf43rbJTaZQxoO7TbQEY0CJ3jwJ0XUEoupaLdnWMU6iClQ=="
+        "requested": "[5.4.5, )",
+        "resolved": "5.4.5",
+        "contentHash": "lhknsAPgtPue86ln10MZiAvAb+ftquww8mxTZcR9i4AI3M2naft3cuG/xy3XRn9ptyLM6VJ7KQWKZnzzbG6qzA=="
       },
       "YamlDotNet": {
         "type": "Direct",

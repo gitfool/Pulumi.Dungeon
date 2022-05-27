@@ -93,8 +93,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "11.0.1",
-        "contentHash": "fcL5zF/glDwskUtpL0IfBupVWTChxOOvVs+dAA7Gme5NjIeJBiFKWq3eZV1O+AigucnBTr8SWG7wRRn+PgFnTw=="
+        "resolved": "11.0.2",
+        "contentHash": "ik/xogKqBmZWIURMXNEbugJlKka6iV9a4qckmKDp7sHSwIfgkZ/ewzCuAeUTkFdVZujfDW6mCLMjrrR6GG4xLQ=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -199,8 +199,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.4.4",
-        "contentHash": "olJJ2zAZg+Rc0SAT/gmcMcWXGTq6jZI760Fk4sA6xf43rbJTaZQxoO7TbQEY0CJ3jwJ0XUEoupaLdnWMU6iClQ=="
+        "resolved": "5.4.5",
+        "contentHash": "lhknsAPgtPue86ln10MZiAvAb+ftquww8mxTZcR9i4AI3M2naft3cuG/xy3XRn9ptyLM6VJ7KQWKZnzzbG6qzA=="
       },
       "Semver": {
         "type": "Transitive",
@@ -266,13 +266,13 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "11.0.1",
+          "FluentValidation": "11.0.2",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
           "Microsoft.Extensions.Options": "6.0.0",
           "Pulumi": "3.33.1",
           "Pulumi.Aws": "5.4.0",
           "Pulumi.Kubernetes": "3.19.1",
-          "Scriban": "5.4.4",
+          "Scriban": "5.4.5",
           "YamlDotNet": "11.2.1"
         }
       }
