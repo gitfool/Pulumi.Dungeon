@@ -199,8 +199,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.4.5",
-        "contentHash": "lhknsAPgtPue86ln10MZiAvAb+ftquww8mxTZcR9i4AI3M2naft3cuG/xy3XRn9ptyLM6VJ7KQWKZnzzbG6qzA=="
+        "resolved": "5.4.6",
+        "contentHash": "08MfrLDM9Rz08/toBVjTqcUmdGyKbLQ5eTLp2MHUv4k8cox2jN6E/3Ss8NaqUuL2psU2cp0sy2aNEDep7jp0Kg=="
       },
       "Semver": {
         "type": "Transitive",
@@ -272,7 +272,7 @@
           "Pulumi": "3.33.1",
           "Pulumi.Aws": "5.4.0",
           "Pulumi.Kubernetes": "3.19.1",
-          "Scriban": "5.4.5",
+          "Scriban": "5.4.6",
           "YamlDotNet": "11.2.1"
         }
       }
