@@ -114,15 +114,6 @@
         "eks:UpdateClusterVersion",
         "eks:UpdateNodegroupConfig",
         "eks:UpdateNodegroupVersion",
-        "elasticloadbalancing:AddTags",
-        "elasticloadbalancing:CreateTargetGroup",
-        "elasticloadbalancing:DeleteTargetGroup",
-        "elasticloadbalancing:DescribeTags",
-        "elasticloadbalancing:DescribeTargetGroupAttributes",
-        "elasticloadbalancing:DescribeTargetGroups",
-        "elasticloadbalancing:ModifyTargetGroup",
-        "elasticloadbalancing:ModifyTargetGroupAttributes",
-        "elasticloadbalancing:RemoveTags",
         "iam:AttachGroupPolicy",
         "iam:AttachRolePolicy",
         "iam:AttachUserPolicy",
@@ -162,7 +153,6 @@
         "iam:UntagOpenIDConnectProvider",
         "iam:UntagPolicy",
         "iam:UntagRole",
-        "route53:CreateHostedZone",
         "ssm:GetParameter"
       ],
       "Resource": "*"
