@@ -36,7 +36,6 @@ public abstract class StackBase<TStack> : Stack where TStack : Stack
         new($"{EnvName}-k8s",
             new K8sProviderArgs
             {
-                EnableReplaceCRD = true, // workaround https://github.com/pulumi/pulumi-kubernetes/issues/1883
                 KubeConfig = kubeConfig,
                 KubeClientSettings = new KubeClientSettingsArgs { Qps = 50, Burst = 100 }
             });
