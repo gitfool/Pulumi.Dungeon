@@ -2,7 +2,11 @@ namespace Pulumi.Dungeon;
 
 public static class OutputExtensions
 {
+    public static Output<ImmutableArray<U>> ApplyForEach<T, U>(this Output<ImmutableArray<T>> output, Func<T, U> func) => output.Apply(array => array.Select(func).ToImmutableArray());
+
     public static Output<Resource> AsResource<T>(this Output<T> output) where T : Resource => output.Apply(resource => (Resource)resource);
+
+    public static Output<ImmutableArray<Resource>> AsResources<T>(this Output<ImmutableArray<T>> output) where T : Resource => output.ApplyForEach(resource => (Resource)resource);
 
     public static Output<ImmutableArray<T>> Flatten<T>(this Output<ImmutableArray<ImmutableArray<T>>> output) => output.Apply(arrays => arrays.SelectMany(array => array).ToImmutableArray());
 
