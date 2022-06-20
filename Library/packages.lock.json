@@ -40,9 +40,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.33.2, )",
-        "resolved": "3.33.2",
-        "contentHash": "Iem+kdkVGOJU6E93trPwShK52oMp7NoFPe+MfjfpEKrBi2NrQRFr6cxBbableUDPj4awoUBIx1C9YK5/g1hHHA==",
+        "requested": "[3.34.1, )",
+        "resolved": "3.34.1",
+        "contentHash": "Z+/K3zX9cOzqcVa8VWavymroEmybq6e2BMRphM4xuzyjT9eFzNCNW0gV/ZtQjyb5HG75eQ2XxaIfCyg1eOp0uA==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc.Net.Client": "2.43.0",
@@ -56,21 +56,21 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[5.5.0, )",
-        "resolved": "5.5.0",
-        "contentHash": "1Rk/G7Q5q9HEue+tgErgrGp1uPYsJeGJq+9sgGhjG/lsfWGf/WaVW9git5SoRUM1iwyvnGXKd2w1gZAatQaicA==",
+        "requested": "[5.8.0, )",
+        "resolved": "5.8.0",
+        "contentHash": "lTbqG2Xmae1JvkEGHG0mCIGcjd6H2zAiA4SwVjFo7qvH7Z82XOlZLrDgBN+lq04Hr3TncuiRDBTqhmH4CJnaJA==",
         "dependencies": {
-          "Pulumi": "3.33.1"
+          "Pulumi": "3.34.1"
         }
       },
       "Pulumi.Kubernetes": {
         "type": "Direct",
-        "requested": "[3.19.2, )",
-        "resolved": "3.19.2",
-        "contentHash": "uUloT1P/ui38vVpTYYi6kBfyucavRTBewchzcJnW7pL05U6D+5kgyRzcqa971ChbexQKV2RFxtJJM2/9XuU46Q==",
+        "requested": "[3.19.3, )",
+        "resolved": "3.19.3",
+        "contentHash": "saBnuJv94hqNu8+V7XR66SZyuwgu7e5APdfrxYzWPpgoxUzqkgU5af7pCgo9tTKvEZNwMPJ+hLk2ugr7n/mfKQ==",
         "dependencies": {
           "Glob": "1.1.5",
-          "Pulumi": "3.33.1"
+          "Pulumi": "3.34.0"
         }
       },
       "Scriban": {
