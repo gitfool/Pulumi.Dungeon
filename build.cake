@@ -13,18 +13,12 @@ Build.SetParameters
     sourceDirectory: Build.Directories.Root,
 
     buildEmbedAllSources: true,
+    dockerBuildCache: true,
     dockerBuildPull: true,
     dockerPushLatest: true,
     dockerPushSkipDuplicate: true,
 
-    dockerImages: new[]
-    {
-        new DockerImage
-        {
-            Repository = "dockfool/pulumi-dungeon",
-            Context = "Cli"
-        }
-    }
+    dockerImages: new[] { new DockerImage { Repository = "dockfool/pulumi-dungeon", Context = "Cli" } }
 );
 
 Build.Run();
