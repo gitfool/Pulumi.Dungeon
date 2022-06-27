@@ -53,6 +53,7 @@
 
 # Custom
 *.sh         text eol=lf
+Dockerfile   text eol=lf
 
 # Linguist
 *.cake       linguist-language=C#
