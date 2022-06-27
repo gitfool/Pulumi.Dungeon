@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.6-focal
+FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.6-jammy
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
