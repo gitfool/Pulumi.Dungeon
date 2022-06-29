@@ -12,6 +12,14 @@ RUN <<EOF
     mkdir -p /etc/bash_completion.d
 EOF
 
+# Install libssl 1.1; workaround dotnet 5.0 runtime dependency removed from ubuntu jammy
+RUN <<EOF
+    set -ex
+    curl -fsSL https://launchpad.net/ubuntu/+archive/primary/+files/libssl1.1_1.1.1f-1ubuntu2.15_amd64.deb -o libssl1.1.deb
+    DEBIAN_FRONTEND=noninteractive dpkg -i libssl1.1.deb
+    rm -f libssl1.1.deb
+EOF
+
 # Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
 # renovate: datasource=github-tags depName=kubectl packageName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
 RUN <<EOF
