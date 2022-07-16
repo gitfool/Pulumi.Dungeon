@@ -16,7 +16,7 @@ EOF
 # renovate: datasource=repology depName=libssl1.1 packageName=ubuntu_20_04/openssl versioning=loose
 RUN <<EOF
     set -ex
-    version=1.1.1f-1ubuntu2.15
+    version=1.1.1f-1ubuntu2.16
     curl -fsSL https://launchpad.net/ubuntu/+archive/primary/+files/libssl1.1_${version}_amd64.deb -o libssl1.1.deb
     DEBIAN_FRONTEND=noninteractive dpkg -i libssl1.1.deb
     rm -f libssl1.1.deb
