@@ -40,15 +40,15 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.34.1, )",
-        "resolved": "3.34.1",
-        "contentHash": "Z+/K3zX9cOzqcVa8VWavymroEmybq6e2BMRphM4xuzyjT9eFzNCNW0gV/ZtQjyb5HG75eQ2XxaIfCyg1eOp0uA==",
+        "requested": "[3.36.0, )",
+        "resolved": "3.36.0",
+        "contentHash": "ScZfPRCFkqcPnhXOWObxXAS9693uxaQ0+nBuN6l3Oxbtn7s9k1TZdsNMhI2UibAy4m+QSrSaMPdd7ZZ/1fMhFg==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc.Net.Client": "2.43.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.16",
           "OneOf": "3.0.216",
-          "Pulumi.Protobuf": "3.13.0",
+          "Pulumi.Protobuf": "3.20.1",
           "Serilog.Extensions.Logging": "3.0.1",
           "Serilog.Sinks.Console": "4.0.1",
           "semver": "2.1.0"
@@ -56,21 +56,21 @@
       },
       "Pulumi.Aws": {
         "type": "Direct",
-        "requested": "[5.8.0, )",
-        "resolved": "5.8.0",
-        "contentHash": "lTbqG2Xmae1JvkEGHG0mCIGcjd6H2zAiA4SwVjFo7qvH7Z82XOlZLrDgBN+lq04Hr3TncuiRDBTqhmH4CJnaJA==",
+        "requested": "[5.10.0, )",
+        "resolved": "5.10.0",
+        "contentHash": "YQ2kkWGKuQinLRWInrG8BJpkR3Yq/HMb6JywGYcVKGPGz8m7sxbUp0atMsHpPFSuzY60q1GDl/fCTsVeOcqGQQ==",
         "dependencies": {
-          "Pulumi": "3.34.1"
+          "Pulumi": "3.35.3"
         }
       },
       "Pulumi.Kubernetes": {
         "type": "Direct",
-        "requested": "[3.19.3, )",
-        "resolved": "3.19.3",
-        "contentHash": "saBnuJv94hqNu8+V7XR66SZyuwgu7e5APdfrxYzWPpgoxUzqkgU5af7pCgo9tTKvEZNwMPJ+hLk2ugr7n/mfKQ==",
+        "requested": "[3.20.0, )",
+        "resolved": "3.20.0",
+        "contentHash": "D6tVXfxE4ozcjneGlZlpFFbNjI0xJR3dOoQ+PLAlMaFyXBCSr58b0hmQ4r7QMF2dBn91Fx+KYkcx2IOWf2kCJQ==",
         "dependencies": {
           "Glob": "1.1.5",
-          "Pulumi": "3.34.0"
+          "Pulumi": "3.35.3"
         }
       },
       "Scriban": {
@@ -163,12 +163,8 @@
       },
       "Pulumi.Protobuf": {
         "type": "Transitive",
-        "resolved": "3.13.0",
-        "contentHash": "UV0vFDK18D1+AfNKY8IhJsfDF4wwpCLnIrHO+ZdxDkWX2RqrJvOz3wFTXu9nfWWyC0qAAEHBS9EpmYnyKH9CkA==",
-        "dependencies": {
-          "System.Memory": "4.5.2",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
-        }
+        "resolved": "3.20.1",
+        "contentHash": "5U/MY7jYmhAPWDicmKErhO52HzQDZMlH7cQ674xEi1BvnMNq+RpHUpzKebDFzctPR9K5xPhMWhn8K56EM/BciA=="
       },
       "Semver": {
         "type": "Transitive",
