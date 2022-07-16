@@ -61,7 +61,7 @@ ENV PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true \
 # renovate: datasource=github-releases depName=pulumi packageName=pulumi/pulumi
 RUN <<EOF
     set -ex
-    version=3.34.1
+    version=3.36.0
     curl -fsSL https://get.pulumi.com/releases/sdk/pulumi-v$version-linux-x64.tar.gz -o pulumi.tar.gz
     tar -xzf pulumi.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 pulumi/pulumi
     rm -f pulumi.tar.gz
