@@ -13,9 +13,11 @@ RUN <<EOF
 EOF
 
 # Install libssl 1.1; workaround dotnet 5.0 runtime dependency removed from ubuntu jammy
+# renovate: datasource=repology depName=libssl1.1 packageName=ubuntu_20_04/openssl versioning=loose
 RUN <<EOF
     set -ex
-    curl -fsSL https://launchpad.net/ubuntu/+archive/primary/+files/libssl1.1_1.1.1f-1ubuntu2.15_amd64.deb -o libssl1.1.deb
+    version=1.1.1f-1ubuntu2.15
+    curl -fsSL https://launchpad.net/ubuntu/+archive/primary/+files/libssl1.1_${version}_amd64.deb -o libssl1.1.deb
     DEBIAN_FRONTEND=noninteractive dpkg -i libssl1.1.deb
     rm -f libssl1.1.deb
 EOF
