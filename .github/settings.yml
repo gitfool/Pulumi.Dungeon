@@ -1,7 +1,10 @@
-# https://github.com/probot/settings
+# https://github.com/repository-settings/app
 
 # https://github.com/gitfool/.github/blob/main/.github/settings.yml
 _extends: .github
+
+repository:
+  topics: devops, pulumi, aws, kubernetes, csharp, dotnet
 
 branches:
   - name: main
