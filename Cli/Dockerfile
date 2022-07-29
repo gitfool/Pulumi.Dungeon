@@ -98,7 +98,7 @@ ENV DOTNET_HostBuilder__ReloadConfigOnChange=false
 
 WORKDIR /home/user/dungeon
 
-COPY --chown=user:user bin/Release/linux-x64/publish .
+COPY --link --chown=1000:1000 bin/Release/linux-x64/publish .
 
 RUN <<EOF
     set -ex
