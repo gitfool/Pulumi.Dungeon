@@ -170,10 +170,10 @@ public sealed class EksStack : StackBase<EksStack>
             }
         }
 
-        // aws auth; must be created before node groups!
-        Logger.LogDebug("Creating aws auth");
+        // aws auth config; must be created before node groups!
+        Logger.LogDebug("Creating aws auth config");
         var k8sProvider = CreateK8sProvider(KubeConfig);
-        var awsAuth = K8sStack.AwsAuth(k8sProvider, AwsConfig.Iam.DeployerRoleArn, nodeRole, fullAccessRole, readOnlyRole);
+        var awsAuthConfig = K8sStack.AwsAuthConfig(k8sProvider, AwsConfig.Iam.DeployerRoleArn, nodeRole, fullAccessRole, readOnlyRole);
 
         // node groups
         Logger.LogDebug("Creating eks nodes");
@@ -253,7 +253,7 @@ public sealed class EksStack : StackBase<EksStack>
                         ? new NodeGroupUpdateConfigArgs { MaxUnavailable = nodeGroup.Updating.MaxUnavailable, MaxUnavailablePercentage = nodeGroup.Updating.MaxUnavailablePercentage }
                         : new NodeGroupUpdateConfigArgs { MaxUnavailablePercentage = 25 }
                 },
-                new CustomResourceOptions { DependsOn = awsAuth.Ready(), IgnoreChanges = { "scalingConfig.desiredSize" }, Protect = true, Provider = awsProvider });
+                new CustomResourceOptions { DependsOn = awsAuthConfig.Ready(), IgnoreChanges = { "scalingConfig.desiredSize" }, Protect = true, Provider = awsProvider });
 
             // node group asg tags for cluster autoscaler; workaround https://github.com/aws/containers-roadmap/issues/608
             managedNodeGroup.Resources.Apply(resources =>

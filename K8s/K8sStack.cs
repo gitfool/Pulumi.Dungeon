@@ -331,9 +331,9 @@ public sealed class K8sStack : StackBase<K8sStack>
             new CustomResourceOptions { DependsOn = kubePrometheusStackCrds.Ready(), Provider = k8sProvider });
     }
 
-    internal static ConfigGroup AwsAuth(K8sProvider k8sProvider, string deployerRoleArn, RoleX nodeRole, RoleX fullAccessRole, RoleX readOnlyRole)
+    internal static ConfigGroup AwsAuthConfig(K8sProvider k8sProvider, string deployerRoleArn, RoleX nodeRole, RoleX fullAccessRole, RoleX readOnlyRole)
     {
-        // aws auth
+        // aws auth config
         var awsAuthYaml = Output.Tuple(nodeRole.Arn, fullAccessRole.Arn, readOnlyRole.Arn).Apply(((string NodeRoleArn, string FullAccessRoleArn, string ReadOnlyRoleArn) tuple) =>
             RenderTemplate("AwsAuth.yaml", ReadResource, new { deployerRoleArn, tuple.NodeRoleArn, tuple.FullAccessRoleArn, tuple.ReadOnlyRoleArn }));
 
