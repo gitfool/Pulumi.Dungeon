@@ -25,6 +25,7 @@ public sealed class PolicyX : ComponentResource
             CustomResourceOptions.Merge(args.PolicyOptions, new CustomResourceOptions { Parent = this }));
 
         Arn = policy.Arn;
+        Name = policy.Name;
 
         args.AttachedEntities.Apply(entities =>
         {
@@ -67,4 +68,7 @@ public sealed class PolicyX : ComponentResource
 
     [Output]
     public Output<string> Arn { get; init; }
+
+    [Output]
+    public Output<string> Name { get; init; }
 }
