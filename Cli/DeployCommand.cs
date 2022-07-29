@@ -35,8 +35,8 @@ public sealed partial class DeployCommand : AsyncCommandBase<DeployCommand.Setti
         RequiredPlugins = new[]
         {
             "aws v5.10.0",
-            "kubernetes v3.20.0",
-            "random v4.8.0",
+            "kubernetes v3.20.2",
+            "random v4.8.1",
             "tls v4.6.0"
         };
     }

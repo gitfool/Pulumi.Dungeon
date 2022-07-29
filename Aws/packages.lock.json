@@ -30,9 +30,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.36.0, )",
-        "resolved": "3.36.0",
-        "contentHash": "ScZfPRCFkqcPnhXOWObxXAS9693uxaQ0+nBuN6l3Oxbtn7s9k1TZdsNMhI2UibAy4m+QSrSaMPdd7ZZ/1fMhFg==",
+        "requested": "[3.37.1, )",
+        "resolved": "3.37.1",
+        "contentHash": "943sdZjJRTdeMlXTzQOkrdNZPh2Ru6IMJ7yXSQYvQuuBnFV6twTeZngz07TI2IuLaB/pzPfM7ydjprdcfkIHWQ==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc.Net.Client": "2.43.0",
@@ -184,11 +184,11 @@
       },
       "Pulumi.Kubernetes": {
         "type": "Transitive",
-        "resolved": "3.20.0",
-        "contentHash": "D6tVXfxE4ozcjneGlZlpFFbNjI0xJR3dOoQ+PLAlMaFyXBCSr58b0hmQ4r7QMF2dBn91Fx+KYkcx2IOWf2kCJQ==",
+        "resolved": "3.20.2",
+        "contentHash": "mQKVgducGR8IffKy3XXu0D8saTJuZNU9oaGTuUpD7s78UrdE4ByZ+BQOS6qu95f1vzJFtVHR5nwvojtAG8qW7Q==",
         "dependencies": {
           "Glob": "1.1.5",
-          "Pulumi": "3.35.3"
+          "Pulumi": "3.36.0"
         }
       },
       "Pulumi.Protobuf": {
@@ -198,10 +198,10 @@
       },
       "Pulumi.Random": {
         "type": "Transitive",
-        "resolved": "4.8.0",
-        "contentHash": "sZipXR6imynX6JdjtwM9NgRzbEoLggxVRs2ScaN/0VREkFeUeHzOyw6IxUGS3SW73rQprxsLBbDjrNP08CXzFA==",
+        "resolved": "4.8.1",
+        "contentHash": "XlugUDRMPoG214hhRTf00qTenWvrbo9ZWMPJ5qCP6z9iwED5gdbdQ2VzH2F2Bgm6HAvQObukJb9Pbed6M+ur6Q==",
         "dependencies": {
-          "Pulumi": "3.34.1"
+          "Pulumi": "3.37.1"
         }
       },
       "Scriban": {
@@ -277,10 +277,10 @@
           "Library": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
           "Polly": "7.2.3",
-          "Pulumi": "3.36.0",
+          "Pulumi": "3.37.1",
           "Pulumi.Aws": "5.10.0",
-          "Pulumi.Kubernetes": "3.20.0",
-          "Pulumi.Random": "4.8.0"
+          "Pulumi.Kubernetes": "3.20.2",
+          "Pulumi.Random": "4.8.1"
         }
       },
       "library": {
@@ -289,9 +289,9 @@
           "FluentValidation": "11.1.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
           "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.36.0",
+          "Pulumi": "3.37.1",
           "Pulumi.Aws": "5.10.0",
-          "Pulumi.Kubernetes": "3.20.0",
+          "Pulumi.Kubernetes": "3.20.2",
           "Scriban": "5.5.0",
           "YamlDotNet": "12.0.0"
         }
