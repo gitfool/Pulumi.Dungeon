@@ -36,6 +36,7 @@ public abstract class StackBase<TStack> : Stack where TStack : Stack
         new($"{EnvName}-k8s",
             new K8sProviderArgs
             {
+                EnableServerSideApply = true,
                 KubeConfig = kubeConfig,
                 KubeClientSettings = new KubeClientSettingsArgs { Qps = 50, Burst = 100 }
             });
