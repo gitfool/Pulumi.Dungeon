@@ -47,7 +47,7 @@ EOF
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
 RUN <<EOF
     set -ex
-    version=3.9.1
+    version=3.9.2
     curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz
     tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm
     rm -f helm.tar.gz
