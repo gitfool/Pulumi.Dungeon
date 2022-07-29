@@ -104,6 +104,7 @@ public sealed class K8sStack : StackBase<K8sStack>
                     },
                     ["dashboards"] = new { enabled = true },
                     ["serviceAccount"] = new { annotations = new Dictionary<string, string> { ["eks.amazonaws.com/role-arn"] = roleArn } },
+                    ["nodeSelector"] = new Dictionary<string, string> { ["kubernetes.io/os"] = "linux" },
                     ["tolerations"] = new[]
                     {
                         new { effect = "NoExecute", @operator = "Exists" },
