@@ -56,7 +56,7 @@ Dungeon:
       ContainerRuntime: containerd
       InstallFluentBit: true
       # renovate: datasource=helm depName=aws-load-balancer-controller-chart packageName=aws-load-balancer-controller registryUrl=https://aws.github.io/eks-charts
-      AwsLbcChartVersion: 1.4.2
+      AwsLbcChartVersion: 1.4.3
       # renovate: datasource=helm depName=cert-manager-chart packageName=cert-manager registryUrl=https://charts.jetstack.io
       CertManagerChartVersion: 1.9.1
       # renovate: datasource=helm depName=cluster-autoscaler-chart packageName=cluster-autoscaler registryUrl=https://kubernetes.github.io/autoscaler
