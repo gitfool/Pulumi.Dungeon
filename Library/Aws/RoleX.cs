@@ -27,6 +27,7 @@ public sealed class RoleX : ComponentResource
             CustomResourceOptions.Merge(args.RoleOptions, new CustomResourceOptions { Parent = this }));
 
         Arn = role.Arn;
+        Name = role.Name;
 
         foreach (var (key, value) in args.AttachedPolicies)
         {
@@ -47,4 +48,7 @@ public sealed class RoleX : ComponentResource
 
     [Output]
     public Output<string> Arn { get; init; }
+
+    [Output]
+    public Output<string> Name { get; init; }
 }
