@@ -40,9 +40,9 @@
       },
       "Pulumi": {
         "type": "Direct",
-        "requested": "[3.37.1, )",
-        "resolved": "3.37.1",
-        "contentHash": "943sdZjJRTdeMlXTzQOkrdNZPh2Ru6IMJ7yXSQYvQuuBnFV6twTeZngz07TI2IuLaB/pzPfM7ydjprdcfkIHWQ==",
+        "requested": "[3.37.2, )",
+        "resolved": "3.37.2",
+        "contentHash": "/XX0RJyGUx+OYt0rLErGEWz1u0M5IzSbUd8dk6NSItdv5AFSGq8H+vO18lS6UDPMus/PQjK28TuJpwzGoq4y7g==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc.Net.Client": "2.43.0",

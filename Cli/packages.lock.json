@@ -82,13 +82,13 @@
       },
       "Pulumi.Automation": {
         "type": "Direct",
-        "requested": "[3.37.1, )",
-        "resolved": "3.37.1",
-        "contentHash": "Sh1zDKwe1zHTTYRd6CJnaO6gWQHBFbj8uJKd2RAZ0sTFGe/+KaH+iloP850HX7DT7zG3PLnPmzhlWx316dmBuA==",
+        "requested": "[3.37.2, )",
+        "resolved": "3.37.2",
+        "contentHash": "qi9FA149r6grV54E/7qhiETz/RU+qaCsFw5sp57eVKH/JxGovoh7rOcL11+2ADMcIBGuydAFNARUwzykXPZF9w==",
         "dependencies": {
           "CliWrap": "3.3.2",
           "Grpc.AspNetCore.Server": "2.37.0",
-          "Pulumi": "3.37.1",
+          "Pulumi": "3.37.2",
           "YamlDotNet": "11.1.1"
         }
       },
@@ -517,8 +517,8 @@
       },
       "Pulumi": {
         "type": "Transitive",
-        "resolved": "3.37.1",
-        "contentHash": "943sdZjJRTdeMlXTzQOkrdNZPh2Ru6IMJ7yXSQYvQuuBnFV6twTeZngz07TI2IuLaB/pzPfM7ydjprdcfkIHWQ==",
+        "resolved": "3.37.2",
+        "contentHash": "/XX0RJyGUx+OYt0rLErGEWz1u0M5IzSbUd8dk6NSItdv5AFSGq8H+vO18lS6UDPMus/PQjK28TuJpwzGoq4y7g==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
           "Grpc.Net.Client": "2.43.0",
@@ -935,7 +935,7 @@
           "K8s": "1.0.0",
           "Library": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.37.1",
+          "Pulumi": "3.37.2",
           "Pulumi.Aws": "5.10.0",
           "Pulumi.Tls": "4.6.0"
         }
@@ -947,7 +947,7 @@
           "Library": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
           "Polly": "7.2.3",
-          "Pulumi": "3.37.1",
+          "Pulumi": "3.37.2",
           "Pulumi.Aws": "5.10.0",
           "Pulumi.Kubernetes": "3.20.2",
           "Pulumi.Random": "4.8.1"
@@ -959,7 +959,7 @@
           "FluentValidation": "11.1.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
           "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.37.1",
+          "Pulumi": "3.37.2",
           "Pulumi.Aws": "5.10.0",
           "Pulumi.Kubernetes": "3.20.2",
           "Scriban": "5.5.0",
