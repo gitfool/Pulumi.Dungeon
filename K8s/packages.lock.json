@@ -93,8 +93,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "11.1.0",
-        "contentHash": "Ld7w+2jOmnhQqFkngEGuEWTRa5j6u4Xzli7jKxRtbA5PtuHHcpin01qxvxYL0LomeJuzRMGAOURu2rKONdjKQA=="
+        "resolved": "11.2.0",
+        "contentHash": "KV1YBM8T4plLKmShjxfmHMF6X1lDuXgyqE+t8NYNxb7jmMbPnA3u30RsuXAf2NYMv0TBCUQguI2Z6W17c/Dh1A=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -262,14 +262,14 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "11.1.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
-          "Microsoft.Extensions.Options": "6.0.0",
-          "Pulumi": "3.37.1",
-          "Pulumi.Aws": "5.10.0",
-          "Pulumi.Kubernetes": "3.20.2",
-          "Scriban": "5.5.0",
-          "YamlDotNet": "12.0.0"
+          "FluentValidation": "[11.2.0, )",
+          "Microsoft.Extensions.Logging.Abstractions": "[6.0.1, )",
+          "Microsoft.Extensions.Options": "[6.0.0, )",
+          "Pulumi": "[3.37.1, )",
+          "Pulumi.Aws": "[5.10.0, )",
+          "Pulumi.Kubernetes": "[3.20.2, )",
+          "Scriban": "[5.5.0, )",
+          "YamlDotNet": "[12.0.0, )"
         }
       }
     }
