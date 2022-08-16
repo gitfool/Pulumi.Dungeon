@@ -222,8 +222,8 @@
       },
       "IPNetwork2": {
         "type": "Transitive",
-        "resolved": "2.6.437",
-        "contentHash": "fAD7UBux6TNLKWLsMLCfPkf04/3e8ubgpmA2QhWMOJfMAr93bVoN7yUinRYGhGfHcQV223v8SOwVow/zP5v4Ag=="
+        "resolved": "2.6.438",
+        "contentHash": "OH/ztMNWiick9GztP0RY2ePqmAEihB41L9QmLfJKyFALmD2g3fjlj5YHD9INnYOK/9j/RdGbYWLMSv3pYxUIPg=="
       },
       "JsonPointer.Net": {
         "type": "Transitive",
@@ -931,7 +931,7 @@
       "aws": {
         "type": "Project",
         "dependencies": {
-          "IPNetwork2": "[2.6.437, )",
+          "IPNetwork2": "[2.6.438, )",
           "K8s": "[1.0.0, )",
           "Library": "[1.0.0, )",
           "Microsoft.Extensions.Options": "[6.0.0, )",
