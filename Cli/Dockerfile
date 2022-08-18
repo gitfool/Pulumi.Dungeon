@@ -26,7 +26,7 @@ EOF
 # renovate: datasource=github-tags depName=kubectl packageName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
 RUN <<EOF
     set -ex
-    version=1.24.3
+    version=1.24.4
     curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
     chmod +x /usr/local/bin/kubectl
     kubectl completion bash > /etc/bash_completion.d/kubectl
