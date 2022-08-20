@@ -18,13 +18,13 @@ Dungeon:
         Addons:
           CoreDns:
             Name: coredns
-            Version: v1.8.7-eksbuild.1
+            Version: v1.8.7-eksbuild.2
           KubeProxy:
             Name: kube-proxy
-            Version: v1.22.6-eksbuild.1
+            Version: v1.23.7-eksbuild.1
           VpcCni:
             Name: vpc-cni
-            Version: v1.10.3-eksbuild.1
+            Version: v1.11.3-eksbuild.1
         NodeGroups:
           Default:
             Name: default
@@ -52,7 +52,7 @@ Dungeon:
       Vpc:
         MaxAvailabilityZones: 4
     K8s:
-      Version: 1.22
+      Version: 1.23
       ContainerRuntime: containerd
       InstallFluentBit: true
       # renovate: datasource=helm depName=aws-load-balancer-controller-chart packageName=aws-load-balancer-controller registryUrl=https://aws.github.io/eks-charts
@@ -62,7 +62,7 @@ Dungeon:
       # renovate: datasource=helm depName=cluster-autoscaler-chart packageName=cluster-autoscaler registryUrl=https://kubernetes.github.io/autoscaler
       ClusterAutoscalerChartVersion: 9.19.4
       # renovate: datasource=github-releases depName=cluster-autoscaler packageName=kubernetes/autoscaler extractVersion=^cluster-autoscaler-(?<version>\d+\.\d+\.\d+)$
-      ClusterAutoscalerImageTag: 1.22.3
+      ClusterAutoscalerImageTag: 1.23.1
       # renovate: datasource=helm depName=external-dns-chart packageName=external-dns registryUrl=https://charts.bitnami.com/bitnami
       ExternalDnsChartVersion: 6.7.5
       # renovate: datasource=helm depName=fluent-bit-chart packageName=fluent-bit registryUrl=https://fluent.github.io/helm-charts
