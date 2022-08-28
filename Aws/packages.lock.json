@@ -4,9 +4,9 @@
     ".NETCoreApp,Version=v5.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[2.6.459, )",
-        "resolved": "2.6.459",
-        "contentHash": "4JUpsA+b+P8k2bTCRXCzHTYPkX0GKBiirWo5gPWGkxL04xZRPAFkOyHgIWAhiJLqmMwKAp2XDRvNhHT9FCi24A=="
+        "requested": "[2.6.461, )",
+        "resolved": "2.6.461",
+        "contentHash": "406/b7x/jnC7xxwS8tevpzZwvB5P2iqrxgBwFsUy6gK4lNKHY+lxeYWuGL/hU0tuEMrO+UnJhdWxuHIzIzEzIQ=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",
@@ -72,8 +72,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "11.2.0",
-        "contentHash": "KV1YBM8T4plLKmShjxfmHMF6X1lDuXgyqE+t8NYNxb7jmMbPnA3u30RsuXAf2NYMv0TBCUQguI2Z6W17c/Dh1A=="
+        "resolved": "11.2.1",
+        "contentHash": "ZrQD0TGd0mHqf/zErZOEaba8cBeInaJj02nqinO+0La3uE08sJ5ScTYqsCbdx9fLHsX8rh+5KH5RtL2eOUS+OA=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -286,7 +286,7 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[11.2.0, )",
+          "FluentValidation": "[11.2.1, )",
           "Microsoft.Extensions.Logging.Abstractions": "[6.0.1, )",
           "Microsoft.Extensions.Options": "[6.0.0, )",
           "Pulumi": "[3.38.0, )",
