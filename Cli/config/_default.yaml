@@ -60,7 +60,7 @@ Dungeon:
       # renovate: datasource=helm depName=cert-manager-chart packageName=cert-manager registryUrl=https://charts.jetstack.io
       CertManagerChartVersion: 1.9.1
       # renovate: datasource=helm depName=cluster-autoscaler-chart packageName=cluster-autoscaler registryUrl=https://kubernetes.github.io/autoscaler
-      ClusterAutoscalerChartVersion: 9.20.0
+      ClusterAutoscalerChartVersion: 9.20.1
       # renovate: datasource=github-releases depName=cluster-autoscaler packageName=kubernetes/autoscaler extractVersion=^cluster-autoscaler-(?<version>\d+\.\d+\.\d+)$
       ClusterAutoscalerImageTag: 1.23.1
       # renovate: datasource=helm depName=external-dns-chart packageName=external-dns registryUrl=https://charts.bitnami.com/bitnami
