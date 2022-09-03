@@ -4,9 +4,9 @@
     ".NETCoreApp,Version=v5.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[2.6.461, )",
-        "resolved": "2.6.461",
-        "contentHash": "406/b7x/jnC7xxwS8tevpzZwvB5P2iqrxgBwFsUy6gK4lNKHY+lxeYWuGL/hU0tuEMrO+UnJhdWxuHIzIzEzIQ=="
+        "requested": "[2.6.467, )",
+        "resolved": "2.6.467",
+        "contentHash": "r5rDdWOGjXp4sb5t2n6le06jM5ill5RgriNHC4Nv4vp4B7Q3rxNYGXs6HC4SVptDbKaBBzuEncuoKoX5KcPMFg=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",

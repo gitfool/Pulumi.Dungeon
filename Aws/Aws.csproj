@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="IPNetwork2" Version="2.6.461" />
+    <PackageReference Include="IPNetwork2" Version="2.6.467" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Pulumi" Version="3.38.0" />
     <PackageReference Include="Pulumi.Aws" Version="5.11.0" />
