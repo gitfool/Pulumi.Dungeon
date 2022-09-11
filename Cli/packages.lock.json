@@ -143,13 +143,13 @@
           "Serilog.Sinks.PeriodicBatching": "2.3.0"
         }
       },
-      "Spectre.Console": {
+      "Spectre.Console.Cli": {
         "type": "Direct",
         "requested": "[0.45.0, )",
         "resolved": "0.45.0",
-        "contentHash": "e//13o8/BCrWmwN26eJ4zCzD2iq7iUlqQd+nDI9nJUdnJ/rYAanYiNFZZ7YHwlv48IKuKtRYYP6/wPt1DG67ww==",
+        "contentHash": "SZcYjwEmmYgmTDqOluWFYtURI9bgRtmx3tSdslHsMU9lKWkev3UHEkzDbOtu4XwY+hCn9NOjBRSDWNafa4fyCQ==",
         "dependencies": {
-          "System.Memory": "4.5.5"
+          "Spectre.Console": "0.45.0"
         }
       },
       "Ben.Demystifier": {
@@ -629,6 +629,14 @@
           "Serilog": "2.0.0",
           "System.Collections.Concurrent": "4.0.12",
           "System.Threading.Timer": "4.0.1"
+        }
+      },
+      "Spectre.Console": {
+        "type": "Transitive",
+        "resolved": "0.45.0",
+        "contentHash": "e//13o8/BCrWmwN26eJ4zCzD2iq7iUlqQd+nDI9nJUdnJ/rYAanYiNFZZ7YHwlv48IKuKtRYYP6/wPt1DG67ww==",
+        "dependencies": {
+          "System.Memory": "4.5.5"
         }
       },
       "System.Buffers": {
