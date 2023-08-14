@@ -4,15 +4,15 @@
     "net7.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[2.6.508, )",
-        "resolved": "2.6.508",
-        "contentHash": "gbD4m/i7VtBUaoGil1XWHO7LdJuT51bWAqdktZtPAPNawKmJrnWLsBui8QMzwBmq2LxX+Vv9/ryUCd/R0sXkWA=="
+        "requested": "[2.6.601, )",
+        "resolved": "2.6.601",
+        "contentHash": "PwC++T7I0Hm+579BcuCConvxz8QDaCop6a7bCoUHIjEt+bwUMN+cvulqu4Ga9SZsSOn2RBXMJBuqFwru8fSbXQ=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",
-        "requested": "[7.0.0, )",
-        "resolved": "7.0.0",
-        "contentHash": "lP1yBnTTU42cKpMozuafbvNtQ7QcBjr/CcK3bYOGEMH55Fjt+iecXjT6chR7vbgCMqy3PG3aNQSZgo/EuY/9qQ==",
+        "requested": "[7.0.1, )",
+        "resolved": "7.0.1",
+        "contentHash": "pZRDYdN1FpepOIfHU62QoBQ6zdAoTvnjxFfqAzEd9Jhb2dfhA5i6jeTdgGgcgTWFRC7oT0+3XrbQu4LjvgX1Nw==",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
           "Microsoft.Extensions.Primitives": "7.0.0"
@@ -72,8 +72,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "11.3.0",
-        "contentHash": "AlsfUkdIzSMA2v091K0gT1YjEwc7YR5pIA5yq7PnZivhoH3YETMhZbUySzsLbJKhj/E3ei6nEgtqdm00AVHXeg=="
+        "resolved": "11.7.1",
+        "contentHash": "w9Al4gls6iVGFbTd/NPOPlwzqDTghH+ntL4c4FYUatc+LeybpIwhYArLykZJP/VjF2n3ihj3ws+1yd7KR5lQlg=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -142,8 +142,8 @@
       },
       "Microsoft.Extensions.Logging.Abstractions": {
         "type": "Transitive",
-        "resolved": "7.0.0",
-        "contentHash": "kmn78+LPVMOWeITUjIlfxUPDsI0R6G0RkeAMBmQxAJ7vBJn4q2dTva7pWi65ceN5vPGjJ9q/Uae2WKgvfktJAw=="
+        "resolved": "7.0.1",
+        "contentHash": "pkeBFx0vqMW/A3aUVHh7MPu3WkBhaVlezhSZeb1c9XD0vUReYH1TLFSy5MxJgZfmz5LZzYoErMorlYZiwpOoNA=="
       },
       "Microsoft.Extensions.Primitives": {
         "type": "Transitive",
@@ -172,8 +172,8 @@
       },
       "Polly": {
         "type": "Transitive",
-        "resolved": "7.2.3",
-        "contentHash": "DeCY0OFbNdNxsjntr1gTXHJ5pKUwYzp04Er2LLeN3g6pWhffsGuKVfMBLe1lw7x76HrPkLxKEFxBlpRxS2nDEQ=="
+        "resolved": "7.2.4",
+        "contentHash": "bw00Ck5sh6ekduDE3mnCo1ohzuad946uslCDEENu3091+6UKnBuKLo4e+yaNcCzXxOZCXWY2gV4a35+K1d4LDA=="
       },
       "Pulumi.Kubernetes": {
         "type": "Transitive",
@@ -199,8 +199,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.5.1",
-        "contentHash": "ZGCDgKwyx0pPp5p8lsqBDLlOQR5qTVhD/hgVmdL1K8ReyCDdPxhvUUmzdFhBsPxGEqyDwG8dIEQ8BynzR3trpw=="
+        "resolved": "5.7.0",
+        "contentHash": "sSjmrKmvin85FDVb2W63IDkUK5BgKY+ZnuCuwF8KRfcREB9f3dJZA58TgV052vzYxadlro4kAZv4jBP1tonaaQ=="
       },
       "Semver": {
         "type": "Transitive",
@@ -263,8 +263,8 @@
         "dependencies": {
           "Flurl.Http": "[3.2.4, )",
           "Library": "[1.0.0, )",
-          "Microsoft.Extensions.Options": "[7.0.0, )",
-          "Polly": "[7.2.3, )",
+          "Microsoft.Extensions.Options": "[7.0.1, )",
+          "Polly": "[7.2.4, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
@@ -274,13 +274,13 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[11.3.0, )",
-          "Microsoft.Extensions.Logging.Abstractions": "[7.0.0, )",
-          "Microsoft.Extensions.Options": "[7.0.0, )",
+          "FluentValidation": "[11.7.1, )",
+          "Microsoft.Extensions.Logging.Abstractions": "[7.0.1, )",
+          "Microsoft.Extensions.Options": "[7.0.1, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
-          "Scriban": "[5.5.1, )",
+          "Scriban": "[5.7.0, )",
           "YamlDotNet": "[13.1.1, )"
         }
       }

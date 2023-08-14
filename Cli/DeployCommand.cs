@@ -144,7 +144,7 @@ public sealed partial class DeployCommand : AsyncCommandBase<DeployCommand.Setti
                     var exportState = await stack.ExportStackAsync();
                     var json = await RepairStackAsync(exportState.Json.GetRawText());
                     var importState = StackDeployment.FromJsonString(json);
-                    var jsonPath = JsonPath.Parse("$.deployment.pending_operations[*].resource.urn").Evaluate(importState.Json);
+                    var jsonPath = JsonPath.Parse("$.deployment.pending_operations[*].resource.urn").Evaluate(importState.Json.AsNode());
                     if (importState.Json.IsEquivalentTo(exportState.Json))
                     {
                         Logger.LogWarning("Repaired stack resources ignored (equivalent)");
@@ -158,7 +158,7 @@ public sealed partial class DeployCommand : AsyncCommandBase<DeployCommand.Setti
                         Logger.LogWarning("Repaired stack resources ignored (pending resources):");
                         foreach (var match in jsonPath.Matches)
                         {
-                            Logger.LogWarning(match.Value.ToString());
+                            Logger.LogWarning(match.Value!.ToString());
                         }
                     }
                     else
