@@ -13,6 +13,12 @@
       "allowedVersions": "/^1\\.23\\./"
     },
     {
+      "description": "Group helm dependencies.",
+      "matchDatasources": [ "helm" ],
+      "groupName": "helm dependencies",
+      "groupSlug": "helm"
+    },
+    {
       "description": "Group pulumi dependencies.",
       "matchSourceUrlPrefixes": [ "https://github.com/pulumi/" ],
       "groupName": "pulumi dependencies",
