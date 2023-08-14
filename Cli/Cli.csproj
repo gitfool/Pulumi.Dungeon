@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
 
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AssemblyName>pulumi-dungeon</AssemblyName>
     <PublishOnBuild>true</PublishOnBuild>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  <!-- <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <DebuggerSupport>false</DebuggerSupport>
     <EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
     <EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
@@ -20,7 +20,7 @@
     <PublishTrimmed>true</PublishTrimmed>
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
     <TrimMode>copyused</TrimMode>
-  </PropertyGroup>
+  </PropertyGroup> -->
 
   <ItemGroup>
     <ProjectReference Include="..\Aws\Aws.csproj" />

@@ -1,15 +1,3 @@
 <Project>
-    <!-- https://github.com/dotnet/sdk/issues/1458#issuecomment-420456386 -->
-  <Target Name="_ResolveCopyLocalNuGetPackagePdbsAndXml" Condition="$(CopyLocalLockFileAssemblies) == true" AfterTargets="ResolveReferences">
-    <ItemGroup>
-      <ReferenceCopyLocalPaths
-        Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).pdb')"
-        Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != '' and Exists('%(RootDir)%(Directory)%(Filename).pdb')" />
-      <!-- <ReferenceCopyLocalPaths
-        Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).xml')"
-        Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != '' and Exists('%(RootDir)%(Directory)%(Filename).xml')" /> -->
-    </ItemGroup>
-  </Target>
-
   <Target Name="PublishOnBuild" Condition="'$(PublishOnBuild)' == 'true'" AfterTargets="Build" DependsOnTargets="Publish" />
 </Project>

@@ -1,3 +1,4 @@
 *
-!bin/Release/linux-x64/publish/
-**/config/_development.yaml
+!bin/Release/publish/
+**/_development.yaml
+**/*.exe

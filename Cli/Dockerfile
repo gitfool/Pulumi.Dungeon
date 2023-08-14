@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/dotnet/runtime-deps:7.0.0-jammy
+FROM mcr.microsoft.com/dotnet/aspnet:7.0.10-jammy
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -10,16 +10,6 @@ RUN <<EOF
     apt-get install --no-install-recommends -y bash-completion curl sudo vim
     rm -rf /var/lib/apt/lists/*
     mkdir -p /etc/bash_completion.d
-EOF
-
-# Install libssl 1.1; workaround dotnet 5.0 runtime dependency removed from ubuntu jammy
-# renovate: datasource=repology depName=libssl1.1 packageName=ubuntu_20_04/openssl versioning=loose
-RUN <<EOF
-    set -ex
-    version=1.1.1f-1ubuntu2.16
-    curl -fsSL https://launchpad.net/ubuntu/+archive/primary/+files/libssl1.1_${version}_amd64.deb -o libssl1.1.deb
-    DEBIAN_FRONTEND=noninteractive dpkg -i libssl1.1.deb
-    rm -f libssl1.1.deb
 EOF
 
 # Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
@@ -98,12 +88,12 @@ ENV DOTNET_HostBuilder__ReloadConfigOnChange=false
 
 WORKDIR /home/user/dungeon
 
-COPY --link --chown=1000:1000 bin/Release/linux-x64/publish .
+COPY --link --chown=1000:1000 bin/Release/publish .
 
 RUN <<EOF
     set -ex
-    echo "alias d='cd ~/dungeon && ./pulumi-dungeon'" >> ~/.bash_aliases
-    chmod -x config/*.yaml
+    echo "alias d='cd ~/dungeon && dotnet pulumi-dungeon.dll'" >> ~/.bash_aliases
+    find . -type f -regextype posix-egrep -iregex '.*\.(dll|json|yaml)$' -exec chmod -x {} \;
 EOF
 
-ENTRYPOINT [ "./pulumi-dungeon" ]
+ENTRYPOINT [ "dotnet", "pulumi-dungeon.dll" ]
