@@ -4,13 +4,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="FluentValidation" Version="11.8.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
     <PackageReference Include="Pulumi" Version="3.38.0" />
     <PackageReference Include="Pulumi.Aws" Version="5.11.0" />
     <PackageReference Include="Pulumi.Kubernetes" Version="3.20.5" />
-    <PackageReference Include="Scriban" Version="5.7.0" />
-    <PackageReference Include="YamlDotNet" Version="13.1.1" />
+    <PackageReference Include="Scriban" Version="5.9.0" />
+    <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>
 </Project>

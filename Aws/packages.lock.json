@@ -4,9 +4,9 @@
     "net7.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[2.6.601, )",
-        "resolved": "2.6.601",
-        "contentHash": "PwC++T7I0Hm+579BcuCConvxz8QDaCop6a7bCoUHIjEt+bwUMN+cvulqu4Ga9SZsSOn2RBXMJBuqFwru8fSbXQ=="
+        "requested": "[2.6.611, )",
+        "resolved": "2.6.611",
+        "contentHash": "eCwQL6r3WqQ7YR+tJ5EEH6at51RHiVrmc50JcKxyN7493Jvm0afbz62CoYfgGPS0X/YikcAa8hB54C6RKc8tKw=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",
@@ -72,8 +72,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "11.7.1",
-        "contentHash": "w9Al4gls6iVGFbTd/NPOPlwzqDTghH+ntL4c4FYUatc+LeybpIwhYArLykZJP/VjF2n3ihj3ws+1yd7KR5lQlg=="
+        "resolved": "11.8.0",
+        "contentHash": "TiEaaYqSIAS+wXQv46LRm8Mca092XYNePD0n231Hqlkmm5FuToZoWnjI1ef/vJUxBzqR7/k2vaVQXxijNgVKRQ=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -199,8 +199,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.7.0",
-        "contentHash": "sSjmrKmvin85FDVb2W63IDkUK5BgKY+ZnuCuwF8KRfcREB9f3dJZA58TgV052vzYxadlro4kAZv4jBP1tonaaQ=="
+        "resolved": "5.9.0",
+        "contentHash": "V725wLd3YKTRua8kTHUwJYTvIouNqyMBzNaNamCLlZPTyeP4gl+WJtqXDnWMe+mTftTGEVYZgbR1pLRmdKjK1g=="
       },
       "Semver": {
         "type": "Transitive",
@@ -255,8 +255,8 @@
       },
       "YamlDotNet": {
         "type": "Transitive",
-        "resolved": "13.1.1",
-        "contentHash": "3AS0fEwxOucP0h68JXMxfj3NyfgX9EOVE29NlKqKxWMHfKMAuZ7MWw5u362Bs6OALtnBTzi/JYIiMidQXoKVWw=="
+        "resolved": "13.7.1",
+        "contentHash": "X4m1PnFcJwvAj1sCDMntg/eZcX96CJLrWMiYnq41KqhFVZPuw63ZTSxIGqgdCwHWHvCAyTxheELC/VDf1HsU2A=="
       },
       "k8s": {
         "type": "Project",
@@ -274,14 +274,14 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[11.7.1, )",
+          "FluentValidation": "[11.8.0, )",
           "Microsoft.Extensions.Logging.Abstractions": "[7.0.1, )",
           "Microsoft.Extensions.Options": "[7.0.1, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
-          "Scriban": "[5.7.0, )",
-          "YamlDotNet": "[13.1.1, )"
+          "Scriban": "[5.9.0, )",
+          "YamlDotNet": "[13.7.1, )"
         }
       }
     }

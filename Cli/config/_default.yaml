@@ -70,7 +70,7 @@ Dungeon:
       FluentBitImageRepository: public.ecr.aws/aws-observability/aws-for-fluent-bit
       # renovate: # datasource=docker depName=aws-for-fluent-bit packageName=public.ecr.aws/aws-observability/aws-for-fluent-bit
       # renovate: datasource=github-releases depName=aws-for-fluent-bit packageName=aws/aws-for-fluent-bit
-      FluentBitImageTag: 2.31.12
+      FluentBitImageTag: 2.32.0
 
   Pulumi:
     Color: always
