@@ -20,7 +20,7 @@ RUN <<EOF
     curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
     chmod +x /usr/local/bin/kubectl
     kubectl completion bash > /etc/bash_completion.d/kubectl
-    kubectl version --client --short
+    kubectl version --client
 EOF
 
 # Install aws iam authenticator; https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
