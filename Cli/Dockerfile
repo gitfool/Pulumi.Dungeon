@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/dotnet/aspnet:7.0.12-jammy
+FROM mcr.microsoft.com/dotnet/aspnet:7.0.15-jammy
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -16,7 +16,7 @@ EOF
 # renovate: datasource=github-tags depName=kubectl packageName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
 RUN <<EOF
     set -ex
-    version=1.28.3
+    version=1.29.0
     curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
     chmod +x /usr/local/bin/kubectl
     kubectl completion bash > /etc/bash_completion.d/kubectl
@@ -27,7 +27,7 @@ EOF
 # renovate: datasource=github-releases depName=aws-iam-authenticator packageName=kubernetes-sigs/aws-iam-authenticator
 RUN <<EOF
     set -ex
-    version=0.6.11
+    version=0.6.14
     curl -fsSL https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v$version/aws-iam-authenticator_${version}_linux_amd64 -o /usr/local/bin/aws-iam-authenticator
     chmod +x /usr/local/bin/aws-iam-authenticator
     aws-iam-authenticator version
@@ -37,7 +37,7 @@ EOF
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
 RUN <<EOF
     set -ex
-    version=3.13.1
+    version=3.13.3
     curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz
     tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm
     rm -f helm.tar.gz

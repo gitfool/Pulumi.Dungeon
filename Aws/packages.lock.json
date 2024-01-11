@@ -4,9 +4,9 @@
     "net7.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[2.6.611, )",
-        "resolved": "2.6.611",
-        "contentHash": "eCwQL6r3WqQ7YR+tJ5EEH6at51RHiVrmc50JcKxyN7493Jvm0afbz62CoYfgGPS0X/YikcAa8hB54C6RKc8tKw=="
+        "requested": "[2.6.618, )",
+        "resolved": "2.6.618",
+        "contentHash": "rRxnQko86gF/Q58+WO/2yFun7RUd05n2gwa9jOElqOdqN3i7tF8jHUmxZedqHjYCN3mGHJjVxZeQKAOu7TnQVA=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",
@@ -72,8 +72,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "11.8.0",
-        "contentHash": "TiEaaYqSIAS+wXQv46LRm8Mca092XYNePD0n231Hqlkmm5FuToZoWnjI1ef/vJUxBzqR7/k2vaVQXxijNgVKRQ=="
+        "resolved": "11.9.0",
+        "contentHash": "VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -199,8 +199,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.9.0",
-        "contentHash": "V725wLd3YKTRua8kTHUwJYTvIouNqyMBzNaNamCLlZPTyeP4gl+WJtqXDnWMe+mTftTGEVYZgbR1pLRmdKjK1g=="
+        "resolved": "5.9.1",
+        "contentHash": "Er0jZCXrHXtk+nnzmHVEnmz1pjfU+VL3GppO0UjtCMoZ0Se1plyPe1OLb6gM7ToSRA7nu/QIcdRFr29x8w8rQQ=="
       },
       "Semver": {
         "type": "Transitive",
@@ -274,13 +274,13 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[11.8.0, )",
+          "FluentValidation": "[11.9.0, )",
           "Microsoft.Extensions.Logging.Abstractions": "[7.0.1, )",
           "Microsoft.Extensions.Options": "[7.0.1, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
-          "Scriban": "[5.9.0, )",
+          "Scriban": "[5.9.1, )",
           "YamlDotNet": "[13.7.1, )"
         }
       }
