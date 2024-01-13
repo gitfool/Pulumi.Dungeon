@@ -1,3 +1,5 @@
+extern alias IPNetwork2;
+
 using RouteTable = Pulumi.Aws.Ec2.RouteTable;
 using RouteTableArgs = Pulumi.Aws.Ec2.RouteTableArgs;
 using RouteTableAssociation = Pulumi.Aws.Ec2.RouteTableAssociation;
@@ -51,7 +53,7 @@ public sealed class VpcStack : StackBase<VpcStack>
 
         // network
         Logger.LogDebug("Creating network");
-        var network = IPNetwork.Parse(AwsConfig.Vpc.CidrBlock);
+        var network = IPNetwork2.System.Net.IPNetwork.Parse(AwsConfig.Vpc.CidrBlock);
         var subnetTotalIps = network.Total / (2 * azs.Length); // public & private subnet per az
         var subnetCidrMask = 32 - (subnetTotalIps.GetBitLength() - 1);
         if (subnetCidrMask is < 16 or > 28)
