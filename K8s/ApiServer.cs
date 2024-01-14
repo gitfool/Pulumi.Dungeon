@@ -1,6 +1,6 @@
 using Flurl.Http;
 using Polly;
-using Polly.Wrap;
+using Polly.Retry;
 
 namespace Pulumi.Dungeon.K8s;
 
@@ -11,17 +11,32 @@ public class ApiServer
         var handler = new HttpClientHandler { ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator };
         Client = new FlurlClient(new HttpClient(handler)) { BaseUrl = baseUrl };
 
-        HealthzPolicy = Policy.WrapAsync(
-            Policy.TimeoutAsync<HttpStatusCode>(context => (TimeSpan)context["Timeout"]),
-            Policy.HandleResult<HttpStatusCode>(status => status != HttpStatusCode.OK)
-                .WaitAndRetryForeverAsync(_ => TimeSpan.FromSeconds(5), (_, count, _) => Log.Debug($"Waiting for api server... ({count})", ephemeral: true)));
+        ResiliencePipeline = new ResiliencePipelineBuilder<HttpStatusCode>()
+            .AddRetry(new RetryStrategyOptions<HttpStatusCode>
+            {
+                ShouldHandle = args => args.Outcome.Result switch
+                {
+                    not HttpStatusCode.OK => PredicateResult.True(),
+                    _ => PredicateResult.False()
+                },
+                BackoffType = DelayBackoffType.Constant,
+                Delay = TimeSpan.FromSeconds(5),
+                MaxRetryAttempts = int.MaxValue,
+                OnRetry = args =>
+                {
+                    Log.Debug($"Waiting for api server... ({args.AttemptNumber + 1})", ephemeral: true);
+                    return default;
+                }
+            })
+            .AddTimeout(TimeSpan.FromMinutes(5))
+            .Build();
     }
 
-    public async Task<HttpStatusCode> GetHealthzAsync()
+    public async ValueTask<HttpStatusCode> GetHealthzAsync(CancellationToken cancellationToken)
     {
         try
         {
-            return (await Client.Request("healthz").AllowAnyHttpStatus().GetAsync()).ResponseMessage.StatusCode;
+            return (await Client.Request("healthz").AllowAnyHttpStatus().GetAsync(cancellationToken: cancellationToken)).ResponseMessage.StatusCode;
         }
         catch (Exception ex)
         {
@@ -30,10 +45,9 @@ public class ApiServer
         }
     }
 
-    public Task<HttpStatusCode> WaitForHealthzAsync(TimeSpan timeout) =>
-        HealthzPolicy.ExecuteAsync(context => GetHealthzAsync(), new Dictionary<string, object> { ["Timeout"] = timeout });
+    public Task<HttpStatusCode> WaitForHealthzAsync() => ResiliencePipeline.ExecuteAsync(GetHealthzAsync).AsTask();
 
     protected IFlurlClient Client { get; }
 
-    private AsyncPolicyWrap<HttpStatusCode> HealthzPolicy { get; }
+    private ResiliencePipeline<HttpStatusCode> ResiliencePipeline { get; }
 }

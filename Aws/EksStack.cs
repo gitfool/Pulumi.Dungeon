@@ -103,7 +103,7 @@ public sealed class EksStack : StackBase<EksStack>
             },
             new CustomResourceOptions { Protect = true, Provider = awsProvider });
 
-        var clusterEndpoint = cluster.Endpoint.WhenRun(endpoint => new ApiServer(endpoint).WaitForHealthzAsync(TimeSpan.FromMinutes(5)));
+        var clusterEndpoint = cluster.Endpoint.WhenRun(endpoint => new ApiServer(endpoint).WaitForHealthzAsync());
         var clusterSgId = cluster.VpcConfig.Apply(config => config.ClusterSecurityGroupId!);
 
         ClusterName = cluster.Name;
