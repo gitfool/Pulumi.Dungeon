@@ -14,7 +14,11 @@ public class ApiServer
         ResiliencePipeline = new ResiliencePipelineBuilder<HttpStatusCode>()
             .AddRetry(new RetryStrategyOptions<HttpStatusCode>
             {
-                ShouldHandle = new PredicateBuilder<HttpStatusCode>().HandleResult(status => status != HttpStatusCode.OK),
+                ShouldHandle = args => args.Outcome.Result switch
+                {
+                    not HttpStatusCode.OK => PredicateResult.True(),
+                    _ => PredicateResult.False()
+                },
                 BackoffType = DelayBackoffType.Constant,
                 Delay = TimeSpan.FromSeconds(5),
                 MaxRetryAttempts = int.MaxValue,
