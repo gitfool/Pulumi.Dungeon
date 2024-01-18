@@ -4,9 +4,9 @@
     "net8.0": {
       "Json.More.Net": {
         "type": "Direct",
-        "requested": "[1.9.3, )",
-        "resolved": "1.9.3",
-        "contentHash": "BKIsKHXR2Jq+LdLdxPo3L09Lv0ld9xs1fAMvSAe2cf2YOl3at9vw0RrMlhC2ookDi7VtrgHXzc2Et5mVBOAUdw==",
+        "requested": "[1.10.0, )",
+        "resolved": "1.10.0",
+        "contentHash": "RXPCnqGkFGN//fqlVRiAFBgfi2ff0M23ExTHz9BwEYiWm/GQAjFHSGT5OZ+PbhPs6PaIiOrDVrkUwSxV9I5YCw==",
         "dependencies": {
           "System.Text.Json": "6.0.2"
         }
@@ -168,8 +168,8 @@
       },
       "Flurl.Http": {
         "type": "Transitive",
-        "resolved": "4.0.1",
-        "contentHash": "sA2rZUWQ/RJnSZnlq5cktBvGWykKAFS8WDO6otSyYb7XonBFxNY7lh2fKy71Egd5TaSiEUwkxjMyoYUhzghTDA==",
+        "resolved": "4.0.2",
+        "contentHash": "9vCqFFyceA11yplkFD8AbCFFTvG1Lrw3tpsgOpL5sLUc28p6zcvGszNleuT6nDymRvtt5eS+rqUX+bRztg1fhA==",
         "dependencies": {
           "Flurl": "4.0.0"
         }
@@ -653,7 +653,7 @@
       "k8s": {
         "type": "Project",
         "dependencies": {
-          "Flurl.Http": "[4.0.1, )",
+          "Flurl.Http": "[4.0.2, )",
           "Library": "[1.0.0, )",
           "Microsoft.Extensions.Options": "[8.0.1, )",
           "Polly": "[8.2.1, )",

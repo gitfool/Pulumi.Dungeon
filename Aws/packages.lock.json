@@ -72,8 +72,8 @@
       },
       "Flurl.Http": {
         "type": "Transitive",
-        "resolved": "4.0.1",
-        "contentHash": "sA2rZUWQ/RJnSZnlq5cktBvGWykKAFS8WDO6otSyYb7XonBFxNY7lh2fKy71Egd5TaSiEUwkxjMyoYUhzghTDA==",
+        "resolved": "4.0.2",
+        "contentHash": "9vCqFFyceA11yplkFD8AbCFFTvG1Lrw3tpsgOpL5sLUc28p6zcvGszNleuT6nDymRvtt5eS+rqUX+bRztg1fhA==",
         "dependencies": {
           "Flurl": "4.0.0"
         }
@@ -226,7 +226,7 @@
       "k8s": {
         "type": "Project",
         "dependencies": {
-          "Flurl.Http": "[4.0.1, )",
+          "Flurl.Http": "[4.0.2, )",
           "Library": "[1.0.0, )",
           "Microsoft.Extensions.Options": "[8.0.1, )",
           "Polly": "[8.2.1, )",
