@@ -16,7 +16,7 @@ EOF
 # renovate: datasource=github-tags depName=kubectl packageName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
 RUN <<EOF
     set -ex
-    version=1.29.0
+    version=1.29.1
     curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
     chmod +x /usr/local/bin/kubectl
     kubectl completion bash > /etc/bash_completion.d/kubectl
@@ -37,7 +37,7 @@ EOF
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
 RUN <<EOF
     set -ex
-    version=3.13.3
+    version=3.14.0
     curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz
     tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm
     rm -f helm.tar.gz

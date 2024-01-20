@@ -4,9 +4,9 @@
     "net8.0": {
       "Flurl.Http": {
         "type": "Direct",
-        "requested": "[4.0.1, )",
-        "resolved": "4.0.1",
-        "contentHash": "sA2rZUWQ/RJnSZnlq5cktBvGWykKAFS8WDO6otSyYb7XonBFxNY7lh2fKy71Egd5TaSiEUwkxjMyoYUhzghTDA==",
+        "requested": "[4.0.2, )",
+        "resolved": "4.0.2",
+        "contentHash": "9vCqFFyceA11yplkFD8AbCFFTvG1Lrw3tpsgOpL5sLUc28p6zcvGszNleuT6nDymRvtt5eS+rqUX+bRztg1fhA==",
         "dependencies": {
           "Flurl": "4.0.0"
         }
