@@ -4,9 +4,9 @@
     "net8.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[3.0.643, )",
-        "resolved": "3.0.643",
-        "contentHash": "h0b6W0IxJs8Zv5U78S35o59ybqeH/YEEMVWYi1NrsvUmx8kqiri+JLI3hgaBkzrpsdNp/SSfhpJAvhtRS1fPVA=="
+        "requested": "[3.0.648, )",
+        "resolved": "3.0.648",
+        "contentHash": "y57UwIl7xI+R1bC9ZCf4bdc18aLJmczjEhhQbNaaMYqy67IrdOaBgdHSYCziA+5VyvqVL+kc1pLNvKS7YNJsBw=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",

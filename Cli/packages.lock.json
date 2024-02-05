@@ -10,11 +10,11 @@
       },
       "JsonPath.Net": {
         "type": "Direct",
-        "requested": "[0.7.1, )",
-        "resolved": "0.7.1",
-        "contentHash": "9Ptfxear0AB7aYLWGbodkw63wy2kCzcJmqEFnrFtsQfGNIR5Sc+VkZHoFd2UYsH8iqAK0CEga7oSSmbMyQrnvg==",
+        "requested": "[0.8.0, )",
+        "resolved": "0.8.0",
+        "contentHash": "i5AEO1wcuTBiIvDBhhBG54gIt1hl6FNn0FsmelB/Lpxf60nmHQYmfPPZ2iN3U5MGYXCK4UoKnm5exskykLH98A==",
         "dependencies": {
-          "Json.More.Net": "1.9.3"
+          "Json.More.Net": "2.0.0"
         }
       },
       "Microsoft.Extensions.Hosting": {
@@ -211,8 +211,8 @@
       },
       "IPNetwork2": {
         "type": "Transitive",
-        "resolved": "3.0.643",
-        "contentHash": "h0b6W0IxJs8Zv5U78S35o59ybqeH/YEEMVWYi1NrsvUmx8kqiri+JLI3hgaBkzrpsdNp/SSfhpJAvhtRS1fPVA=="
+        "resolved": "3.0.648",
+        "contentHash": "y57UwIl7xI+R1bC9ZCf4bdc18aLJmczjEhhQbNaaMYqy67IrdOaBgdHSYCziA+5VyvqVL+kc1pLNvKS7YNJsBw=="
       },
       "Microsoft.Extensions.Configuration": {
         "type": "Transitive",
@@ -638,7 +638,7 @@
       "aws": {
         "type": "Project",
         "dependencies": {
-          "IPNetwork2": "[3.0.643, )",
+          "IPNetwork2": "[3.0.648, )",
           "K8s": "[1.0.0, )",
           "Library": "[1.0.0, )",
           "Microsoft.Extensions.Options": "[8.0.1, )",
