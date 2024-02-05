@@ -4,12 +4,9 @@
     "net8.0": {
       "Json.More.Net": {
         "type": "Direct",
-        "requested": "[1.10.0, )",
-        "resolved": "1.10.0",
-        "contentHash": "RXPCnqGkFGN//fqlVRiAFBgfi2ff0M23ExTHz9BwEYiWm/GQAjFHSGT5OZ+PbhPs6PaIiOrDVrkUwSxV9I5YCw==",
-        "dependencies": {
-          "System.Text.Json": "6.0.2"
-        }
+        "requested": "[2.0.0, )",
+        "resolved": "2.0.0",
+        "contentHash": "U9pOGTOqkxibxCZiBATbTGDc76tqt4KcuC245FU3Bzw6yWuGHp2M8/bMdy4OztmO1ckwp3VvgWQ7sO75mOEI7g=="
       },
       "JsonPath.Net": {
         "type": "Direct",
