@@ -4,15 +4,15 @@
     "net8.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[3.0.648, )",
-        "resolved": "3.0.648",
-        "contentHash": "y57UwIl7xI+R1bC9ZCf4bdc18aLJmczjEhhQbNaaMYqy67IrdOaBgdHSYCziA+5VyvqVL+kc1pLNvKS7YNJsBw=="
+        "requested": "[3.0.667, )",
+        "resolved": "3.0.667",
+        "contentHash": "0GgNIm12cDtI0Kc8oaVbgSQgqQ+yJuOyf1oyJ9eQ+Xt4uQ/2ZTvoTf6KBuRxjWF7rTD+1AreUES5khMecGAuTg=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",
-        "requested": "[8.0.1, )",
-        "resolved": "8.0.1",
-        "contentHash": "wmpp+BSU3oGifaev6Z9rrlwHoITLFfpVOSbgBrOXjkbJSCXnZVCsoRGE5c3fJFI4VlNgnNkNlI9y+5jC4fmOEA==",
+        "requested": "[8.0.2, )",
+        "resolved": "8.0.2",
+        "contentHash": "dWGKvhFybsaZpGmzkGCbNNwBD1rVlWzrZKANLW/CcbFJpCEceMCGzT7zZwHOGBCbwM0SzBuceMj5HN1LKV1QqA==",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
           "Microsoft.Extensions.Primitives": "8.0.0"
@@ -143,16 +143,16 @@
       },
       "Polly": {
         "type": "Transitive",
-        "resolved": "8.2.1",
-        "contentHash": "tVHvP5Z0fNoZCE9mpKAsh0IaValwsTGPrqjlWqkWR/Gpl5jL05HWC/AVGSL+jkAqkl1Jn7uBUOArnRD+dK5PfQ==",
+        "resolved": "8.3.1",
+        "contentHash": "xN9AxOudus8u4a//Tfu6Wxd5Oj7S4pjh/651S6FfIiVrbxQ8TeM+ieZC8c0y7Qto70zKBM5g8rBTqbAJnbetOA==",
         "dependencies": {
-          "Polly.Core": "8.2.1"
+          "Polly.Core": "8.3.1"
         }
       },
       "Polly.Core": {
         "type": "Transitive",
-        "resolved": "8.2.1",
-        "contentHash": "/Z3EspfWBdTla4I9IAcQn32/7kB5WS3rSnOYloz8YlVyClu8h7uuYf4pfUvffOYVbxmDX/mFRfxwzqW2Zs96ZA=="
+        "resolved": "8.3.1",
+        "contentHash": "b9mMAjqXuCXFCtf/RtRPwFUkAm/sz37s7G+taDvS5EqfkJsLiWfO2xO2cSISjIgIY+88oIZTGguP6UrRGRlqzg=="
       },
       "Pulumi.Kubernetes": {
         "type": "Transitive",
@@ -220,16 +220,16 @@
       },
       "YamlDotNet": {
         "type": "Transitive",
-        "resolved": "15.1.1",
-        "contentHash": "GjK+j6XmaFoLhdGpv5jVkt1wbUwVvZaWsUEPzr6gfA/VaEgYMlwZXeVyWJOqFK9U41mSocZvSuLkEFFhVEj0HA=="
+        "resolved": "15.1.2",
+        "contentHash": "qeX0XhzOIcQEvnI5JxnPaIwcINwyY4Qy/LXhSfsdHkFrl9F41AT52UFfy2nIE7kgrhMg+cP7xuS+GtPJhmHmTA=="
       },
       "k8s": {
         "type": "Project",
         "dependencies": {
           "Flurl.Http": "[4.0.2, )",
           "Library": "[1.0.0, )",
-          "Microsoft.Extensions.Options": "[8.0.1, )",
-          "Polly": "[8.2.1, )",
+          "Microsoft.Extensions.Options": "[8.0.2, )",
+          "Polly": "[8.3.1, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
@@ -241,12 +241,12 @@
         "dependencies": {
           "FluentValidation": "[11.9.0, )",
           "Microsoft.Extensions.Logging.Abstractions": "[8.0.0, )",
-          "Microsoft.Extensions.Options": "[8.0.1, )",
+          "Microsoft.Extensions.Options": "[8.0.2, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
           "Scriban": "[5.9.1, )",
-          "YamlDotNet": "[15.1.1, )"
+          "YamlDotNet": "[15.1.2, )"
         }
       }
     }
