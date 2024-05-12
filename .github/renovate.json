@@ -8,7 +8,7 @@
     {
       "description": "Constrain cluster autoscaler to 1.23.x to match k8s version.",
       "matchManagers": [ "regex" ],
-      "matchPackageNames": [ "cluster-autoscaler" ],
+      "matchDepNames": [ "cluster-autoscaler" ],
       "matchCurrentVersion": "/^1\\.23\\./",
       "allowedVersions": "/^1\\.23\\./"
     },
