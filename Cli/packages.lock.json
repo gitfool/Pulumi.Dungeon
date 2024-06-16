@@ -4,17 +4,17 @@
     "net8.0": {
       "Json.More.Net": {
         "type": "Direct",
-        "requested": "[2.0.1, )",
-        "resolved": "2.0.1",
-        "contentHash": "k4yLP8ZgEeiFKodcOdqt4qscXZU69F/My5pRNNBox97mBHQwdfUdJDG8jmsLM99GDhPgE25iSxj2/NvMnstUOw=="
+        "requested": "[2.0.1.2, )",
+        "resolved": "2.0.1.2",
+        "contentHash": "uF3QeiaXEfH92emz0/BWUiNtMSfxIIvgynuB0Bf1vF4s8eWTcZitBx9l+g/FDaJk5XxqBv9buQXizXKQcXFG1w=="
       },
       "JsonPath.Net": {
         "type": "Direct",
-        "requested": "[1.0.0, )",
-        "resolved": "1.0.0",
-        "contentHash": "Y2ur7pm9mHn2CzdhL3jg9UJHLnYWFmOy5RRwhwXZUcBwGrMBoi8YqoZCaBgFL2sQ90CUlYWV9o5/uJ4Ye26lnQ==",
+        "requested": "[1.1.0, )",
+        "resolved": "1.1.0",
+        "contentHash": "Njbt3xuyiJ41zkut0nrKbHL7Hpxb39siV/KchPnXKVNGnhnYqIUmiWh653EfRK4lG8H+ds08bNrw5/3jl9ZC3A==",
         "dependencies": {
-          "Json.More.Net": "2.0.0"
+          "Json.More.Net": "2.0.1.2"
         }
       },
       "Microsoft.Extensions.Hosting": {
@@ -121,22 +121,22 @@
       },
       "Serilog.Sinks.Seq": {
         "type": "Direct",
-        "requested": "[7.0.0, )",
-        "resolved": "7.0.0",
-        "contentHash": "GEi6SZnlhFGpzsWu/xit883Bn67vAssUItXIFsVTmyxaRL7h7Xk2/BUswoM/iqwOBJzj5P9xU4IBf/IAoVklPg==",
+        "requested": "[7.0.1, )",
+        "resolved": "7.0.1",
+        "contentHash": "OPvIafia4twjLtuAwnb+tkDro/Trm490n6T+KWIAk+rgGTOSlHZOcn9SexPUoIzBmx7klCe5tZ29pznmGV9wPQ==",
         "dependencies": {
           "Serilog": "3.1.1",
           "Serilog.Sinks.File": "5.0.0",
-          "Serilog.Sinks.PeriodicBatching": "4.0.0"
+          "Serilog.Sinks.PeriodicBatching": "4.1.0"
         }
       },
       "Spectre.Console.Cli": {
         "type": "Direct",
-        "requested": "[0.48.0, )",
-        "resolved": "0.48.0",
-        "contentHash": "HNoDxAOTODQ9h+4K5Cs2caW8kIicRKw5SS4vgEEkJtnTp7/4XR8OIGvCjVi09w3m+xn4lTlkS0ENy2ktGz4HRw==",
+        "requested": "[0.49.1, )",
+        "resolved": "0.49.1",
+        "contentHash": "wBZzyEbKqfPFFUPhV5E7/k4Kwy4UDO42IVzvzk0C4Pkjjw+NSd0EOBkIutYET4vJY4X81pD9ooQO9gfBGXj4+g==",
         "dependencies": {
-          "Spectre.Console": "0.48.0"
+          "Spectre.Console": "0.49.1"
         }
       },
       "Ben.Demystifier": {
@@ -154,8 +154,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "11.9.0",
-        "contentHash": "VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig=="
+        "resolved": "11.9.2",
+        "contentHash": "XeHp9LvFvu1fsQ/NvDCymV02GOCB1nz7ZUhfpI3uMhCcHTkV1K5bMkv+Nc/kuNYyAsX5+5bcmUanIEMd5QN+Eg=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -473,16 +473,16 @@
       },
       "Polly": {
         "type": "Transitive",
-        "resolved": "8.3.1",
-        "contentHash": "xN9AxOudus8u4a//Tfu6Wxd5Oj7S4pjh/651S6FfIiVrbxQ8TeM+ieZC8c0y7Qto70zKBM5g8rBTqbAJnbetOA==",
+        "resolved": "8.4.0",
+        "contentHash": "z2EeUutuy49jBQyZ5s2FUuTCGx3GCzJ0cJ2HbjWwks94TsC6bKTtAHKBkMZOa/DyYRl5yIX7MshvMTWl1J6RNg==",
         "dependencies": {
-          "Polly.Core": "8.3.1"
+          "Polly.Core": "8.4.0"
         }
       },
       "Polly.Core": {
         "type": "Transitive",
-        "resolved": "8.3.1",
-        "contentHash": "b9mMAjqXuCXFCtf/RtRPwFUkAm/sz37s7G+taDvS5EqfkJsLiWfO2xO2cSISjIgIY+88oIZTGguP6UrRGRlqzg=="
+        "resolved": "8.4.0",
+        "contentHash": "3AZxuP//pxOeBo9tQs7/tz4Z5TTbu4BYfjpaXZD0JYKJo98ngN9TMUz1nybh4k0ykWkMBpGZALV/AmVIE3ew7A=="
       },
       "Pulumi": {
         "type": "Transitive",
@@ -539,8 +539,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "5.9.1",
-        "contentHash": "Er0jZCXrHXtk+nnzmHVEnmz1pjfU+VL3GppO0UjtCMoZ0Se1plyPe1OLb6gM7ToSRA7nu/QIcdRFr29x8w8rQQ=="
+        "resolved": "5.10.0",
+        "contentHash": "qk2W8wQpm7mykWrEi9fhjC7uVapT2bkweMuMqebrF7gaVMt0WjmZzyVVTpom5cUsc3ddMDpo95SkNcTWGo+L6Q=="
       },
       "Semver": {
         "type": "Transitive",
@@ -574,8 +574,8 @@
       },
       "Serilog.Sinks.PeriodicBatching": {
         "type": "Transitive",
-        "resolved": "4.0.0",
-        "contentHash": "kxg6QLNA1sDVqYEE7/6hCr/Ur3imS+qaoEqriQh07WTU1/b6jknnuVN1rWQpj67JpwAXXTmgI3Js9IGGktgumQ==",
+        "resolved": "4.1.0",
+        "contentHash": "Hc5OWQJ/eqceg54KaCEkFOxqvKj8xXM1JfBtOPzPaLbi4PnoYLQt+H6f+4sKOh1G1/trzJCgZnb3VEPCGuzXgQ==",
         "dependencies": {
           "Serilog": "3.1.1",
           "System.Threading.Channels": "8.0.0"
@@ -583,11 +583,8 @@
       },
       "Spectre.Console": {
         "type": "Transitive",
-        "resolved": "0.48.0",
-        "contentHash": "4Mc1UT7Azgtyb8FyNwK5FZmoZbKuT5PmY7ZwaKUytjD5kGFMNBACpOZTwYtkuY377YkYtZYBeDDTJUwTW86QXw==",
-        "dependencies": {
-          "System.Memory": "4.5.5"
-        }
+        "resolved": "0.49.1",
+        "contentHash": "USV+pdu49OJ3nCjxNuw1K9Zw/c1HCBbwbjXZp0EOn6wM99tFdAtN34KEBZUMyRuJuXlUMDqhd8Yq9obW2MslYA=="
       },
       "System.Diagnostics.DiagnosticSource": {
         "type": "Transitive",
@@ -601,8 +598,8 @@
       },
       "System.Memory": {
         "type": "Transitive",
-        "resolved": "4.5.5",
-        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw=="
+        "resolved": "4.5.3",
+        "contentHash": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
@@ -629,8 +626,8 @@
       },
       "YamlDotNet": {
         "type": "Transitive",
-        "resolved": "15.1.2",
-        "contentHash": "qeX0XhzOIcQEvnI5JxnPaIwcINwyY4Qy/LXhSfsdHkFrl9F41AT52UFfy2nIE7kgrhMg+cP7xuS+GtPJhmHmTA=="
+        "resolved": "15.1.6",
+        "contentHash": "T/cQEK/KHK96Q8kytJ4iUGDXg1/fj2Qtk6rCQeIlHYU1zTeyGVHW0QNZgREQyxZpygGMDMmrXNWt0sj5TsQnjA=="
       },
       "aws": {
         "type": "Project",
@@ -650,7 +647,7 @@
           "Flurl.Http": "[4.0.2, )",
           "Library": "[1.0.0, )",
           "Microsoft.Extensions.Options": "[8.0.2, )",
-          "Polly": "[8.3.1, )",
+          "Polly": "[8.4.0, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
@@ -660,14 +657,14 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[11.9.0, )",
+          "FluentValidation": "[11.9.2, )",
           "Microsoft.Extensions.Logging.Abstractions": "[8.0.1, )",
           "Microsoft.Extensions.Options": "[8.0.2, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
-          "Scriban": "[5.9.1, )",
-          "YamlDotNet": "[15.1.2, )"
+          "Scriban": "[5.10.0, )",
+          "YamlDotNet": "[15.1.6, )"
         }
       }
     }

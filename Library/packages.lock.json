@@ -4,9 +4,9 @@
     "net8.0": {
       "FluentValidation": {
         "type": "Direct",
-        "requested": "[11.9.0, )",
-        "resolved": "11.9.0",
-        "contentHash": "VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig=="
+        "requested": "[11.9.2, )",
+        "resolved": "11.9.2",
+        "contentHash": "XeHp9LvFvu1fsQ/NvDCymV02GOCB1nz7ZUhfpI3uMhCcHTkV1K5bMkv+Nc/kuNYyAsX5+5bcmUanIEMd5QN+Eg=="
       },
       "Microsoft.Extensions.Logging.Abstractions": {
         "type": "Direct",
@@ -64,15 +64,15 @@
       },
       "Scriban": {
         "type": "Direct",
-        "requested": "[5.9.1, )",
-        "resolved": "5.9.1",
-        "contentHash": "Er0jZCXrHXtk+nnzmHVEnmz1pjfU+VL3GppO0UjtCMoZ0Se1plyPe1OLb6gM7ToSRA7nu/QIcdRFr29x8w8rQQ=="
+        "requested": "[5.10.0, )",
+        "resolved": "5.10.0",
+        "contentHash": "qk2W8wQpm7mykWrEi9fhjC7uVapT2bkweMuMqebrF7gaVMt0WjmZzyVVTpom5cUsc3ddMDpo95SkNcTWGo+L6Q=="
       },
       "YamlDotNet": {
         "type": "Direct",
-        "requested": "[15.1.2, )",
-        "resolved": "15.1.2",
-        "contentHash": "qeX0XhzOIcQEvnI5JxnPaIwcINwyY4Qy/LXhSfsdHkFrl9F41AT52UFfy2nIE7kgrhMg+cP7xuS+GtPJhmHmTA=="
+        "requested": "[15.1.6, )",
+        "resolved": "15.1.6",
+        "contentHash": "T/cQEK/KHK96Q8kytJ4iUGDXg1/fj2Qtk6rCQeIlHYU1zTeyGVHW0QNZgREQyxZpygGMDMmrXNWt0sj5TsQnjA=="
       },
       "Ben.Demystifier": {
         "type": "Transitive",
