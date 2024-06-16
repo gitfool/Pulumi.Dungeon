@@ -29,6 +29,12 @@
       "matchSourceUrlPrefixes": [ "https://github.com/pulumi/" ],
       "groupName": "pulumi dependencies",
       "groupSlug": "pulumi"
+    },
+    {
+      "description": "Group serilog dependencies.",
+      "matchSourceUrlPrefixes": [ "https://github.com/serilog/" ],
+      "groupName": "serilog dependencies",
+      "groupSlug": "serilog"
     }
   ],
   "regexManagers": [
