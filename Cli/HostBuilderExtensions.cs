@@ -53,6 +53,7 @@ public static class HostBuilderExtensions
             commandApp.Configure(config =>
             {
                 config.SetApplicationName(Constants.AppName);
+                config.UseAssemblyInformationalVersion();
                 config.AddCommand<ConfigCommand>("config");
                 config.AddCommand<DeployCommand>("deploy");
                 //config.PropagateExceptions();
