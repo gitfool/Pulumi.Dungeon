@@ -6,6 +6,12 @@
   ],
   "packageRules": [
     {
+      "description": "Disable aws iam authenticator updates.",
+      "matchManagers": [ "regex" ],
+      "matchDepNames": [ "aws-iam-authenticator" ],
+      "enabled": false
+    },
+    {
       "description": "Constrain cluster autoscaler to 1.23.x to match k8s version.",
       "matchManagers": [ "regex" ],
       "matchDepNames": [ "cluster-autoscaler" ],
