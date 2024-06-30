@@ -149,10 +149,6 @@ public sealed partial class DeployCommand : AsyncCommandBase<DeployCommand.Setti
                     {
                         Logger.LogWarning("Repaired stack resources ignored (equivalent)");
                     }
-                    else if (jsonPath.Error != null)
-                    {
-                        Logger.LogWarning($"Repaired stack resources ignored (error): {jsonPath.Error}");
-                    }
                     else if (jsonPath.Matches is { Count: > 0 })
                     {
                         Logger.LogWarning("Repaired stack resources ignored (pending resources):");
