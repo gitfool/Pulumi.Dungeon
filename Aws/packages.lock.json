@@ -220,8 +220,8 @@
       },
       "YamlDotNet": {
         "type": "Transitive",
-        "resolved": "15.3.0",
-        "contentHash": "F93japYa9YrJ59AZGhgdaUGHN7ITJ55FBBg/D/8C0BDgahv/rQD6MOSwHxOJJpon1kYyslVbeBrQ2wcJhox01w=="
+        "resolved": "16.0.0",
+        "contentHash": "kZ4jR5ltFhnjaUqK9x81zXRIUTH4PTXTTEmJDNQdkDLQhcv+2Nl19r0dCSvPW1mstOYBfXTnjdieRbUO6gHMDw=="
       },
       "k8s": {
         "type": "Project",
@@ -246,7 +246,7 @@
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
           "Scriban": "[5.10.0, )",
-          "YamlDotNet": "[15.3.0, )"
+          "YamlDotNet": "[16.0.0, )"
         }
       }
     }
