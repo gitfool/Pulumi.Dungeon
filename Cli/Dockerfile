@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/dotnet/aspnet:8.0.7-jammy
+FROM mcr.microsoft.com/dotnet/aspnet:8.0.12-jammy
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -12,22 +12,22 @@ RUN <<EOF
     mkdir -p /etc/bash_completion.d
 EOF
 
-# Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl
+# Install kubectl; https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 # renovate: datasource=github-tags depName=kubectl packageName=kubernetes/kubectl extractVersion=^kubernetes-(?<version>.+)$
 RUN <<EOF
     set -ex
-    version=1.30.3
-    curl -fsSL https://storage.googleapis.com/kubernetes-release/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
+    version=1.32.1
+    curl -fsSL https://dl.k8s.io/release/v$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
     chmod +x /usr/local/bin/kubectl
     kubectl completion bash > /etc/bash_completion.d/kubectl
     kubectl version --client
 EOF
 
-# Install aws iam authenticator; https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+# Install aws iam authenticator
 # renovate: datasource=github-releases depName=aws-iam-authenticator packageName=kubernetes-sigs/aws-iam-authenticator
 RUN <<EOF
     set -ex
-    version=0.6.22
+    version=0.6.30
     curl -fsSL https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v$version/aws-iam-authenticator_${version}_linux_amd64 -o /usr/local/bin/aws-iam-authenticator
     chmod +x /usr/local/bin/aws-iam-authenticator
     aws-iam-authenticator version
@@ -37,7 +37,7 @@ EOF
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
 RUN <<EOF
     set -ex
-    version=3.15.3
+    version=3.17.0
     curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz
     tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm
     rm -f helm.tar.gz

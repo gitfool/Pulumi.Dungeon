@@ -14,7 +14,7 @@ public static class EnumExtensions
             Stacks.K8s => new[] { Stacks.K8s },
             _ => throw new ArgumentOutOfRangeException(nameof(stacks))
         };
-        return reverse ? order.Reverse() : order;
+        return reverse ? Enumerable.Reverse(order) : order;
     }
 
     public static string ToName(this Stacks stack) =>
