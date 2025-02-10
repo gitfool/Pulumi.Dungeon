@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/dotnet/aspnet:8.0.12-jammy
+FROM mcr.microsoft.com/dotnet/aspnet:9.0.1-noble
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -61,16 +61,14 @@ RUN <<EOF
     pulumi version
 EOF
 
-# Add non-root user
+# Modify non-root user
 RUN <<EOF
     set -ex
-    groupadd --gid 1000 user
-    useradd --uid 1000 --gid 1000 --shell /bin/bash -m user
-    echo "user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/user
-    chmod 0440 /etc/sudoers.d/user
+    echo "ubuntu ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/ubuntu
+    chmod 0440 /etc/sudoers.d/ubuntu
 EOF
 
-USER user
+USER ubuntu
 
 RUN <<EOF
     set -ex
@@ -86,7 +84,7 @@ EOF
 # Install dungeon
 ENV DOTNET_HostBuilder__ReloadConfigOnChange=false
 
-WORKDIR /home/user/dungeon
+WORKDIR /home/ubuntu/dungeon
 
 COPY --link --chown=1000:1000 bin/Release/publish .
 
