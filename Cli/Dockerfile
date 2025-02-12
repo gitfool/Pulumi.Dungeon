@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/dotnet/aspnet:9.0.1-noble
+FROM mcr.microsoft.com/dotnet/aspnet:9.0.2-noble
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -37,7 +37,7 @@ EOF
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
 RUN <<EOF
     set -ex
-    version=3.17.0
+    version=3.17.1
     curl -fsSL https://get.helm.sh/helm-v$version-linux-amd64.tar.gz -o helm.tar.gz
     tar -xzf helm.tar.gz --directory /usr/local/bin --no-same-owner --strip=1 linux-amd64/helm
     rm -f helm.tar.gz
