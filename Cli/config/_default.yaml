@@ -64,7 +64,7 @@ Dungeon:
       # renovate: datasource=github-releases depName=cluster-autoscaler packageName=kubernetes/autoscaler extractVersion=^cluster-autoscaler-(?<version>\d+\.\d+\.\d+)$
       ClusterAutoscalerImageTag: 1.23.1
       # renovate: datasource=helm depName=external-dns-chart packageName=external-dns registryUrl=https://charts.bitnami.com/bitnami
-      ExternalDnsChartVersion: 6.12.0
+      ExternalDnsChartVersion: 8.7.11
       # renovate: datasource=helm depName=fluent-bit-chart packageName=fluent-bit registryUrl=https://fluent.github.io/helm-charts
       FluentBitChartVersion: 0.21.1
       FluentBitImageRepository: public.ecr.aws/aws-observability/aws-for-fluent-bit
