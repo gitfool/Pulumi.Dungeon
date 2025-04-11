@@ -5,8 +5,8 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.11.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.4" />
     <PackageReference Include="Pulumi" Version="3.38.0" />
     <PackageReference Include="Pulumi.Aws" Version="5.11.0" />
     <PackageReference Include="Pulumi.Kubernetes" Version="3.20.5" />
