@@ -64,9 +64,9 @@
       },
       "Scriban": {
         "type": "Direct",
-        "requested": "[5.12.1, )",
-        "resolved": "5.12.1",
-        "contentHash": "zezB4VyYSALWvveki0IAdqxrx2r0wHqwQqP5LldFSHZ3U12YZCvt1nwJb6TZVLkerHZLP2FJIkemubLfOihdBQ=="
+        "requested": "[6.4.0, )",
+        "resolved": "6.4.0",
+        "contentHash": "z30JIkGd5BOx1s+5qj4OD7N3uQ734IT10M7t7noouZ1W7yxIVvO+ZRwXKp5VYo6ywfOywo8SQfLLp9LosupBYg=="
       },
       "YamlDotNet": {
         "type": "Direct",
