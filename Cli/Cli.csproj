@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="Json.More.Net" Version="3.0.1" />
-    <PackageReference Include="JsonPath.Net" Version="2.2.0" />
+    <PackageReference Include="JsonPath.Net" Version="3.0.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.8" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.8" />
     <PackageReference Include="NetEscapades.Configuration.Yaml" Version="3.1.0" />
