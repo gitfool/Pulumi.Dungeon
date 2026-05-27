@@ -14,5 +14,9 @@ public sealed class ConfigTypeInspector : TypeInspectorSkeleton
     public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object? container) =>
         Inner.GetProperties(type, container).Where(property => !Regex.IsMatch(property.Name, @"Password|Secret|Token")); // ignore secrets
 
+    public override bool HasParseMethod(Type type) => false;
+
+    public override object? Parse(string value, Type expectedType) => throw new NotImplementedException();
+
     private ITypeInspector Inner { get; }
 }
