@@ -4,9 +4,9 @@
     "net10.0": {
       "IPNetwork2": {
         "type": "Direct",
-        "requested": "[3.4.832, )",
-        "resolved": "3.4.832",
-        "contentHash": "tQ7kynGM5am/+EtFq62S+QC4OP74cQvh5JIAOs3qF/ltPq4aNelJrmnZevS/Cuh1Icopd0tyMps24FtHzeOpBg=="
+        "requested": "[3.6.0, )",
+        "resolved": "3.6.0",
+        "contentHash": "L9t9h0DVfwzJSVukLJn/S8ggLYk18lU7iLW3JmYZVad14DvT7e1YQU2E3OuLv89mAcbBr/lLMpVIe+9ywky74Q=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Direct",
@@ -59,8 +59,8 @@
       },
       "FluentValidation": {
         "type": "Transitive",
-        "resolved": "12.0.0",
-        "contentHash": "8NVLxtMUXynRHJIX3Hn1ACovaqZIJASufXIIFkD0EUbcd5PmMsL1xUD5h548gCezJ5BzlITaR9CAMrGe29aWpA=="
+        "resolved": "12.1.1",
+        "contentHash": "EPpkIe1yh1a0OXyC100oOA8WMbZvqUu5plwhvYcb7oSELfyUZzfxV48BLhvs3kKo4NwG7MGLNgy1RJiYtT8Dpw=="
       },
       "Flurl": {
         "type": "Transitive",
@@ -137,16 +137,16 @@
       },
       "Polly": {
         "type": "Transitive",
-        "resolved": "8.6.4",
-        "contentHash": "uuBsDoBw0oYrMe3uTWRjkT2sIkKh+ZZnnDrLb4Z+QANfeA4+7FJacx6E8CY5GAxXRoSgFrvUADEAQ7DPF6fGiw==",
+        "resolved": "8.6.6",
+        "contentHash": "czKHYJ6uGowPijuZt4kgF4njfGvWxVZ8mKBcrZ9iEtwDe9HKdF0ug6p6TwUG8EHuuufgbDU//rSBFebt5/0Fyw==",
         "dependencies": {
-          "Polly.Core": "8.6.4"
+          "Polly.Core": "8.6.6"
         }
       },
       "Polly.Core": {
         "type": "Transitive",
-        "resolved": "8.6.4",
-        "contentHash": "4AWqYnQ2TME0E+Mzovt1Uu+VyvpR84ymUldMcPw7Mbj799Phaag14CKrMtlJGx5jsvYP+S3oR1QmysgmXoD5cw=="
+        "resolved": "8.6.6",
+        "contentHash": "lCBL9mmhF9TZxHG3beVRkyjlLohkIC464xIAq7J7Y59C+z42hmsdUaeCKl2SIAYertOUU5TeBXyQDLDQGIKePQ=="
       },
       "Pulumi.Kubernetes": {
         "type": "Transitive",
@@ -213,7 +213,7 @@
           "Flurl.Http": "[4.0.2, )",
           "Library": "[1.0.0, )",
           "Microsoft.Extensions.Options": "[10.0.8, )",
-          "Polly": "[8.6.4, )",
+          "Polly": "[8.6.6, )",
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
@@ -223,7 +223,7 @@
       "library": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[12.0.0, )",
+          "FluentValidation": "[12.1.1, )",
           "Microsoft.Extensions.Logging.Abstractions": "[10.0.8, )",
           "Microsoft.Extensions.Options": "[10.0.8, )",
           "Pulumi": "[3.38.0, )",
