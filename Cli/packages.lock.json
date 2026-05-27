@@ -10,11 +10,11 @@
       },
       "JsonPath.Net": {
         "type": "Direct",
-        "requested": "[2.2.0, )",
-        "resolved": "2.2.0",
-        "contentHash": "oARgzvSWx8Xp7Y3oxapPDmB+gIGw31aqY0YS2xA0HfydYJMvWW6e0KeJIfPeCmqiOqKcOOXSwAYF/3yE+VhCOg==",
+        "requested": "[3.0.2, )",
+        "resolved": "3.0.2",
+        "contentHash": "Cmt2mvPYOLljjqSfM1xUYZYTPf8MPbwv2XpCpPxxq9u23/CGrz/fljgd1fJUNujd3+E1adNOyF1TLwppbyQwxg==",
         "dependencies": {
-          "Json.More.Net": "2.2.0"
+          "Json.More.Net": "3.0.1"
         }
       },
       "Microsoft.Extensions.Hosting": {
