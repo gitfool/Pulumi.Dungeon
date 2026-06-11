@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/dotnet/aspnet:10.0.8-resolute
+FROM mcr.microsoft.com/dotnet/aspnet:10.0.9-resolute
 
 LABEL org.opencontainers.image.source=https://github.com/gitfool/Pulumi.Dungeon
 
@@ -27,7 +27,7 @@ EOF
 # renovate: datasource=github-releases depName=aws-iam-authenticator packageName=kubernetes-sigs/aws-iam-authenticator
 RUN <<EOF
     set -ex
-    version=0.7.16
+    version=0.7.17
     curl -fsSL https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v$version/aws-iam-authenticator_${version}_linux_amd64 -o /usr/local/bin/aws-iam-authenticator
     chmod +x /usr/local/bin/aws-iam-authenticator
     aws-iam-authenticator version
