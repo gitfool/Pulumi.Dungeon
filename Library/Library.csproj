@@ -8,8 +8,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.9" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.9" />
     <PackageReference Include="Pulumi" Version="3.38.0" />
-    <PackageReference Include="Pulumi.Aws" Version="5.11.0" />
-    <PackageReference Include="Pulumi.Kubernetes" Version="3.20.5" />
+    <PackageReference Include="Pulumi.Aws" Version="7.44.0" />
+    <PackageReference Include="Pulumi.Kubernetes" Version="4.34.0" />
     <PackageReference Include="Scriban" Version="7.2.4" />
     <PackageReference Include="YamlDotNet" Version="18.0.0" />
   </ItemGroup>
