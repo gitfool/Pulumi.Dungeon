@@ -7,9 +7,9 @@
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.12" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.12" />
-    <PackageReference Include="Pulumi" Version="3.38.0" />
-    <PackageReference Include="Pulumi.Aws" Version="5.11.0" />
-    <PackageReference Include="Pulumi.Kubernetes" Version="3.20.5" />
+    <PackageReference Include="Pulumi" Version="3.114.0" />
+    <PackageReference Include="Pulumi.Aws" Version="5.43.0" />
+    <PackageReference Include="Pulumi.Kubernetes" Version="3.30.2" />
     <PackageReference Include="Scriban" Version="7.4.0" />
     <PackageReference Include="YamlDotNet" Version="18.1.0" />
   </ItemGroup>
