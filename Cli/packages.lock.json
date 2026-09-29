@@ -131,11 +131,11 @@
       },
       "Spectre.Console.Cli": {
         "type": "Direct",
-        "requested": "[0.55.0, )",
-        "resolved": "0.55.0",
-        "contentHash": "cFJTB1te4eaAICd4Zp+8T/kiRn1ikQxgGqmoNarb1qoQ/7LzHAvVQ62x5U9GW3E0QI7sZLcXIIoq4CpqgTx42Q==",
+        "requested": "[0.57.2, )",
+        "resolved": "0.57.2",
+        "contentHash": "EAiwpJXAAvhyyzH6hljVo7z19ahG7WM+zViKEHtUagyPymYfJrsainXDOHzUakBHj6VYEpuaqPAShgqvs1N9aQ==",
         "dependencies": {
-          "Spectre.Console": "0.55.0"
+          "Spectre.Console": "0.57.2"
         }
       },
       "Ben.Demystifier": {
@@ -525,8 +525,8 @@
       },
       "Scriban": {
         "type": "Transitive",
-        "resolved": "7.4.0",
-        "contentHash": "h5QYOAKw7F4ajVNxeScBsq0c7en6YWyKDSC4ZnZIlrkeJrl0ekHk1PlpqP5C4peqkt6NoXl9dlwK3pI4oDC5oA=="
+        "resolved": "7.5.0",
+        "contentHash": "5Dk6VXG6dimWQFRtCs202cYYkdE1GeOqpUgCwNSp4C4NhpjeMaVNssxe6Ifb1Z3HCfabvrbk9XLbvQXeZXG91w=="
       },
       "Semver": {
         "type": "Transitive",
@@ -560,16 +560,16 @@
       },
       "Spectre.Console": {
         "type": "Transitive",
-        "resolved": "0.55.0",
-        "contentHash": "2TVhUHFsDux0Z+y2Hv4bFsOMuON4SuotEEKkMparFkp5Rm259naaaEQrN4Sv6C1cbsiGKPjfkJDGgUp+hZPjTw==",
+        "resolved": "0.57.2",
+        "contentHash": "wzsB+P9i6F9G+cFOJxRotCiQWNSzZVAMxi8YMiHlGXXU1JLMXGp7zSSqBMmROZS2bzpK5jk+Saa7Evp8HwqhKg==",
         "dependencies": {
-          "Spectre.Console.Ansi": "0.55.0"
+          "Spectre.Console.Ansi": "0.57.2"
         }
       },
       "Spectre.Console.Ansi": {
         "type": "Transitive",
-        "resolved": "0.55.0",
-        "contentHash": "GIfgOvuF8MpU52bprhwtDEtx0gmVIGOepM8bw0lH/TSMD0rg1Xp+5Y53kPG8rFVdcpbNANlhDQ5mEVVPO3/2Tg=="
+        "resolved": "0.57.2",
+        "contentHash": "Y1+u73shwP+JYHmrkdN6bSt2kaGBEAafhi2nrecczbXdFRey+k7J/WF9YPfcB0rqivv2S8fmif6FSBq9m/AFvw=="
       },
       "System.Diagnostics.EventLog": {
         "type": "Transitive",
@@ -615,7 +615,7 @@
           "Pulumi": "[3.38.0, )",
           "Pulumi.Aws": "[5.11.0, )",
           "Pulumi.Kubernetes": "[3.20.5, )",
-          "Scriban": "[7.4.0, )",
+          "Scriban": "[7.5.0, )",
           "YamlDotNet": "[18.1.0, )"
         }
       }
