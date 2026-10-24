@@ -203,8 +203,8 @@
       },
       "IPNetwork2": {
         "type": "Transitive",
-        "resolved": "4.3.0",
-        "contentHash": "OKePsHlxZx6TMy3tL5grQp39hJ2kujpXgotdz+jW8Zfw6UcAvsIWPV+3/ZoE7roo8F54BtXyOJsdUTseAf2grA=="
+        "resolved": "5.0.1",
+        "contentHash": "t9/WGKCqeviplyVe3kGo6d7e3kNf4D6FNrf8iewktMB4VeMRY8VZTmYLvYt7sbsq/OmdtdjBc+gVqxGsNZ5W0Q=="
       },
       "Microsoft.Extensions.Configuration": {
         "type": "Transitive",
@@ -584,7 +584,7 @@
       "aws": {
         "type": "Project",
         "dependencies": {
-          "IPNetwork2": "[4.3.0, )",
+          "IPNetwork2": "[5.0.1, )",
           "K8s": "[1.0.0, )",
           "Library": "[1.0.0, )",
           "Microsoft.Extensions.Options": "[10.0.12, )",
