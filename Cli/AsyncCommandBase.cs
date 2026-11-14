@@ -9,7 +9,7 @@ public abstract class AsyncCommandBase<TSettings> : AsyncCommand<TSettings> wher
         Logger = logger;
     }
 
-    protected override async Task<int> ExecuteAsync(CommandContext context, TSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, TSettings settings, CancellationToken cancellationToken)
     {
         try
         {
