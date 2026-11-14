@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="IPNetwork2" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="11.0.0" />
     <PackageReference Include="Pulumi" Version="3.38.0" />
     <PackageReference Include="Pulumi.Aws" Version="5.11.0" />
     <PackageReference Include="Pulumi.Tls" Version="4.6.0" />
