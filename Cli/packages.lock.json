@@ -10,9 +10,9 @@
       },
       "JsonPath.Net": {
         "type": "Direct",
-        "requested": "[3.1.0, )",
-        "resolved": "3.1.0",
-        "contentHash": "S2zJIa6ej7hMdj0PT75w69HMa37CNcbhMZLDDfVDHouOftrvYxKQxaTw5DQT+cdhtRLAFRIsAPhECriKY2jKwQ==",
+        "requested": "[3.2.0, )",
+        "resolved": "3.2.0",
+        "contentHash": "gDzVRRLXJEgjVFdnOBPBew7HqVZjzjkqP/zyJPCkJhca0nBb+NN6HMTT0fBx0O2jVc5u4RcXSewCphkzpPOrdQ==",
         "dependencies": {
           "Json.More.Net": "3.1.0"
         }
@@ -102,9 +102,9 @@
       },
       "Serilog.Sinks.Seq": {
         "type": "Direct",
-        "requested": "[9.1.0, )",
-        "resolved": "9.1.0",
-        "contentHash": "4Dam+H9AlYigRgvPmbEJmw7jgz2y2He1qmuopAWt/EnZJ2vlrcG5Nmh934LHq4lfKgF6cAau8NIFMCZrq1u2Hw==",
+        "requested": "[9.2.0, )",
+        "resolved": "9.2.0",
+        "contentHash": "UEPMUjMklLq0YQzhaxy/8sYyzMCqoBtwMKW9HxX/BBSOMzJNWEnnmVGHYDBZaOJKh94CVkFyLA0rtq42gV0Lbg==",
         "dependencies": {
           "Serilog": "4.3.1",
           "Serilog.Sinks.File": "7.0.0"
